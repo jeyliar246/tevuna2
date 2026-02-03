@@ -745,6 +745,7 @@ section {
     display: flex;
     gap: 0.5rem;
     flex-wrap: wrap;
+    margin-bottom: 1rem;
 }
 
 .tag {
@@ -754,6 +755,23 @@ section {
     font-size: 0.875rem;
     color: var(--text-secondary);
     font-weight: 500;
+}
+
+.project-external-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+}
+
+.project-external-link:hover {
+    color: var(--primary-dark);
+    gap: 0.75rem;
 }
 
 /* CTA Section */
@@ -891,6 +909,89 @@ section {
 
 .contact-detail-item a:hover {
     color: var(--primary-dark);
+}
+
+.whatsapp-icon {
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%) !important;
+}
+
+.whatsapp-link {
+    color: #25D366;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.whatsapp-link:hover {
+    color: #128C7E;
+    transform: translateX(5px);
+}
+
+.whatsapp-link-footer {
+    color: rgba(255, 255, 255, 0.9);
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.whatsapp-link-footer:hover {
+    color: #25D366;
+    transform: translateX(3px);
+}
+
+.whatsapp-link-footer svg {
+    fill: #25D366;
+}
+
+/* Floating WhatsApp Button */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 30px;
+    right: 30px;
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    animation: pulse-whatsapp 2s ease-in-out infinite;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 30px rgba(37, 211, 102, 0.6);
+}
+
+.whatsapp-float svg {
+    fill: white;
+}
+
+@keyframes pulse-whatsapp {
+    0%, 100% {
+        box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    }
+    50% {
+        box-shadow: 0 4px 30px rgba(37, 211, 102, 0.7);
+    }
+}
+
+@media (max-width: 768px) {
+    .whatsapp-float {
+        width: 55px;
+        height: 55px;
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .whatsapp-float svg {
+        width: 24px;
+        height: 24px;
+    }
 }
 
 .contact-form-wrapper {
