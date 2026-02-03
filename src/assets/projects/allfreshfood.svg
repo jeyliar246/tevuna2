@@ -1,0 +1,22 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="600" fill="url(#gradient)"/>
+  <circle cx="200" cy="200" r="80" fill="white" opacity="0.2"/>
+  <circle cx="200" cy="200" r="50" fill="white" opacity="0.4"/>
+  <circle cx="600" cy="200" r="80" fill="white" opacity="0.2"/>
+  <circle cx="600" cy="200" r="50" fill="white" opacity="0.4"/>
+  <rect x="300" y="300" width="200" height="150" rx="10" fill="white" opacity="0.2"/>
+  <rect x="320" y="320" width="160" height="110" rx="8" fill="white" opacity="0.3"/>
+  <line x1="350" y1="350" x2="450" y2="350" stroke="white" stroke-width="3" stroke-linecap="round"/>
+  <line x1="350" y1="380" x2="450" y2="380" stroke="white" stroke-width="3" stroke-linecap="round"/>
+  <line x1="350" y1="410" x2="450" y2="410" stroke="white" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="360" cy="355" r="5" fill="white"/>
+  <circle cx="420" cy="355" r="5" fill="white"/>
+  <text x="400" y="480" text-anchor="middle" fill="white" font-size="24" font-weight="bold" opacity="0.8">AllFreshFood</text>
+  <defs>
+    <linearGradient id="gradient" x1="0" y1="0" x2="800" y2="600" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#4facfe"/>
+      <stop offset="100%" stop-color="#00f2fe"/>
+    </linearGradient>
+  </defs>
+</svg>
+
