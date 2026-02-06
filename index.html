@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tevuna - Digital Agency | Web & Mobile App Development</title>
+    <title>Tevuna - Digital Excellence | Web & Mobile Development</title>
     <link rel="stylesheet" href="/src/styles/main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Navigation -->
@@ -19,9 +19,10 @@
                     <span class="logo-text">Tevuna</span>
                 </a>
                 <ul class="nav-menu">
-                    <li><a href="/" class="nav-link active">Home</a></li>
-                    <li><a href="#services" class="nav-link">Services</a></li>
+                    <li><a href="#home" class="nav-link active">Home</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
                     <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#gallery" class="nav-link">Gallery</a></li>
                     <li><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
                 <button class="mobile-menu-toggle" aria-label="Toggle menu">
@@ -34,143 +35,68 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section id="home" class="hero">
         <div class="hero-background">
-            <div class="hero-overlay"></div>
-            <div class="particles">
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-            </div>
+            <div class="hero-image-overlay"></div>
+            <div class="hero-gradient"></div>
         </div>
         <div class="container">
             <div class="hero-content">
-                <div class="hero-badge">
-                    <span>🚀 Transforming Ideas Into Reality</span>
-                </div>
+                <div class="hero-badge">Welcome</div>
                 <h1 class="hero-title">
-                    Building Digital <span class="gradient-text">Excellence</span>
+                    <span class="hero-title-line">Building Digital</span>
+                    <span class="hero-title-line gradient-text">Excellence</span>
                 </h1>
                 <p class="hero-subtitle">
                     We create stunning websites, powerful mobile apps, and innovative tech solutions 
-                    that drive your business forward. Let's build something amazing together.
+                    that transform your business and captivate your audience.
                 </p>
                 <div class="hero-buttons">
                     <a href="#projects" class="btn btn-primary">View Our Work</a>
-                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
-                </div>
-                <div class="hero-stats">
-                    <div class="stat-item">
-                        <div class="stat-number">50+</div>
-                        <div class="stat-label">Projects Delivered</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">30+</div>
-                        <div class="stat-label">Happy Clients</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">5+</div>
-                        <div class="stat-label">Years Experience</div>
-                    </div>
-                </div>
-            </div>
-            <div class="hero-image">
-                <div class="hero-graphic">
-                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80" alt="Digital Technology" class="hero-main-image">
-                    <div class="floating-card card-1">
-                        <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=400&q=80" alt="Web Development">
-                    </div>
-                    <div class="floating-card card-2">
-                        <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&q=80" alt="Mobile App">
-                    </div>
-                    <div class="floating-card card-3">
-                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&q=80" alt="Technology">
-                    </div>
+                    <a href="#contact" class="btn btn-outline">Get In Touch</a>
                 </div>
             </div>
         </div>
+        <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
+        </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services" class="services">
+    <!-- About Section -->
+    <section id="about" class="about-section">
         <div class="container">
-            <div class="section-header">
-                <span class="section-badge">Our Services</span>
-                <h2 class="section-title">What We Do</h2>
-                <p class="section-subtitle">Comprehensive digital solutions for your business</p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=600&q=80" alt="Web Development">
-                    </div>
-                    <div class="service-content">
-                        <div class="service-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-                                <line x1="8" y1="21" x2="16" y2="21"></line>
-                                <line x1="12" y1="17" x2="12" y2="21"></line>
-                            </svg>
-                        </div>
-                        <h3 class="service-title">Web Development</h3>
-                        <p class="service-description">
-                            Custom websites built with modern technologies, responsive design, and 
-                            optimized performance for the best user experience.
-                        </p>
-                        <ul class="service-features">
-                            <li>Responsive Design</li>
-                            <li>SEO Optimized</li>
-                            <li>Fast Performance</li>
-                        </ul>
+            <div class="about-wrapper">
+                <div class="about-image">
+                    <div class="about-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80" alt="About Tevuna">
+                        <div class="about-image-overlay"></div>
                     </div>
                 </div>
-                <div class="service-card">
-                    <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&q=80" alt="Mobile Apps">
-                    </div>
-                    <div class="service-content">
-                        <div class="service-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
-                                <line x1="12" y1="18" x2="12.01" y2="18"></line>
-                            </svg>
+                <div class="about-content">
+                    <span class="section-label">About Us</span>
+                    <h2 class="section-title">Crafting Digital Experiences</h2>
+                    <p class="about-text">
+                        Tevuna is a digital agency dedicated to creating exceptional web and mobile experiences. 
+                        With years of expertise in modern technologies, we transform ideas into powerful digital 
+                        solutions that drive business growth.
+                    </p>
+                    <p class="about-text">
+                        Our team combines creativity with technical excellence to deliver projects that not only 
+                        look stunning but perform flawlessly across all devices and platforms.
+                    </p>
+                    <div class="about-stats">
+                        <div class="about-stat">
+                            <div class="stat-number">50+</div>
+                            <div class="stat-label">Projects</div>
                         </div>
-                        <h3 class="service-title">Mobile Apps</h3>
-                        <p class="service-description">
-                            Native and cross-platform mobile applications for iOS and Android, 
-                            delivering seamless experiences across all devices.
-                        </p>
-                        <ul class="service-features">
-                            <li>iOS & Android</li>
-                            <li>Cross-Platform</li>
-                            <li>Native Performance</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&q=80" alt="Tech Solutions">
-                    </div>
-                    <div class="service-content">
-                        <div class="service-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-                                <polygon points="2 17 12 22 22 17"></polygon>
-                                <polygon points="2 12 12 17 22 12"></polygon>
-                            </svg>
+                        <div class="about-stat">
+                            <div class="stat-number">30+</div>
+                            <div class="stat-label">Clients</div>
                         </div>
-                        <h3 class="service-title">Tech Solutions</h3>
-                        <p class="service-description">
-                            Innovative technology solutions tailored to your needs, from cloud 
-                            infrastructure to automation and digital transformation.
-                        </p>
-                        <ul class="service-features">
-                            <li>Cloud Solutions</li>
-                            <li>Automation</li>
-                            <li>Digital Transformation</li>
-                        </ul>
+                        <div class="about-stat">
+                            <div class="stat-number">5+</div>
+                            <div class="stat-label">Years</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -178,75 +104,144 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="projects">
+    <section id="projects" class="projects-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Our Projects</h2>
-                <p class="section-subtitle">Showcasing our latest work and achievements</p>
+                <span class="section-label">Our Work</span>
+                <h2 class="section-title">Featured Projects</h2>
+                <p class="section-subtitle">Showcasing our latest digital creations</p>
             </div>
             <div class="projects-grid">
-                <div class="project-card">
+                <div class="project-item">
                     <div class="project-image">
                         <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80" alt="Tevuna Online Academy">
                         <div class="project-overlay">
-                            <div class="project-overlay-content">
-                                <a href="#" class="project-link">View Project →</a>
-                                <div class="project-tech">
-                                    <span>React</span>
-                                    <span>Node.js</span>
-                                    <span>MongoDB</span>
-                                </div>
-                            </div>
+                            <a href="#" class="project-link-btn">View Project</a>
                         </div>
                     </div>
-                    <div class="project-content">
-                        <div class="project-header">
-                            <h3 class="project-title">Tevuna Online Academy</h3>
-                            <span class="project-year">2024</span>
-                        </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Tevuna Online Academy</h3>
+                        <p class="project-category">E-Learning Platform</p>
                         <p class="project-description">
-                            A comprehensive e-learning platform designed to deliver quality education 
-                            online. Features include interactive courses, progress tracking, and 
-                            student management systems.
+                            A comprehensive e-learning platform designed to deliver quality education online 
+                            with interactive courses and progress tracking.
                         </p>
-                        <div class="project-tags">
-                            <span class="tag">Web Development</span>
-                            <span class="tag">E-Learning</span>
-                            <span class="tag">Platform</span>
-                        </div>
                     </div>
                 </div>
-                <div class="project-card">
+                <div class="project-item">
                     <div class="project-image">
                         <img src="https://images.unsplash.com/photo-1556910096-6f5e72db6803?w=800&q=80" alt="AllFreshFood">
                         <div class="project-overlay">
-                            <div class="project-overlay-content">
-                                <a href="https://allfreshfood.co.uk/" target="_blank" rel="noopener noreferrer" class="project-link">View Project →</a>
-                                <div class="project-tech">
-                                    <span>Vue.js</span>
-                                    <span>Express</span>
-                                    <span>PostgreSQL</span>
-                                </div>
-                            </div>
+                            <a href="https://allfreshfood.co.uk/" target="_blank" rel="noopener noreferrer" class="project-link-btn">View Project</a>
                         </div>
                     </div>
-                    <div class="project-content">
-                        <div class="project-header">
-                            <h3 class="project-title">AllFreshFood</h3>
-                            <span class="project-year">2024</span>
-                        </div>
+                    <div class="project-info">
+                        <h3 class="project-title">AllFreshFood</h3>
+                        <p class="project-category">E-Commerce & Food Delivery</p>
                         <p class="project-description">
                             A modern food delivery and e-commerce website featuring seamless ordering, 
-                            real-time tracking, and an intuitive user interface for the best shopping 
-                            experience. Discover authentic global flavors from local and international vendors.
+                            real-time tracking, and an intuitive user interface.
                         </p>
-                        <div class="project-tags">
-                            <span class="tag">E-Commerce</span>
-                            <span class="tag">Food Delivery</span>
-                            <span class="tag">Web App</span>
-                        </div>
                         <a href="https://allfreshfood.co.uk/" target="_blank" rel="noopener noreferrer" class="project-external-link">Visit Website →</a>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Gallery</span>
+                <h2 class="section-title">Our Work in Action</h2>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80" alt="Gallery Image 1">
+                    <div class="gallery-overlay">
+                        <span class="gallery-title">Web Development</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&q=80" alt="Gallery Image 2">
+                    <div class="gallery-overlay">
+                        <span class="gallery-title">Mobile Apps</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&q=80" alt="Gallery Image 3">
+                    <div class="gallery-overlay">
+                        <span class="gallery-title">Tech Solutions</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=600&q=80" alt="Gallery Image 4">
+                    <div class="gallery-overlay">
+                        <span class="gallery-title">UI/UX Design</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80" alt="Gallery Image 5">
+                    <div class="gallery-overlay">
+                        <span class="gallery-title">Digital Strategy</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=600&q=80" alt="Gallery Image 6">
+                    <div class="gallery-overlay">
+                        <span class="gallery-title">Branding</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Services</span>
+                <h2 class="section-title">What We Offer</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-item">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                            <line x1="8" y1="21" x2="16" y2="21"></line>
+                            <line x1="12" y1="17" x2="12" y2="21"></line>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Web Development</h3>
+                    <p class="service-description">
+                        Custom websites built with modern technologies, responsive design, and optimized performance.
+                    </p>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                            <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Mobile Apps</h3>
+                    <p class="service-description">
+                        Native and cross-platform mobile applications for iOS and Android.
+                    </p>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                            <polygon points="2 17 12 22 22 17"></polygon>
+                            <polygon points="2 12 12 17 22 12"></polygon>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Tech Solutions</h3>
+                    <p class="service-description">
+                        Innovative technology solutions from cloud infrastructure to automation.
+                    </p>
                 </div>
             </div>
         </div>
@@ -256,32 +251,19 @@
     <section id="contact" class="contact-section">
         <div class="container">
             <div class="section-header">
-                <span class="section-badge">Get In Touch</span>
-                <h2 class="section-title">Contact Us</h2>
+                <span class="section-label">Contact</span>
+                <h2 class="section-title">Get In Touch</h2>
                 <p class="section-subtitle">Have a project in mind? We'd love to hear from you</p>
             </div>
             <div class="contact-wrapper">
                 <div class="contact-info">
-                    <h3 class="contact-info-title">Let's Talk</h3>
-                    <p class="contact-info-text">
+                    <h3 class="contact-title">Let's Talk</h3>
+                    <p class="contact-text">
                         Whether you're looking to build a new website, develop a mobile app, 
                         or need custom tech solutions, we're here to help bring your ideas to life.
                     </p>
-                    
                     <div class="contact-details">
-                        <div class="contact-detail-item">
-                            <div class="contact-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                    <circle cx="12" cy="10" r="3"></circle>
-                                </svg>
-                            </div>
-                            <div>
-                                <h4>Location</h4>
-                                <p>Available Worldwide</p>
-                            </div>
-                        </div>
-                        <div class="contact-detail-item">
+                        <div class="contact-item">
                             <div class="contact-icon">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
@@ -290,10 +272,10 @@
                             </div>
                             <div>
                                 <h4>Email</h4>
-                                <p><a href="mailto:info@tevuna.com">info@tevuna.com</a></p>
+                                <a href="mailto:info@tevuna.com">info@tevuna.com</a>
                             </div>
                         </div>
-                        <div class="contact-detail-item">
+                        <div class="contact-item">
                             <div class="contact-icon">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
@@ -301,10 +283,10 @@
                             </div>
                             <div>
                                 <h4>Phone</h4>
-                                <p><a href="tel:+2347065977815">+234 706 597 7815</a></p>
+                                <a href="tel:+2347065977815">+234 706 597 7815</a>
                             </div>
                         </div>
-                        <div class="contact-detail-item">
+                        <div class="contact-item">
                             <div class="contact-icon whatsapp-icon">
                                 <svg viewBox="0 0 24 24" fill="currentColor">
                                     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
@@ -312,45 +294,29 @@
                             </div>
                             <div>
                                 <h4>WhatsApp</h4>
-                                <p><a href="https://wa.me/2347065977815?text=Hello%20Tevuna!%20I%20would%20like%20to%20book%20your%20services%20for%20my%20project." target="_blank" rel="noopener noreferrer" class="whatsapp-link">Chat with us on WhatsApp</a></p>
+                                <a href="https://wa.me/2347065977815?text=Hello%20Tevuna!%20I%20would%20like%20to%20book%20your%20services%20for%20my%20project." target="_blank" rel="noopener noreferrer">Chat with us</a>
                             </div>
                         </div>
                     </div>
                 </div>
-
                 <div class="contact-form-wrapper">
                     <form class="contact-form" id="contactForm">
                         <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" required placeholder="Your full name">
+                            <input type="text" id="name" name="name" required placeholder="Your Name">
                         </div>
                         <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                            <input type="email" id="email" name="email" required placeholder="Your Email">
                         </div>
                         <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <input type="text" id="subject" name="subject" required placeholder="What's this about?">
+                            <input type="text" id="subject" name="subject" required placeholder="Subject">
                         </div>
                         <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="6" required placeholder="Tell us about your project..."></textarea>
+                            <textarea id="message" name="message" rows="6" required placeholder="Your Message"></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-large btn-full">Send Message</button>
+                        <button type="submit" class="btn btn-primary btn-full">Send Message</button>
                         <div class="form-message" id="formMessage"></div>
                     </form>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta">
-        <div class="container">
-            <div class="cta-content">
-                <h2 class="cta-title">Ready to Start Your Project?</h2>
-                <p class="cta-subtitle">Let's work together to bring your vision to life</p>
-                <a href="#contact" class="btn btn-primary btn-large">Get Started Today</a>
             </div>
         </div>
     </section>
@@ -359,7 +325,7 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-section">
+                <div class="footer-brand">
                     <div class="footer-logo">
                         <img src="/src/assets/Tevunalogo.png" alt="Tevuna Logo" class="logo-img">
                         <span class="logo-text">Tevuna</span>
@@ -368,34 +334,32 @@
                         Building digital excellence through innovative web and mobile solutions.
                     </p>
                 </div>
-                <div class="footer-section">
+                <div class="footer-links-group">
                     <h4 class="footer-title">Quick Links</h4>
                     <ul class="footer-links">
-                        <li><a href="/">Home</a></li>
-                        <li><a href="#services">Services</a></li>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
                         <li><a href="#projects">Projects</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
-                <div class="footer-section">
+                <div class="footer-links-group">
                     <h4 class="footer-title">Services</h4>
                     <ul class="footer-links">
-                        <li><a href="#services">Web Development</a></li>
-                        <li><a href="#services">Mobile Apps</a></li>
-                        <li><a href="#services">Tech Solutions</a></li>
+                        <li><a href="#projects">Web Development</a></li>
+                        <li><a href="#projects">Mobile Apps</a></li>
+                        <li><a href="#projects">Tech Solutions</a></li>
                     </ul>
                 </div>
-                <div class="footer-section">
+                <div class="footer-links-group">
                     <h4 class="footer-title">Contact</h4>
                     <ul class="footer-links">
-                        <li><a href="#contact">Get In Touch</a></li>
                         <li><a href="mailto:info@tevuna.com">info@tevuna.com</a></li>
+                        <li><a href="tel:+2347065977815">+234 706 597 7815</a></li>
                         <li>
                             <a href="https://wa.me/2347065977815?text=Hello%20Tevuna!%20I%20would%20like%20to%20book%20your%20services%20for%20my%20project." target="_blank" rel="noopener noreferrer" class="whatsapp-link-footer">
-                                <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16" style="vertical-align: middle; margin-right: 6px;">
-                                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-                                </svg>
-                                WhatsApp: +234 706 597 7815
+                                WhatsApp
                             </a>
                         </li>
                     </ul>
@@ -417,4 +381,3 @@
     <script type="module" src="/src/js/main.js"></script>
 </body>
 </html>
-
