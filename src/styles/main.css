@@ -901,6 +901,20 @@ section {
         radial-gradient(at 50% 100%, rgba(59, 130, 246, 0.08) 0px, transparent 50%);
 }
 
+.gallery-section .section-label {
+    background: rgba(59, 130, 246, 0.1);
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    color: #3b82f6;
+}
+
+.gallery-section .section-title {
+    color: #1a1a1a;
+}
+
+.gallery-section .section-subtitle {
+    color: #666666;
+}
+
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -1079,6 +1093,20 @@ section {
         radial-gradient(at 70% 70%, rgba(139, 92, 246, 0.08) 0px, transparent 50%);
 }
 
+.contact-section .section-label {
+    background: rgba(59, 130, 246, 0.1);
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    color: #3b82f6;
+}
+
+.contact-section .section-title {
+    color: #1a1a1a;
+}
+
+.contact-section .section-subtitle {
+    color: #666666;
+}
+
 .contact-wrapper {
     display: grid;
     grid-template-columns: 1fr 1.5fr;
@@ -1091,13 +1119,13 @@ section {
     font-size: 2.5rem;
     font-weight: 700;
     margin-bottom: 1.5rem;
-    color: var(--text-primary);
+    color: #1a1a1a;
 }
 
 .contact-text {
     font-size: 1.125rem;
     line-height: 1.9;
-    color: var(--text-secondary);
+    color: #666666;
     margin-bottom: 3rem;
 }
 
@@ -1169,7 +1197,7 @@ section {
     font-size: 1rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
-    color: var(--text-primary);
+    color: #1a1a1a;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
@@ -1187,10 +1215,6 @@ section {
 
 .contact-title,
 .contact-text {
-    color: #1a1a1a;
-}
-
-.contact-item h4 {
     color: #1a1a1a;
 }
 
