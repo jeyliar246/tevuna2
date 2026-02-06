@@ -49,19 +49,18 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Navbar scroll effect
+// Navbar scroll effect with pill shape
 let lastScroll = 0;
 const navbar = document.querySelector('.navbar');
 
 window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
     
+    // Add scrolled class when user scrolls down past 100px
     if (currentScroll > 100) {
-        navbar.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.1)';
-        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+        navbar.classList.add('scrolled');
     } else {
-        navbar.style.boxShadow = 'none';
-        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+        navbar.classList.remove('scrolled');
     }
     
     // Update active nav link based on scroll position
