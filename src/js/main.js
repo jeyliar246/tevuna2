@@ -195,3 +195,38 @@ window.addEventListener('scroll', () => {
         }
     }
 });
+
+// Counter animation for stats
+function animateCounter(element, target, duration = 2000) {
+    const start = 0;
+    const increment = target / (duration / 16); // 60 FPS
+    let current = start;
+    
+    const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+            element.textContent = target + '+';
+            clearInterval(timer);
+        } else {
+            element.textContent = Math.floor(current) + '+';
+        }
+    }, 16);
+}
+
+// Observe stats for counter animation
+const statsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
+            const target = parseInt(entry.target.getAttribute('data-target'));
+            animateCounter(entry.target, target);
+            entry.target.classList.add('counted');
+        }
+    });
+}, { threshold: 0.5 });
+
+// Observe all stat numbers
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.stat-number[data-target]').forEach(stat => {
+        statsObserver.observe(stat);
+    });
+});

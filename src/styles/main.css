@@ -240,39 +240,33 @@ body {
         radial-gradient(at 80% 70%, rgba(139, 92, 246, 0.15) 0px, transparent 50%);
 }
 
-.hero-background-text {
+.hero-agency-image {
     position: absolute;
-    top: 15%;
-    left: 50%;
-    transform: translateX(-50%);
-    font-family: 'Playfair Display', serif;
-    font-size: 12rem;
-    font-weight: 900;
-    letter-spacing: 0.02em;
-    background: var(--gradient-blue);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    opacity: 0.08;
-    white-space: nowrap;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
     z-index: 0;
-    pointer-events: none;
-    text-align: center;
-    line-height: 1;
-    filter: blur(1px);
-    animation: backgroundTextFloat 20s ease-in-out infinite;
-    text-transform: uppercase;
 }
 
-@keyframes backgroundTextFloat {
-    0%, 100% {
-        transform: translateX(-50%) translateY(0);
-        opacity: 0.08;
-    }
-    50% {
-        transform: translateX(-50%) translateY(-20px);
-        opacity: 0.12;
-    }
+.hero-agency-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.15;
+    filter: grayscale(50%) brightness(0.7);
+    animation: slowZoom 20s ease-in-out infinite alternate;
+}
+
+.hero-agency-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, rgba(10, 10, 10, 1) 0%, transparent 100%);
 }
 
 .hero-content {
@@ -374,6 +368,60 @@ body {
     justify-content: center;
     flex-wrap: wrap;
     animation: fadeInUp 1s ease 0.8s both;
+    margin-bottom: 3rem;
+}
+
+.hero-work-showcase {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    animation: fadeInUp 1s ease 1s both;
+    flex-wrap: wrap;
+}
+
+.work-image {
+    width: 100px;
+    height: 140px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 2px solid rgba(59, 130, 246, 0.3);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.work-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-blue);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 1;
+}
+
+.work-image:hover {
+    transform: translateY(-10px) scale(1.05);
+    border-color: rgba(59, 130, 246, 0.6);
+    box-shadow: 0 12px 40px rgba(59, 130, 246, 0.4);
+}
+
+.work-image:hover::before {
+    opacity: 0.3;
+}
+
+.work-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.work-image:hover img {
+    transform: scale(1.1);
 }
 
 .scroll-indicator {
@@ -847,10 +895,10 @@ section {
 
 /* Gallery Section */
 .gallery-section {
-    background: var(--bg-secondary);
+    background: #f9feff;
     background-image: 
-        radial-gradient(at 50% 0%, rgba(139, 92, 246, 0.1) 0px, transparent 50%),
-        radial-gradient(at 50% 100%, rgba(59, 130, 246, 0.1) 0px, transparent 50%);
+        radial-gradient(at 50% 0%, rgba(139, 92, 246, 0.08) 0px, transparent 50%),
+        radial-gradient(at 50% 100%, rgba(59, 130, 246, 0.08) 0px, transparent 50%);
 }
 
 .gallery-grid {
@@ -1025,10 +1073,10 @@ section {
 
 /* Contact Section */
 .contact-section {
-    background: var(--bg-secondary);
+    background: #f9feff;
     background-image: 
-        radial-gradient(at 30% 30%, rgba(59, 130, 246, 0.1) 0px, transparent 50%),
-        radial-gradient(at 70% 70%, rgba(139, 92, 246, 0.1) 0px, transparent 50%);
+        radial-gradient(at 30% 30%, rgba(59, 130, 246, 0.08) 0px, transparent 50%),
+        radial-gradient(at 70% 70%, rgba(139, 92, 246, 0.08) 0px, transparent 50%);
 }
 
 .contact-wrapper {
@@ -1127,7 +1175,7 @@ section {
 }
 
 .contact-item a {
-    color: var(--text-secondary);
+    color: #666666;
     text-decoration: none;
     font-size: 1rem;
     transition: color 0.3s ease;
@@ -1137,17 +1185,26 @@ section {
     color: var(--accent-color);
 }
 
+.contact-title,
+.contact-text {
+    color: #1a1a1a;
+}
+
+.contact-item h4 {
+    color: #1a1a1a;
+}
+
 .contact-form-wrapper {
-    background: var(--bg-primary);
+    background: white;
     padding: 3rem;
     border: 1px solid rgba(59, 130, 246, 0.2);
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
     transition: all 0.5s ease;
 }
 
 .contact-form-wrapper:hover {
     border-color: rgba(59, 130, 246, 0.4);
-    box-shadow: 0 15px 50px rgba(59, 130, 246, 0.2);
+    box-shadow: 0 15px 50px rgba(59, 130, 246, 0.15);
 }
 
 .contact-form {
@@ -1160,19 +1217,24 @@ section {
 .form-group textarea {
     width: 100%;
     padding: 1.25rem;
-    border: 2px solid var(--border-color);
-    background: var(--bg-secondary);
+    border: 2px solid #e5e5e5;
+    background: white;
     font-family: inherit;
     font-size: 1rem;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    color: var(--text-primary);
+    color: #1a1a1a;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #999999;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
     border-color: var(--accent-color);
-    background: var(--bg-primary);
+    background: white;
     box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2), 0 0 20px rgba(59, 130, 246, 0.1);
     transform: translateY(-2px);
 }
@@ -1329,8 +1391,8 @@ section {
         font-size: 3rem;
     }
     
-    .hero-background-text {
-        font-size: 10rem;
+    .hero-agency-image {
+        width: 60%;
     }
 }
 
@@ -1406,16 +1468,21 @@ section {
     
     .hero-buttons {
         flex-direction: column;
+        margin-bottom: 2rem;
     }
     
     .btn {
         width: 100%;
     }
     
-    .hero-background-text {
-        font-size: 6rem;
-        top: 10%;
-        opacity: 0.06;
+    .hero-agency-image {
+        width: 100%;
+        opacity: 0.1;
+    }
+    
+    .work-image {
+        width: 80px;
+        height: 120px;
     }
     
     section {
@@ -1458,13 +1525,9 @@ section {
         font-size: 2.5rem;
     }
     
-    .hero-background-text {
-        font-size: 4rem;
-        top: 8%;
-        opacity: 0.05;
-        word-break: break-word;
-        white-space: normal;
-        max-width: 90%;
+    .work-image {
+        width: 70px;
+        height: 100px;
     }
     
     .section-title {
