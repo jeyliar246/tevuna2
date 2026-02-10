@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import Image from 'next/image'
+import tevunaLogo from '@/src/assets/Tevunalogo.png'
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -42,14 +44,14 @@ export default function Navbar() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <div className="relative w-12 h-12 flex items-center justify-center">
-              <img
-                src="/src/assets/Tevunalogo.png"
+            <div className="relative w-12 h-12 flex items-center justify-center rounded-full bg-white p-1 shadow-sm ring-1 ring-slate-200">
+              <Image
+                src={tevunaLogo}
                 alt="Tevuna Logo"
-                className="w-full h-full object-contain"
-                onError={(e) => {
-                  e.currentTarget.style.display = 'none'
-                }}
+                fill
+                className="object-contain"
+                sizes="48px"
+                priority
               />
             </div>
             <span className="text-2xl font-bold bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent font-mono">

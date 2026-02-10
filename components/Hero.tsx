@@ -84,7 +84,7 @@ export default function Hero() {
             variants={itemVariants}
             className="inline-block mb-6"
           >
-            <span className="px-6 py-2 bg-primary-500/10 border border-primary-500/30 rounded-full text-primary-400 text-sm font-mono uppercase tracking-widest">
+            <span className="px-4 sm:px-6 py-2 bg-primary-500/10 border border-primary-500/30 rounded-full text-primary-500 text-[10px] sm:text-sm font-mono font-medium tracking-normal whitespace-nowrap">
               Deep Understanding • Strategic Thinking
             </span>
           </motion.div>
@@ -135,22 +135,6 @@ export default function Hero() {
             </motion.a>
           </motion.div>
 
-          {/* Work Showcase */}
-          <motion.div
-            variants={itemVariants}
-            className="flex flex-wrap gap-4 justify-center"
-          >
-            {[1, 2, 3, 4].map((i) => (
-              <motion.div
-                key={i}
-                className="w-24 h-32 rounded-xl overflow-hidden border border-primary-500/30 group cursor-pointer"
-                whileHover={{ scale: 1.1, y: -10, rotate: 5 }}
-                transition={{ type: 'spring', stiffness: 300 }}
-              >
-                <div className="w-full h-full bg-gradient-to-br from-primary-500/20 to-accent-500/20 group-hover:from-primary-500/40 group-hover:to-accent-500/40 transition-all" />
-              </motion.div>
-            ))}
-          </motion.div>
         </motion.div>
       </div>
 

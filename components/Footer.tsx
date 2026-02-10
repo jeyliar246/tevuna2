@@ -1,6 +1,8 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Image from 'next/image'
+import tevunaLogo from '@/src/assets/Tevunalogo.png'
 
 export default function Footer() {
   const footerLinks = {
@@ -35,14 +37,13 @@ export default function Footer() {
             transition={{ type: 'spring', stiffness: 100 }}
           >
             <div className="flex items-center gap-3 mb-4">
-              <div className="relative w-10 h-10 flex items-center justify-center">
-                <img
-                  src="/src/assets/Tevunalogo.png"
+              <div className="relative w-10 h-10 flex items-center justify-center rounded-full bg-white p-1 shadow-sm ring-1 ring-slate-200">
+                <Image
+                  src={tevunaLogo}
                   alt="Tevuna Logo"
-                  className="w-full h-full object-contain"
-                  onError={(e) => {
-                    e.currentTarget.style.display = 'none'
-                  }}
+                  fill
+                  className="object-contain"
+                  sizes="40px"
                 />
               </div>
               <span className="text-xl font-bold bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent font-mono">
