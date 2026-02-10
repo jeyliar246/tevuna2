@@ -6,18 +6,18 @@
 }
 
 :root {
-    --primary-color: #0a0a0a;
-    --primary-light: #1a1a1a;
+    --primary-color: #1a1a1a;
+    --primary-light: #2a2a2a;
     --accent-color: #3b82f6;
     --accent-dark: #2563eb;
     --accent-light: #60a5fa;
     --text-primary: #ffffff;
     --text-secondary: #d1d5db;
     --text-light: #9ca3af;
-    --bg-primary: #0a0a0a;
-    --bg-secondary: #1a1a1a;
-    --bg-dark: #000000;
-    --border-color: #2d2d2d;
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #252525;
+    --bg-dark: #0f0f0f;
+    --border-color: #3a3a3a;
     --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
     --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
     --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
@@ -27,7 +27,7 @@
 }
 
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     color: var(--text-primary);
     line-height: 1.6;
     overflow-x: hidden;
@@ -51,7 +51,7 @@ body {
     top: 0;
     left: 0;
     right: 0;
-    background: rgba(10, 10, 10, 0.95);
+    background: rgba(26, 26, 26, 0.95);
     backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--border-color);
     z-index: 1000;
@@ -60,7 +60,7 @@ body {
 }
 
 .navbar.scrolled {
-    background: rgba(10, 10, 10, 0.98);
+    background: rgba(26, 26, 26, 0.98);
     box-shadow: 0 8px 32px rgba(59, 130, 246, 0.15);
 }
 
@@ -68,7 +68,7 @@ body {
     max-width: 1000px;
     margin: 0.75rem auto;
     padding: 0.75rem 2rem;
-    background: rgba(26, 26, 26, 0.8);
+    background: rgba(37, 37, 37, 0.9);
     border: 1px solid rgba(59, 130, 246, 0.2);
     border-radius: 50px;
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.05);
@@ -89,12 +89,12 @@ body {
     text-decoration: none;
     color: var(--text-primary);
     font-weight: 700;
-    font-size: 1.5rem;
+    font-size: 2rem;
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .navbar.scrolled .logo {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
 }
 
 .logo:hover {
@@ -103,24 +103,26 @@ body {
 }
 
 .logo-img {
-    width: 45px;
-    height: 45px;
+    width: 60px;
+    height: 60px;
     object-fit: contain;
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .navbar.scrolled .logo-img {
-    width: 35px;
-    height: 35px;
+    width: 50px;
+    height: 50px;
 }
 
 .logo-text {
-    font-family: 'Playfair Display', serif;
-    font-weight: 700;
+    font-family: 'DM Serif Display', serif;
+    font-weight: 400;
+    font-style: italic;
     background: var(--gradient-blue);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    letter-spacing: 0.05em;
 }
 
 .nav-menu {
@@ -233,9 +235,9 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(10, 10, 10, 0.95) 0%, rgba(0, 0, 0, 0.9) 100%);
+    background: linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(15, 15, 15, 0.9) 100%);
     background-image: 
-        linear-gradient(135deg, rgba(10, 10, 10, 0.95) 0%, rgba(0, 0, 0, 0.9) 100%),
+        linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(15, 15, 15, 0.9) 100%),
         radial-gradient(at 20% 30%, rgba(59, 130, 246, 0.15) 0px, transparent 50%),
         radial-gradient(at 80% 70%, rgba(139, 92, 246, 0.15) 0px, transparent 50%);
 }
@@ -266,7 +268,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(90deg, rgba(10, 10, 10, 1) 0%, transparent 100%);
+    background: linear-gradient(90deg, rgba(26, 26, 26, 1) 0%, transparent 100%);
 }
 
 .hero-content {
@@ -293,6 +295,8 @@ body {
     color: var(--accent-light);
     animation: fadeInUp 0.8s ease, glow 3s ease-in-out infinite;
     box-shadow: 0 0 20px rgba(59, 130, 246, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.1);
+    position: relative;
+    font-family: 'Space Grotesk', sans-serif;
 }
 
 @keyframes glow {
@@ -318,12 +322,13 @@ body {
 }
 
 .hero-title {
-    font-family: 'Playfair Display', serif;
+    font-family: 'DM Serif Display', serif;
     font-size: 5.5rem;
-    font-weight: 700;
+    font-weight: 400;
+    font-style: italic;
     line-height: 1.1;
     margin-bottom: 2rem;
-    letter-spacing: -0.02em;
+    letter-spacing: 0.02em;
 }
 
 .hero-title-line {
@@ -355,7 +360,8 @@ body {
     line-height: 1.8;
     margin-bottom: 3rem;
     color: rgba(255, 255, 255, 0.9);
-    font-weight: 300;
+    font-weight: 400;
+    font-family: 'Poppins', sans-serif;
     animation: fadeInUp 1s ease 0.6s both;
     max-width: 700px;
     margin-left: auto;
@@ -587,12 +593,14 @@ section {
 }
 
 .section-title {
-    font-family: 'Playfair Display', serif;
+    font-family: 'DM Serif Display', serif;
     font-size: 3.5rem;
-    font-weight: 700;
+    font-weight: 400;
+    font-style: italic;
     margin-bottom: 1.5rem;
     color: var(--text-primary);
     line-height: 1.2;
+    letter-spacing: 0.02em;
 }
 
 .section-subtitle {
@@ -601,6 +609,8 @@ section {
     max-width: 600px;
     margin: 0 auto;
     line-height: 1.8;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
 }
 
 /* About Section */
@@ -676,6 +686,8 @@ section {
     line-height: 1.9;
     color: var(--text-secondary);
     margin-bottom: 1.5rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
 }
 
 .about-stats {
@@ -691,9 +703,10 @@ section {
 }
 
 .stat-number {
-    font-family: 'Playfair Display', serif;
+    font-family: 'DM Serif Display', serif;
     font-size: 3rem;
-    font-weight: 700;
+    font-weight: 400;
+    font-style: italic;
     background: var(--gradient-blue);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -701,6 +714,7 @@ section {
     line-height: 1;
     margin-bottom: 0.5rem;
     animation: fadeInUp 1s ease;
+    letter-spacing: 0.02em;
 }
 
 .stat-label {
@@ -849,11 +863,13 @@ section {
 }
 
 .project-title {
-    font-family: 'Playfair Display', serif;
+    font-family: 'DM Serif Display', serif;
     font-size: 2rem;
-    font-weight: 700;
+    font-weight: 400;
+    font-style: italic;
     margin-bottom: 0.5rem;
     color: var(--text-primary);
+    letter-spacing: 0.02em;
 }
 
 .project-category {
@@ -873,6 +889,8 @@ section {
     line-height: 1.8;
     color: var(--text-secondary);
     margin-bottom: 1.5rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
 }
 
 .project-external-link {
@@ -1072,17 +1090,21 @@ section {
 }
 
 .service-title {
-    font-family: 'Playfair Display', serif;
+    font-family: 'DM Serif Display', serif;
     font-size: 1.75rem;
-    font-weight: 700;
+    font-weight: 400;
+    font-style: italic;
     margin-bottom: 1rem;
     color: var(--text-primary);
+    letter-spacing: 0.02em;
 }
 
 .service-description {
     font-size: 1rem;
     line-height: 1.8;
     color: var(--text-secondary);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
 }
 
 /* Contact Section */
@@ -1115,11 +1137,13 @@ section {
 }
 
 .contact-title {
-    font-family: 'Playfair Display', serif;
+    font-family: 'DM Serif Display', serif;
     font-size: 2.5rem;
-    font-weight: 700;
+    font-weight: 400;
+    font-style: italic;
     margin-bottom: 1.5rem;
     color: #1a1a1a;
+    letter-spacing: 0.02em;
 }
 
 .contact-text {
@@ -1127,6 +1151,8 @@ section {
     line-height: 1.9;
     color: #666666;
     margin-bottom: 3rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
 }
 
 .contact-details {
@@ -1316,14 +1342,16 @@ section {
 }
 
 .footer-title {
-    font-family: 'Playfair Display', serif;
+    font-family: 'DM Serif Display', serif;
     font-size: 1.25rem;
-    font-weight: 700;
+    font-weight: 400;
+    font-style: italic;
     margin-bottom: 1.5rem;
     background: var(--gradient-blue);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    letter-spacing: 0.02em;
 }
 
 .footer-links {
