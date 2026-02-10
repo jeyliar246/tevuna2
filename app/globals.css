@@ -9,7 +9,7 @@
   }
 
   body {
-    @apply bg-dark-950 text-gray-100;
+    @apply bg-slate-50 text-slate-900;
     font-family: var(--font-inter);
   }
 
@@ -39,10 +39,10 @@
   }
 
   .glass-effect {
-    background: rgba(24, 24, 27, 0.8);
+    background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(148, 163, 184, 0.25);
   }
 
   .neon-glow {

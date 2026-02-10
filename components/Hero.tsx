@@ -93,7 +93,7 @@ export default function Hero() {
             variants={slideVariants}
             className="text-6xl md:text-8xl lg:text-9xl font-bold mb-6 leading-tight"
           >
-            <span className="block text-gray-100">Smart Solutions</span>
+            <span className="block text-slate-900">Smart Solutions</span>
             <span className="block bg-gradient-to-r from-primary-400 via-accent-400 to-primary-400 bg-clip-text text-transparent bg-[length:200%_auto] animate-shimmer">
               Through Insight
             </span>
@@ -101,7 +101,7 @@ export default function Hero() {
 
           <motion.p
             variants={itemVariants}
-            className="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto mb-12 leading-relaxed"
+            className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto mb-12 leading-relaxed"
           >
             Tevuna embodies deep understanding and strategic thinking. We don't just build digital solutions—we 
             craft intelligent, insight-driven experiences that solve complex challenges and drive meaningful results.

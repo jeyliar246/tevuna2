@@ -34,7 +34,7 @@ export default function Gallery() {
           >
             Gallery
           </motion.span>
-          <h2 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-gray-100 to-gray-400 bg-clip-text text-transparent">
+          <h2 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-slate-900 to-slate-600 bg-clip-text text-transparent">
             Insight-Driven Creations
           </h2>
         </motion.div>
@@ -51,7 +51,7 @@ export default function Gallery() {
                 stiffness: 150,
                 damping: 15,
               }}
-              className="group relative aspect-square rounded-xl overflow-hidden border border-gray-800 cursor-pointer"
+              className="group relative aspect-square rounded-xl overflow-hidden border border-slate-200 cursor-pointer"
               whileHover={{ scale: 1.05, rotate: 2, zIndex: 10 }}
             >
               <div 

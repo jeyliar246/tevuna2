@@ -57,23 +57,23 @@ export default function About() {
               About Tevuna
             </motion.span>
 
-            <h2 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-gray-100 to-gray-400 bg-clip-text text-transparent">
+            <h2 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-slate-900 to-slate-600 bg-clip-text text-transparent">
               Deep Understanding, Strategic Solutions
             </h2>
 
-            <p className="text-lg text-gray-400 mb-6 leading-relaxed">
+            <p className="text-lg text-slate-600 mb-6 leading-relaxed">
               Tevuna—meaning deep understanding, strategic thinking, and insight in Hebrew—guides everything we do. 
               We go beyond surface-level solutions to understand your business at its core, applying strategic 
               thinking to every challenge we encounter.
             </p>
 
-            <p className="text-lg text-gray-400 mb-12 leading-relaxed">
+            <p className="text-lg text-slate-600 mb-12 leading-relaxed">
               Our approach combines profound insight with smart solutions, delivering digital experiences that 
               not only look exceptional but solve real problems with intelligence and strategic depth.
             </p>
 
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-8 pt-8 border-t border-gray-800">
+            <div className="grid grid-cols-3 gap-8 pt-8 border-t border-slate-200">
               {stats.map((stat, index) => (
                 <motion.div
                   key={stat.label}
@@ -85,7 +85,7 @@ export default function About() {
                   <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent mb-2 font-mono">
                     {stat.number}{stat.suffix}
                   </div>
-                  <div className="text-sm text-gray-500 uppercase tracking-wider">
+                  <div className="text-sm text-slate-500 uppercase tracking-wider">
                     {stat.label}
                   </div>
                 </motion.div>

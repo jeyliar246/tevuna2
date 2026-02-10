@@ -44,7 +44,7 @@ export default function Services() {
           >
             Services
           </motion.span>
-          <h2 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-gray-100 to-gray-400 bg-clip-text text-transparent">
+          <h2 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-slate-900 to-slate-600 bg-clip-text text-transparent">
             Strategic Solutions
           </h2>
         </motion.div>
@@ -63,7 +63,7 @@ export default function Services() {
                   stiffness: 100,
                   damping: 15,
                 }}
-                className="group relative p-8 rounded-2xl border border-gray-800 bg-dark-900/50 backdrop-blur-sm hover:border-primary-500/50 transition-all duration-500"
+                className="group relative p-8 rounded-2xl border border-slate-200 bg-white/80 backdrop-blur-sm hover:border-primary-500/50 transition-all duration-500"
                 whileHover={{ y: -10, scale: 1.02 }}
               >
                 <motion.div
@@ -74,10 +74,10 @@ export default function Services() {
                   <Icon className="w-8 h-8 text-primary-400" />
                 </motion.div>
                 
-                <h3 className="text-2xl font-bold mb-4 text-gray-100">
+                <h3 className="text-2xl font-bold mb-4 text-slate-900">
                   {service.title}
                 </h3>
-                <p className="text-gray-400 leading-relaxed">
+                <p className="text-slate-600 leading-relaxed">
                   {service.description}
                 </p>
 

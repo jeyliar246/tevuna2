@@ -44,10 +44,10 @@ export default function Projects() {
           >
             Our Work
           </motion.span>
-          <h2 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-gray-100 to-gray-400 bg-clip-text text-transparent">
+          <h2 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-slate-900 to-slate-600 bg-clip-text text-transparent">
             Strategic Solutions in Action
           </h2>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+          <p className="text-xl text-slate-600 max-w-2xl mx-auto">
             Where deep understanding meets smart execution
           </p>
         </motion.div>
@@ -64,7 +64,7 @@ export default function Projects() {
                 stiffness: 80,
                 damping: 15,
               }}
-              className="group relative rounded-2xl overflow-hidden border border-gray-800 bg-dark-900/50 backdrop-blur-sm"
+              className="group relative rounded-2xl overflow-hidden border border-slate-200 bg-white/80 backdrop-blur-sm"
             >
               <div className="relative aspect-video overflow-hidden">
                 <div 
@@ -94,10 +94,10 @@ export default function Projects() {
                 <div className="text-sm text-primary-400 font-mono uppercase tracking-wider mb-2">
                   {project.category}
                 </div>
-                <h3 className="text-3xl font-bold mb-4 text-gray-100">
+                <h3 className="text-3xl font-bold mb-4 text-slate-900">
                   {project.title}
                 </h3>
-                <p className="text-gray-400 leading-relaxed mb-4">
+                <p className="text-slate-600 leading-relaxed mb-4">
                   {project.description}
                 </p>
                 {project.external && (

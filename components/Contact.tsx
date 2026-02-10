@@ -61,10 +61,10 @@ export default function Contact() {
           >
             Contact
           </motion.span>
-          <h2 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-gray-100 to-gray-400 bg-clip-text text-transparent">
+          <h2 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-slate-900 to-slate-600 bg-clip-text text-transparent">
             Get In Touch
           </h2>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+          <p className="text-xl text-slate-600 max-w-2xl mx-auto">
             Have a project in mind? We'd love to hear from you
           </p>
         </motion.div>
@@ -76,8 +76,8 @@ export default function Contact() {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ type: 'spring', stiffness: 80, damping: 20 }}
           >
-            <h3 className="text-3xl font-bold mb-6 text-gray-100">Let's Connect</h3>
-            <p className="text-gray-400 mb-12 leading-relaxed">
+            <h3 className="text-3xl font-bold mb-6 text-slate-900">Let's Connect</h3>
+            <p className="text-slate-600 mb-12 leading-relaxed">
               Ready to explore how deep understanding and strategic thinking can transform your digital presence? 
               Let's discuss smart solutions tailored to your unique challenges and goals.
             </p>
@@ -94,17 +94,17 @@ export default function Contact() {
                     initial={{ opacity: 0, x: -50 }}
                     animate={isInView ? { opacity: 1, x: 0 } : {}}
                     transition={{ delay: 0.2 + index * 0.1 }}
-                    className="flex items-start gap-4 p-6 rounded-xl border border-gray-800 bg-dark-900/50 hover:border-primary-500/50 hover:bg-dark-900 transition-all group"
+                    className="flex items-start gap-4 p-6 rounded-xl border border-slate-200 bg-white/80 hover:border-primary-500/50 hover:bg-white transition-all group"
                     whileHover={{ x: 10, scale: 1.02 }}
                   >
                     <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-primary-500/20 to-accent-500/20 flex items-center justify-center border border-primary-500/30 group-hover:border-primary-500/50 transition-all">
                       <Icon className="w-6 h-6 text-primary-400" />
                     </div>
                     <div>
-                      <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-1">
+                      <h4 className="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-1">
                         {info.title}
                       </h4>
-                      <p className="text-gray-300 group-hover:text-primary-400 transition-colors">
+                      <p className="text-slate-700 group-hover:text-primary-500 transition-colors">
                         {info.content}
                       </p>
                     </div>
@@ -119,7 +119,7 @@ export default function Contact() {
             initial={{ opacity: 0, x: 100 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ type: 'spring', stiffness: 80, damping: 20 }}
-            className="p-8 rounded-2xl border border-gray-800 bg-dark-900/50 backdrop-blur-sm"
+            className="p-8 rounded-2xl border border-slate-200 bg-white/80 backdrop-blur-sm"
           >
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
@@ -128,7 +128,7 @@ export default function Contact() {
                   name="name"
                   required
                   placeholder="Your Name"
-                  className="w-full px-4 py-3 bg-dark-800 border border-gray-700 rounded-lg text-gray-100 placeholder-gray-500 focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 transition-all"
+                  className="w-full px-4 py-3 bg-white border border-slate-300 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 transition-all"
                 />
               </div>
               <div>
@@ -137,7 +137,7 @@ export default function Contact() {
                   name="email"
                   required
                   placeholder="Your Email"
-                  className="w-full px-4 py-3 bg-dark-800 border border-gray-700 rounded-lg text-gray-100 placeholder-gray-500 focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 transition-all"
+                  className="w-full px-4 py-3 bg-white border border-slate-300 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 transition-all"
                 />
               </div>
               <div>
@@ -146,7 +146,7 @@ export default function Contact() {
                   name="subject"
                   required
                   placeholder="Subject"
-                  className="w-full px-4 py-3 bg-dark-800 border border-gray-700 rounded-lg text-gray-100 placeholder-gray-500 focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 transition-all"
+                  className="w-full px-4 py-3 bg-white border border-slate-300 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 transition-all"
                 />
               </div>
               <div>
@@ -155,7 +155,7 @@ export default function Contact() {
                   required
                   rows={6}
                   placeholder="Your Message"
-                  className="w-full px-4 py-3 bg-dark-800 border border-gray-700 rounded-lg text-gray-100 placeholder-gray-500 focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 transition-all resize-none"
+                  className="w-full px-4 py-3 bg-white border border-slate-300 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 transition-all resize-none"
                 />
               </div>
               <motion.button

@@ -24,7 +24,7 @@ export default function Footer() {
   }
 
   return (
-    <footer className="relative border-t border-gray-800 bg-dark-900/50 backdrop-blur-sm">
+    <footer className="relative border-t border-slate-200 bg-white/80 backdrop-blur-sm">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
@@ -49,7 +49,7 @@ export default function Footer() {
                 TEVUNA
               </span>
             </div>
-            <p className="text-gray-400 text-sm leading-relaxed">
+            <p className="text-slate-600 text-sm leading-relaxed">
               Deep understanding. Strategic thinking. Smart solutions. Tevuna delivers insight-driven 
               digital experiences that transform businesses.
             </p>
@@ -70,7 +70,7 @@ export default function Footer() {
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-gray-400 hover:text-primary-400 transition-colors text-sm"
+                    className="text-slate-600 hover:text-primary-500 transition-colors text-sm"
                   >
                     {link.label}
                   </a>
@@ -94,7 +94,7 @@ export default function Footer() {
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-gray-400 hover:text-primary-400 transition-colors text-sm"
+                    className="text-slate-600 hover:text-primary-500 transition-colors text-sm"
                   >
                     {link.label}
                   </a>
@@ -120,7 +120,7 @@ export default function Footer() {
                     href={link.href}
                     target={link.external ? '_blank' : undefined}
                     rel={link.external ? 'noopener noreferrer' : undefined}
-                    className="text-gray-400 hover:text-primary-400 transition-colors text-sm"
+                    className="text-slate-600 hover:text-primary-500 transition-colors text-sm"
                   >
                     {link.label}
                   </a>
@@ -130,8 +130,8 @@ export default function Footer() {
           </motion.div>
         </div>
 
-        <div className="pt-8 border-t border-gray-800 text-center">
-          <p className="text-gray-500 text-sm">
+        <div className="pt-8 border-t border-slate-200 text-center">
+          <p className="text-slate-500 text-sm">
             &copy; 2024 Tevuna. All rights reserved.
           </p>
         </div>

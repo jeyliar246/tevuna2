@@ -24,8 +24,8 @@ export default function Home() {
 
   return (
     <main className="relative min-h-screen overflow-x-hidden">
-      <div className="fixed inset-0 bg-grid opacity-30 pointer-events-none z-0" />
-      <div className="fixed inset-0 bg-mesh opacity-40 pointer-events-none z-0" />
+      <div className="fixed inset-0 bg-grid opacity-20 pointer-events-none z-0" />
+      <div className="fixed inset-0 bg-mesh opacity-20 pointer-events-none z-0" />
       
       <div className="relative z-10">
         <Navbar />
