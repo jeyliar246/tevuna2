@@ -8,10 +8,6 @@
     --font-mono: 'JetBrains Mono', monospace;
   }
 
-  * {
-    @apply border-border;
-  }
-
   body {
     @apply bg-dark-950 text-gray-100;
     font-family: var(--font-inter);
