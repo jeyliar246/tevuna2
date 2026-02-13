@@ -34,17 +34,12 @@ export default function Footer() {
             viewport={{ once: true }}
             transition={{ type: 'spring', stiffness: 100 }}
           >
-            <div className="flex items-center gap-3 mb-4">
-              <div className="relative w-20 h-20 flex items-center justify-center rounded-xl bg-gradient-to-br from-slate-800 to-slate-900 p-3 shadow-xl border-2 border-primary-500/40">
-                <img
-                  src="/assets/Tevunalogo.png"
-                  alt="Tevuna Logo"
-                  className="w-full h-full object-contain brightness-0 invert"
-                />
-              </div>
-              <span className="text-xl font-bold bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent font-mono">
-                TEVUNA
-              </span>
+            <div className="mb-4">
+              <img
+                src="/assets/tevunalogo2.jpeg"
+                alt="Tevuna Logo"
+                className="h-16 w-auto object-contain"
+              />
             </div>
             <p className="text-slate-600 text-sm leading-relaxed">
               Deep understanding. Strategic thinking. Smart solutions. Tevuna delivers insight-driven 

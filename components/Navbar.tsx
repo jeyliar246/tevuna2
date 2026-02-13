@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import Image from 'next/image'
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -39,20 +38,15 @@ export default function Navbar() {
         <div className="flex items-center justify-between">
           <motion.a
             href="#home"
-            className="flex items-center gap-3 group"
+            className="flex items-center group"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <div className="relative w-20 h-20 md:w-24 md:h-24 flex items-center justify-center rounded-xl bg-gradient-to-br from-slate-800 to-slate-900 p-3 shadow-xl border-2 border-primary-500/40">
-              <img
-                src="/assets/Tevunalogo.png"
-                alt="Tevuna Logo"
-                className="w-full h-full object-contain brightness-0 invert"
-              />
-            </div>
-            <span className="text-2xl font-bold bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent font-mono">
-              TEVUNA
-            </span>
+            <img
+              src="/assets/tevunalogo2.jpeg"
+              alt="Tevuna Logo"
+              className="h-16 md:h-20 w-auto object-contain"
+            />
           </motion.a>
 
           {/* Desktop Menu */}
