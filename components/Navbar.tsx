@@ -45,7 +45,7 @@ export default function Navbar() {
           >
             <div className="relative w-20 h-20 md:w-24 md:h-24 flex items-center justify-center rounded-xl bg-gradient-to-br from-slate-800 to-slate-900 p-3 shadow-xl border-2 border-primary-500/40">
               <img
-                src="/src/assets/Tevunalogo.png"
+                src="/assets/Tevunalogo.png"
                 alt="Tevuna Logo"
                 className="w-full h-full object-contain brightness-0 invert"
               />
