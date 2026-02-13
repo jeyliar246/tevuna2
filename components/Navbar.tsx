@@ -43,7 +43,7 @@ export default function Navbar() {
             whileTap={{ scale: 0.95 }}
           >
             <img
-              src="/assets/tevunalogo2.jpeg"
+              src="/assets/tevunalogo2.png"
               alt="Tevuna Logo"
               className="h-16 md:h-20 w-auto object-contain"
             />
