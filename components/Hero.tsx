@@ -103,8 +103,7 @@ export default function Hero() {
             variants={itemVariants}
             className="text-xl md:text-2xl text-slate-700 max-w-3xl mx-auto mb-12 leading-relaxed font-medium drop-shadow-sm"
           >
-            Tevuna embodies deep understanding and strategic thinking. We don't just build digital solutions—we 
-            craft intelligent, insight-driven experiences that solve complex challenges and drive meaningful results.
+            Tevuna is a living example of strategic thinking and profound comprehension. We create clever, insight-driven experiences that address difficult problems and produce significant outcomes rather than merely developing digital solutions.
           </motion.p>
 
           <motion.div
