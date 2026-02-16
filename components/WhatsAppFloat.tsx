@@ -9,7 +9,7 @@ export default function WhatsAppFloat() {
       href="https://wa.me/2347065977815?text=Hello%20Tevuna!%20I%20would%20like%20to%20book%20your%20services%20for%20my%20project."
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-8 right-8 w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center shadow-2xl z-50 group"
+      className="fixed bottom-8 right-8 w-16 h-16 bg-green-500 rounded-full flex items-center justify-center shadow-2xl z-50 group hover:bg-green-600 transition-colors"
       whileHover={{ scale: 1.1, rotate: 5 }}
       whileTap={{ scale: 0.9 }}
       animate={{
