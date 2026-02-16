@@ -82,26 +82,26 @@ export default function Hero() {
         >
           <motion.div
             variants={itemVariants}
-            className="inline-block mb-6"
+            className="inline-block mb-8"
           >
-            <span className="px-4 sm:px-6 py-2 bg-primary-500/10 border border-primary-500/30 rounded-full text-primary-500 text-[10px] sm:text-sm font-mono font-medium tracking-normal whitespace-nowrap">
+            <span className="px-4 sm:px-6 py-2.5 bg-primary-500/15 border-2 border-primary-500/40 rounded-full text-primary-600 text-xs sm:text-sm font-mono font-semibold tracking-wide whitespace-nowrap shadow-lg">
               Deep Understanding • Strategic Thinking
             </span>
           </motion.div>
 
           <motion.h1
             variants={slideVariants}
-            className="text-6xl md:text-8xl lg:text-9xl font-bold mb-6 leading-tight"
+            className="text-6xl md:text-8xl lg:text-9xl font-bold mb-8 leading-tight drop-shadow-lg"
           >
-            <span className="block text-slate-900">Smart Solutions</span>
-            <span className="block bg-gradient-to-r from-primary-400 via-accent-400 to-primary-400 bg-clip-text text-transparent bg-[length:200%_auto] animate-shimmer">
+            <span className="block text-slate-900 font-extrabold">Smart Solutions</span>
+            <span className="block bg-gradient-to-r from-primary-500 via-accent-500 to-primary-500 bg-clip-text text-transparent bg-[length:200%_auto] animate-shimmer drop-shadow-md">
               Through Insight
             </span>
           </motion.h1>
 
           <motion.p
             variants={itemVariants}
-            className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto mb-12 leading-relaxed"
+            className="text-xl md:text-2xl text-slate-700 max-w-3xl mx-auto mb-12 leading-relaxed font-medium drop-shadow-sm"
           >
             Tevuna embodies deep understanding and strategic thinking. We don't just build digital solutions—we 
             craft intelligent, insight-driven experiences that solve complex challenges and drive meaningful results.
