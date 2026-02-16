@@ -46,6 +46,7 @@ export default function About() {
             initial={{ opacity: 0, x: 100 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ type: 'spring', stiffness: 80, damping: 20, delay: 0.2 }}
+            className="text-center md:text-left"
           >
             <motion.span
               initial={{ opacity: 0, y: 20 }}

@@ -90,7 +90,7 @@ export default function Projects() {
                 </motion.div>
               </div>
               
-              <div className="p-8">
+              <div className="p-8 text-center md:text-left">
                 <div className="text-sm text-primary-400 font-mono uppercase tracking-wider mb-2">
                   {project.category}
                 </div>
@@ -105,7 +105,7 @@ export default function Projects() {
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-primary-400 hover:text-primary-300 transition-colors font-semibold"
+                    className="inline-flex items-center gap-2 text-primary-400 hover:text-primary-300 transition-colors font-semibold justify-center md:justify-start"
                   >
                     Visit Website <ExternalLink className="w-4 h-4" />
                   </a>

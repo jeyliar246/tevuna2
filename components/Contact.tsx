@@ -75,6 +75,7 @@ export default function Contact() {
             initial={{ opacity: 0, x: -100 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ type: 'spring', stiffness: 80, damping: 20 }}
+            className="text-center md:text-left"
           >
             <h3 className="text-3xl font-bold mb-6 text-slate-900">Let's Connect</h3>
             <p className="text-slate-600 mb-12 leading-relaxed">
