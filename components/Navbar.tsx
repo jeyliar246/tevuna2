@@ -63,7 +63,7 @@ export default function Navbar() {
               >
                 {link.label}
                 <motion.div
-                  className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-primary-400 to-accent-400"
+                  className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary-500"
                   initial={{ scaleX: 0 }}
                   whileHover={{ scaleX: 1 }}
                   transition={{ type: 'spring', stiffness: 300, damping: 20 }}

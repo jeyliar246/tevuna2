@@ -44,7 +44,7 @@ export default function Projects() {
           >
             Our Work
           </motion.span>
-          <h2 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-slate-900 to-slate-600 bg-clip-text text-transparent">
+          <h2 className="text-5xl md:text-6xl font-bold mb-4 text-slate-900">
             Strategic Solutions in Action
           </h2>
           <p className="text-xl text-slate-600 max-w-2xl mx-auto">
@@ -80,7 +80,7 @@ export default function Projects() {
                     href={project.link}
                     target={project.external ? '_blank' : undefined}
                     rel={project.external ? 'noopener noreferrer' : undefined}
-                    className="px-8 py-4 bg-gradient-to-r from-primary-500 to-accent-500 text-white font-semibold rounded-lg uppercase tracking-wider flex items-center gap-2"
+                    className="px-8 py-4 bg-primary-500 text-white font-semibold rounded-lg uppercase tracking-wider flex items-center gap-2 hover:bg-primary-600 transition-colors"
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
                   >

@@ -56,7 +56,7 @@ export default function About() {
               About Tevuna
             </motion.span>
 
-            <h2 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-slate-900 to-slate-600 bg-clip-text text-transparent">
+            <h2 className="text-5xl md:text-6xl font-bold mb-6 text-slate-900">
               Deep Understanding, Strategic Solutions
             </h2>
 
@@ -81,7 +81,7 @@ export default function About() {
                   transition={{ delay: 0.4 + index * 0.1, type: 'spring', stiffness: 200 }}
                   className="text-center"
                 >
-                  <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent mb-2 font-mono">
+                  <div className="text-4xl md:text-5xl font-bold text-primary-500 mb-2 font-mono">
                     {stat.number}{stat.suffix}
                   </div>
                   <div className="text-sm text-slate-500 uppercase tracking-wider">

@@ -54,7 +54,7 @@ export default function Footer() {
             viewport={{ once: true }}
             transition={{ delay: 0.1, type: 'spring', stiffness: 100 }}
           >
-            <h4 className="text-lg font-bold mb-4 bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent">
+            <h4 className="text-lg font-bold mb-4 text-primary-500">
               Quick Links
             </h4>
             <ul className="space-y-2">
@@ -78,7 +78,7 @@ export default function Footer() {
             viewport={{ once: true }}
             transition={{ delay: 0.2, type: 'spring', stiffness: 100 }}
           >
-            <h4 className="text-lg font-bold mb-4 bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent">
+            <h4 className="text-lg font-bold mb-4 text-primary-500">
               Services
             </h4>
             <ul className="space-y-2">
@@ -102,7 +102,7 @@ export default function Footer() {
             viewport={{ once: true }}
             transition={{ delay: 0.3, type: 'spring', stiffness: 100 }}
           >
-            <h4 className="text-lg font-bold mb-4 bg-gradient-to-r from-primary-400 to-accent-400 bg-clip-text text-transparent">
+            <h4 className="text-lg font-bold mb-4 text-primary-500">
               Contact
             </h4>
             <ul className="space-y-2">

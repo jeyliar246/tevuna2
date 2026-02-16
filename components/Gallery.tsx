@@ -34,7 +34,7 @@ export default function Gallery() {
           >
             Gallery
           </motion.span>
-          <h2 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-slate-900 to-slate-600 bg-clip-text text-transparent">
+          <h2 className="text-5xl md:text-6xl font-bold mb-4 text-slate-900">
             Insight-Driven Creations
           </h2>
         </motion.div>

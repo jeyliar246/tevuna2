@@ -94,7 +94,7 @@ export default function Hero() {
             className="text-6xl md:text-8xl lg:text-9xl font-bold mb-8 leading-tight drop-shadow-lg"
           >
             <span className="block text-slate-900 font-extrabold">Smart Solutions</span>
-            <span className="block bg-gradient-to-r from-primary-500 via-accent-500 to-primary-500 bg-clip-text text-transparent bg-[length:200%_auto] animate-shimmer drop-shadow-md">
+            <span className="block text-primary-500 drop-shadow-md">
               Through Insight
             </span>
           </motion.h1>
@@ -112,17 +112,11 @@ export default function Hero() {
           >
             <motion.a
               href="#projects"
-              className="px-8 py-4 bg-gradient-to-r from-primary-500 to-accent-500 text-white font-semibold rounded-lg uppercase tracking-wider relative overflow-hidden group"
+              className="px-8 py-4 bg-primary-500 text-white font-semibold rounded-lg uppercase tracking-wider relative overflow-hidden group hover:bg-primary-600 transition-colors"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
             >
-              <span className="relative z-10">View Our Work</span>
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-accent-500 to-primary-500"
-                initial={{ x: '-100%' }}
-                whileHover={{ x: '0%' }}
-                transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-              />
+              View Our Work
             </motion.a>
             <motion.a
               href="#contact"

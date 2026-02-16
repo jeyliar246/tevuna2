@@ -61,7 +61,7 @@ export default function Contact() {
           >
             Contact
           </motion.span>
-          <h2 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-slate-900 to-slate-600 bg-clip-text text-transparent">
+          <h2 className="text-5xl md:text-6xl font-bold mb-4 text-slate-900">
             Get In Touch
           </h2>
           <p className="text-xl text-slate-600 max-w-2xl mx-auto">
@@ -97,8 +97,8 @@ export default function Contact() {
                     className="flex items-start gap-4 p-6 rounded-xl border border-slate-200 bg-white/80 hover:border-primary-500/50 hover:bg-white transition-all group"
                     whileHover={{ x: 10, scale: 1.02 }}
                   >
-                    <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-primary-500/20 to-accent-500/20 flex items-center justify-center border border-primary-500/30 group-hover:border-primary-500/50 transition-all">
-                      <Icon className="w-6 h-6 text-primary-400" />
+                    <div className="w-12 h-12 rounded-lg bg-primary-500/20 flex items-center justify-center border border-primary-500/30 group-hover:border-primary-500/50 transition-all">
+                      <Icon className="w-6 h-6 text-primary-500" />
                     </div>
                     <div>
                       <h4 className="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-1">
@@ -161,7 +161,7 @@ export default function Contact() {
               <motion.button
                 type="submit"
                 disabled={formStatus === 'sending'}
-                className="w-full px-8 py-4 bg-gradient-to-r from-primary-500 to-accent-500 text-white font-semibold rounded-lg uppercase tracking-wider disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full px-8 py-4 bg-primary-500 text-white font-semibold rounded-lg uppercase tracking-wider hover:bg-primary-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 whileHover={{ scale: formStatus === 'sending' ? 1 : 1.02 }}
                 whileTap={{ scale: formStatus === 'sending' ? 1 : 0.98 }}
               >
