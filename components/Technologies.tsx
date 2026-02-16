@@ -117,10 +117,10 @@ export default function Technologies() {
                   stiffness: 100,
                   damping: 15,
                 }}
-                className="group relative p-6 rounded-2xl border border-slate-200 bg-white/80 backdrop-blur-sm hover:border-primary-500/50 transition-all duration-500"
+                className="group relative p-6 rounded-2xl border border-slate-200 bg-white/80 backdrop-blur-sm hover:border-primary-500/50 transition-all duration-500 text-center md:text-left"
                 whileHover={{ y: -5, scale: 1.02 }}
               >
-                <div className="flex items-center gap-3 mb-4">
+                <div className="flex items-center gap-3 mb-4 justify-center md:justify-start">
                   <div className="w-12 h-12 rounded-lg bg-primary-500/20 flex items-center justify-center border border-primary-500/30 group-hover:border-primary-500/50 transition-all">
                     <Icon className="w-6 h-6 text-primary-500" />
                   </div>
@@ -129,7 +129,7 @@ export default function Technologies() {
                   </h3>
                 </div>
                 
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2 justify-center md:justify-start">
                   {category.technologies.map((tech, techIndex) => (
                     <motion.span
                       key={tech}
