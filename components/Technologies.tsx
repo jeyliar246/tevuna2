@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
-import { Code, Database, Smartphone, BarChart3, Cloud, Palette, Globe, Settings } from 'lucide-react'
+import { Code, Database, Smartphone, BarChart3, Cloud, Palette, Globe, Settings, Brain } from 'lucide-react'
 
 export default function Technologies() {
   const ref = useRef(null)
@@ -75,6 +75,16 @@ export default function Technologies() {
         'Git', 'GitHub', 'GitLab', 'VS Code', 'WebStorm',
         'Postman', 'Jira', 'Confluence', 'Slack', 'Trello'
       ]
+    },
+    {
+      icon: Brain,
+      title: 'AI & Machine Learning',
+      technologies: [
+        'OpenAI GPT', 'Claude AI', 'LLM APIs', 'LangChain', 'TensorFlow',
+        'PyTorch', 'Hugging Face', 'Stable Diffusion', 'Midjourney API',
+        'Anthropic API', 'Google Gemini', 'Azure OpenAI', 'AWS Bedrock',
+        'AI Integration', 'RAG', 'Vector Databases', 'Pinecone', 'Weaviate'
+      ]
     }
   ]
 
@@ -103,7 +113,7 @@ export default function Technologies() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {techCategories.map((category, categoryIndex) => {
             const Icon = category.icon
             return (
