@@ -15,7 +15,7 @@ export default function Projects() {
       category: 'E-Learning Platform',
       description: 'Built with deep understanding of educational needs, this platform delivers strategic learning solutions with intelligent course design and insightful progress analytics.',
       image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80',
-      link: '#',
+      link: '/academy',
     },
     {
       title: 'AllFreshFood',
