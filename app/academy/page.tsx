@@ -160,8 +160,8 @@ export default function AcademyPage() {
               </h1>
               
               <p className="text-xl md:text-2xl text-slate-600 mb-12 leading-relaxed">
-                Join the next generation of tech professionals. Learn cutting-edge technologies 
-                from industry experts and build real-world projects that matter.
+                Join the next generation of tech professionals. Learn cutting edge technologies 
+                from industry experts and build real world projects that matter.
               </p>
 
               {/* Countdown Timer */}
@@ -208,7 +208,7 @@ export default function AcademyPage() {
             <div className="grid md:grid-cols-3 gap-8 mb-16">
               {[
                 { icon: BookOpen, title: 'Comprehensive Curriculum', desc: 'Learn the latest technologies and best practices from industry experts' },
-                { icon: Users, title: 'Expert Instructors', desc: 'Learn from professionals with years of real-world experience' },
+                { icon: Users, title: 'Expert Instructors', desc: 'Learn from professionals with years of real world experience' },
                 { icon: Award, title: 'Certification', desc: 'Receive recognized certificates upon course completion' }
               ].map((feature, index) => {
                 const Icon = feature.icon
@@ -241,14 +241,15 @@ export default function AcademyPage() {
                 Why Choose Tevuna Academy?
               </h2>
               <p className="text-lg text-slate-600 mb-8 leading-relaxed">
-                At Tevuna Academy, we don't just teach you how to code—we teach you how to think strategically. 
-                Our curriculum is designed with deep understanding of industry needs, combining theoretical knowledge 
-                with hands-on projects that solve real-world problems.
+                At Tevuna Academy, we don't just teach you how to code. We teach you how to think strategically. 
+                Our curriculum is designed with deep understanding of what the industry actually needs. We combine 
+                theoretical knowledge with hands on projects that solve real world problems you'll face in your career.
               </p>
               <p className="text-lg text-slate-600 leading-relaxed">
-                Whether you're starting your tech journey or looking to upskill, our comprehensive courses will 
-                equip you with the tools, knowledge, and strategic thinking needed to excel in today's competitive 
-                tech landscape.
+                Whether you're just starting your tech journey or looking to level up your skills, our courses will 
+                give you the tools, knowledge, and strategic thinking you need to stand out. We believe in learning by 
+                doing, so every course includes real projects you can actually add to your portfolio and show to 
+                potential employers.
               </p>
             </motion.div>
           </div>

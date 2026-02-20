@@ -84,7 +84,7 @@ export default function Projects() {
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    View Project
+                    {project.title === 'Tevuna Online Academy' ? 'Join Now' : 'View Project'}
                     {project.external && <ExternalLink className="w-4 h-4" />}
                   </motion.a>
                 </motion.div>
