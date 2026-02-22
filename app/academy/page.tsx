@@ -19,9 +19,9 @@ export default function AcademyPage() {
 
   useEffect(() => {
     setMounted(true)
-    // Set countdown to 1 month from now
+    // Set countdown to 3 months from now
     const targetDate = new Date()
-    targetDate.setMonth(targetDate.getMonth() + 1)
+    targetDate.setMonth(targetDate.getMonth() + 3)
     
     const updateCountdown = () => {
       const now = new Date().getTime()
