@@ -21,6 +21,9 @@ export default function AcademyPage() {
   const [formStatus, setFormStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle')
   const [openFAQ, setOpenFAQ] = useState<number | null>(0)
   const [codingAnimation, setCodingAnimation] = useState<any>(null)
+  const [quizCurrentQuestion, setQuizCurrentQuestion] = useState(0)
+  const [quizAnswers, setQuizAnswers] = useState<number[]>([])
+  const [quizResults, setQuizResults] = useState<{ category: string; percentage: number }[] | null>(null)
 
   useEffect(() => {
     setMounted(true)
@@ -134,6 +137,221 @@ export default function AcademyPage() {
       ]
     }
   ]
+
+  // Quiz Questions
+  const quizQuestions = [
+    {
+      question: "What excites you most about technology?",
+      options: [
+        { text: "Building beautiful user interfaces", category: "Design & UI/UX" },
+        { text: "Creating mobile apps that people use daily", category: "Mobile Development" },
+        { text: "Developing web applications and websites", category: "Web Development" },
+        { text: "Working with data and analytics", category: "Data & Analytics" },
+        { text: "Building intelligent systems with AI", category: "AI & Machine Learning" },
+        { text: "Managing infrastructure and deployment", category: "DevOps & Cloud" }
+      ]
+    },
+    {
+      question: "What's your preferred work environment?",
+      options: [
+        { text: "Creative and visual design tools", category: "Design & UI/UX" },
+        { text: "Mobile development frameworks", category: "Mobile Development" },
+        { text: "Web browsers and development tools", category: "Web Development" },
+        { text: "Data visualization and analysis tools", category: "Data & Analytics" },
+        { text: "AI models and machine learning platforms", category: "AI & Machine Learning" },
+        { text: "Cloud platforms and servers", category: "DevOps & Cloud" }
+      ]
+    },
+    {
+      question: "Which problem would you most like to solve?",
+      options: [
+        { text: "Making apps more user-friendly and intuitive", category: "Design & UI/UX" },
+        { text: "Creating apps for smartphones and tablets", category: "Mobile Development" },
+        { text: "Building scalable web platforms", category: "Web Development" },
+        { text: "Extracting insights from large datasets", category: "Data & Analytics" },
+        { text: "Automating tasks with artificial intelligence", category: "AI & Machine Learning" },
+        { text: "Ensuring systems run smoothly and efficiently", category: "DevOps & Cloud" }
+      ]
+    },
+    {
+      question: "What type of projects interest you?",
+      options: [
+        { text: "Design systems and user experience", category: "Design & UI/UX" },
+        { text: "Native and cross-platform mobile apps", category: "Mobile Development" },
+        { text: "E-commerce sites and web platforms", category: "Web Development" },
+        { text: "Business intelligence dashboards", category: "Data & Analytics" },
+        { text: "Chatbots and AI-powered applications", category: "AI & Machine Learning" },
+        { text: "Cloud infrastructure and automation", category: "DevOps & Cloud" }
+      ]
+    },
+    {
+      question: "How do you prefer to learn?",
+      options: [
+        { text: "Through visual design and prototyping", category: "Design & UI/UX" },
+        { text: "By building mobile apps step by step", category: "Mobile Development" },
+        { text: "Creating websites and web applications", category: "Web Development" },
+        { text: "Analyzing data and creating reports", category: "Data & Analytics" },
+        { text: "Experimenting with AI models", category: "AI & Machine Learning" },
+        { text: "Setting up servers and infrastructure", category: "DevOps & Cloud" }
+      ]
+    },
+    {
+      question: "What's your ideal end result?",
+      options: [
+        { text: "Beautiful, intuitive user interfaces", category: "Design & UI/UX" },
+        { text: "Mobile apps available on app stores", category: "Mobile Development" },
+        { text: "Websites accessible to millions", category: "Web Development" },
+        { text: "Data-driven business decisions", category: "Data & Analytics" },
+        { text: "Intelligent automated systems", category: "AI & Machine Learning" },
+        { text: "Reliable, scalable infrastructure", category: "DevOps & Cloud" }
+      ]
+    },
+    {
+      question: "Which tool would you most like to master?",
+      options: [
+        { text: "Figma, Adobe XD, or Sketch", category: "Design & UI/UX" },
+        { text: "React Native, Flutter, or Swift", category: "Mobile Development" },
+        { text: "React, Next.js, or Node.js", category: "Web Development" },
+        { text: "SQL, Python, or Tableau", category: "Data & Analytics" },
+        { text: "TensorFlow, PyTorch, or OpenAI APIs", category: "AI & Machine Learning" },
+        { text: "AWS, Docker, or Kubernetes", category: "DevOps & Cloud" }
+      ]
+    },
+    {
+      question: "What motivates you in tech?",
+      options: [
+        { text: "Creating visually appealing experiences", category: "Design & UI/UX" },
+        { text: "Reaching users on their mobile devices", category: "Mobile Development" },
+        { text: "Building the next big web platform", category: "Web Development" },
+        { text: "Discovering patterns in data", category: "Data & Analytics" },
+        { text: "Pushing the boundaries of AI", category: "AI & Machine Learning" },
+        { text: "Building robust, scalable systems", category: "DevOps & Cloud" }
+      ]
+    },
+    {
+      question: "What's your favorite part of development?",
+      options: [
+        { text: "Designing user flows and interfaces", category: "Design & UI/UX" },
+        { text: "Testing apps on different devices", category: "Mobile Development" },
+        { text: "Seeing websites come to life", category: "Web Development" },
+        { text: "Creating charts and visualizations", category: "Data & Analytics" },
+        { text: "Training and fine-tuning AI models", category: "AI & Machine Learning" },
+        { text: "Optimizing performance and reliability", category: "DevOps & Cloud" }
+      ]
+    },
+    {
+      question: "Which industry appeals to you most?",
+      options: [
+        { text: "Creative agencies and design studios", category: "Design & UI/UX" },
+        { text: "Mobile-first startups", category: "Mobile Development" },
+        { text: "SaaS companies and web platforms", category: "Web Development" },
+        { text: "Data-driven enterprises", category: "Data & Analytics" },
+        { text: "AI and tech innovation companies", category: "AI & Machine Learning" },
+        { text: "Cloud infrastructure providers", category: "DevOps & Cloud" }
+      ]
+    },
+    {
+      question: "How do you approach problem-solving?",
+      options: [
+        { text: "Through user research and design thinking", category: "Design & UI/UX" },
+        { text: "By building and iterating on mobile apps", category: "Mobile Development" },
+        { text: "Creating web solutions from scratch", category: "Web Development" },
+        { text: "Analyzing data to find solutions", category: "Data & Analytics" },
+        { text: "Using AI to automate and optimize", category: "AI & Machine Learning" },
+        { text: "Architecting scalable systems", category: "DevOps & Cloud" }
+      ]
+    },
+    {
+      question: "What type of team would you enjoy?",
+      options: [
+        { text: "Design and creative teams", category: "Design & UI/UX" },
+        { text: "Mobile app development teams", category: "Mobile Development" },
+        { text: "Full-stack web development teams", category: "Web Development" },
+        { text: "Data science and analytics teams", category: "Data & Analytics" },
+        { text: "AI research and development teams", category: "AI & Machine Learning" },
+        { text: "DevOps and infrastructure teams", category: "DevOps & Cloud" }
+      ]
+    },
+    {
+      question: "What's your learning style?",
+      options: [
+        { text: "Visual and hands-on design work", category: "Design & UI/UX" },
+        { text: "Building mobile apps from tutorials", category: "Mobile Development" },
+        { text: "Following web development courses", category: "Web Development" },
+        { text: "Working with datasets and examples", category: "Data & Analytics" },
+        { text: "Experimenting with AI models", category: "AI & Machine Learning" },
+        { text: "Setting up and configuring systems", category: "DevOps & Cloud" }
+      ]
+    },
+    {
+      question: "What excites you about the future of tech?",
+      options: [
+        { text: "New design trends and tools", category: "Design & UI/UX" },
+        { text: "Advancements in mobile technology", category: "Mobile Development" },
+        { text: "Evolution of web platforms", category: "Web Development" },
+        { text: "Big data and analytics innovations", category: "Data & Analytics" },
+        { text: "Breakthroughs in AI and ML", category: "AI & Machine Learning" },
+        { text: "Cloud computing advancements", category: "DevOps & Cloud" }
+      ]
+    },
+    {
+      question: "What would make you feel accomplished?",
+      options: [
+        { text: "Designing an award-winning interface", category: "Design & UI/UX" },
+        { text: "Having your app downloaded by thousands", category: "Mobile Development" },
+        { text: "Building a popular web application", category: "Web Development" },
+        { text: "Providing insights that drive decisions", category: "Data & Analytics" },
+        { text: "Creating an AI that solves real problems", category: "AI & Machine Learning" },
+        { text: "Building infrastructure that scales globally", category: "DevOps & Cloud" }
+      ]
+    }
+  ]
+
+  // Quiz handlers
+  const handleQuizAnswer = (answerIndex: number) => {
+    const newAnswers = [...quizAnswers, answerIndex]
+    setQuizAnswers(newAnswers)
+
+    if (quizCurrentQuestion < quizQuestions.length - 1) {
+      setQuizCurrentQuestion(quizCurrentQuestion + 1)
+    } else {
+      // Calculate results
+      calculateQuizResults(newAnswers)
+    }
+  }
+
+  const calculateQuizResults = (answers: number[]) => {
+    const categoryScores: { [key: string]: number } = {
+      'Web Development': 0,
+      'Mobile Development': 0,
+      'AI & Machine Learning': 0,
+      'Data & Analytics': 0,
+      'DevOps & Cloud': 0,
+      'Design & UI/UX': 0
+    }
+
+    answers.forEach((answerIndex, questionIndex) => {
+      const selectedOption = quizQuestions[questionIndex].options[answerIndex]
+      categoryScores[selectedOption.category] = (categoryScores[selectedOption.category] || 0) + 1
+    })
+
+    const totalQuestions = answers.length
+    const results = Object.entries(categoryScores)
+      .map(([category, score]) => ({
+        category,
+        percentage: Math.round((score / totalQuestions) * 100)
+      }))
+      .sort((a, b) => b.percentage - a.percentage)
+      .slice(0, 3)
+
+    setQuizResults(results)
+  }
+
+  const resetQuiz = () => {
+    setQuizCurrentQuestion(0)
+    setQuizAnswers([])
+    setQuizResults(null)
+  }
 
   if (!mounted) {
     return null
@@ -391,6 +609,186 @@ export default function AcademyPage() {
                 </div>
               </motion.div>
             </div>
+          </div>
+        </section>
+
+        {/* Know Your Tech Quiz Section */}
+        <section className="py-20 bg-white/50 relative overflow-hidden">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center mb-16"
+            >
+              <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+                Know Your{' '}
+                <span className="text-primary-500">Tech</span>
+              </h2>
+              <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+                Take our personality quiz to discover which tech course is the perfect fit for you. 
+                Answer 15 questions and get personalized recommendations.
+              </p>
+            </motion.div>
+
+            {!quizResults ? (
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="max-w-3xl mx-auto"
+              >
+                {/* Progress Bar */}
+                <div className="mb-8">
+                  <div className="flex justify-between items-center mb-2">
+                    <span className="text-sm font-semibold text-slate-600">
+                      Question {quizCurrentQuestion + 1} of {quizQuestions.length}
+                    </span>
+                    <span className="text-sm font-semibold text-primary-500">
+                      {Math.round(((quizCurrentQuestion + 1) / quizQuestions.length) * 100)}%
+                    </span>
+                  </div>
+                  <div className="w-full h-3 bg-slate-200 rounded-full overflow-hidden">
+                    <motion.div
+                      initial={{ width: 0 }}
+                      animate={{ width: `${((quizCurrentQuestion + 1) / quizQuestions.length) * 100}%` }}
+                      transition={{ duration: 0.3 }}
+                      className="h-full bg-gradient-to-r from-primary-500 to-primary-600 rounded-full"
+                    />
+                  </div>
+                </div>
+
+                {/* Question Card */}
+                <motion.div
+                  key={quizCurrentQuestion}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -20 }}
+                  className="bg-white rounded-2xl shadow-xl p-8 md:p-12 border border-slate-200"
+                >
+                  <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-8">
+                    {quizQuestions[quizCurrentQuestion].question}
+                  </h3>
+
+                  <div className="space-y-4">
+                    {quizQuestions[quizCurrentQuestion].options.map((option, index) => (
+                      <motion.button
+                        key={index}
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        onClick={() => handleQuizAnswer(index)}
+                        className="w-full text-left p-6 rounded-xl border-2 border-slate-200 hover:border-primary-500 hover:bg-primary-50 transition-all duration-200 bg-white"
+                      >
+                        <span className="text-lg text-slate-700 font-medium">{option.text}</span>
+                      </motion.button>
+                    ))}
+                  </div>
+                </motion.div>
+              </motion.div>
+            ) : (
+              /* Results Section */
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="max-w-4xl mx-auto"
+              >
+                <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 border border-slate-200">
+                  <div className="text-center mb-12">
+                    <motion.div
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      transition={{ type: 'spring', stiffness: 200 }}
+                      className="w-20 h-20 mx-auto mb-6 rounded-full bg-primary-500/20 flex items-center justify-center border-4 border-primary-500"
+                    >
+                      <CheckCircle2 className="w-10 h-10 text-primary-500" />
+                    </motion.div>
+                    <h3 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+                      Your Perfect Tech Match!
+                    </h3>
+                    <p className="text-lg text-slate-600">
+                      Based on your answers, here are the courses that best fit your personality and interests.
+                    </p>
+                  </div>
+
+                  <div className="space-y-6">
+                    {quizResults.map((result, index) => {
+                      const courseCategory = courses.find(c => c.category === result.category)
+                      const rankLabels = ['1st Choice', '2nd Choice', '3rd Choice']
+                      const rankColors = [
+                        'from-primary-500 to-primary-600',
+                        'from-pink-500 to-pink-600',
+                        'from-purple-500 to-purple-600'
+                      ]
+
+                      return (
+                        <motion.div
+                          key={result.category}
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: index * 0.1 }}
+                          className="border-2 border-slate-200 rounded-xl p-6 hover:border-primary-300 transition-all"
+                        >
+                          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                            <div className="flex-1">
+                              <div className="flex items-center gap-3 mb-3">
+                                <span className={`px-4 py-1 rounded-full text-white text-sm font-bold bg-gradient-to-r ${rankColors[index]}`}>
+                                  {rankLabels[index]}
+                                </span>
+                                <h4 className="text-2xl font-bold text-slate-900">{result.category}</h4>
+                              </div>
+                              <div className="mb-4">
+                                <div className="flex items-center justify-between mb-2">
+                                  <span className="text-sm font-semibold text-slate-600">Best Fit</span>
+                                  <span className="text-2xl font-bold text-primary-500">{result.percentage}%</span>
+                                </div>
+                                <div className="w-full h-4 bg-slate-200 rounded-full overflow-hidden">
+                                  <motion.div
+                                    initial={{ width: 0 }}
+                                    animate={{ width: `${result.percentage}%` }}
+                                    transition={{ duration: 1, delay: index * 0.2 }}
+                                    className={`h-full bg-gradient-to-r ${rankColors[index]} rounded-full`}
+                                  />
+                                </div>
+                              </div>
+                              {courseCategory && (
+                                <div className="mt-4">
+                                  <p className="text-sm font-semibold text-slate-600 mb-2">Courses in this category:</p>
+                                  <div className="flex flex-wrap gap-2">
+                                    {courseCategory.courses.slice(0, 3).map((course, courseIndex) => (
+                                      <span
+                                        key={courseIndex}
+                                        className="px-3 py-1 bg-slate-100 text-slate-700 text-sm rounded-full border border-slate-200"
+                                      >
+                                        {course}
+                                      </span>
+                                    ))}
+                                    {courseCategory.courses.length > 3 && (
+                                      <span className="px-3 py-1 bg-slate-100 text-slate-700 text-sm rounded-full border border-slate-200">
+                                        +{courseCategory.courses.length - 3} more
+                                      </span>
+                                    )}
+                                  </div>
+                                </div>
+                              )}
+                            </div>
+                          </div>
+                        </motion.div>
+                      )
+                    })}
+                  </div>
+
+                  <div className="mt-12 text-center">
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      onClick={resetQuiz}
+                      className="px-8 py-4 bg-primary-500 text-white rounded-xl font-semibold text-lg hover:bg-primary-600 transition-colors shadow-lg"
+                    >
+                      Take Quiz Again
+                    </motion.button>
+                  </div>
+                </div>
+              </motion.div>
+            )}
           </div>
         </section>
 
