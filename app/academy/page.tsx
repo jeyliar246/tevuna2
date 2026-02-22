@@ -150,31 +150,13 @@ export default function AcademyPage() {
         {/* Hero Section */}
         <section className="relative pt-32 pb-20 overflow-hidden">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              {/* Left Side - Lottie Animation */}
-              {codingAnimation && (
-                <motion.div
-                  initial={{ opacity: 0, x: -50 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ type: 'spring', stiffness: 100, delay: 0.3 }}
-                  className="hidden md:block"
-                >
-                  <div className="relative">
-                    <Lottie 
-                      animationData={codingAnimation} 
-                      loop={true}
-                      className="w-full h-auto max-w-lg mx-auto"
-                    />
-                  </div>
-                </motion.div>
-              )}
-
-              {/* Right Side - Content */}
+            <div className="max-w-4xl mx-auto">
+              {/* Content - Centered */}
               <motion.div
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ type: 'spring', stiffness: 100 }}
-                className="text-center md:text-left"
+                className="text-center"
               >
                 <motion.span
                   initial={{ opacity: 0, scale: 0.8 }}
@@ -229,23 +211,23 @@ export default function AcademyPage() {
                     </div>
                   </div>
                 </motion.div>
-              </motion.div>
 
-              {/* Mobile Lottie Animation */}
-              {codingAnimation && (
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.6 }}
-                  className="md:hidden mt-8"
-                >
-                  <Lottie 
-                    animationData={codingAnimation} 
-                    loop={true}
-                    className="w-full h-auto max-w-md mx-auto"
-                  />
-                </motion.div>
-              )}
+                {/* Lottie Animation - Below Timer */}
+                {codingAnimation && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.6, type: 'spring', stiffness: 100 }}
+                    className="mt-12"
+                  >
+                    <Lottie 
+                      animationData={codingAnimation} 
+                      loop={true}
+                      className="w-full h-auto max-w-4xl mx-auto"
+                    />
+                  </motion.div>
+                )}
+              </motion.div>
             </div>
           </div>
         </section>
