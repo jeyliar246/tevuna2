@@ -297,7 +297,7 @@ export default function AcademyPage() {
                 transition={{ type: 'spring', stiffness: 100 }}
                 className="relative"
               >
-                <div className="relative aspect-[4/5] rounded-2xl overflow-hidden">
+                <div className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden">
                   <div 
                     className="absolute inset-0 bg-cover bg-center"
                     style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80)' }}
