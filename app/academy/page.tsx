@@ -506,33 +506,14 @@ export default function AcademyPage() {
         {/* About Us Section with Statistics */}
         <section className="py-20 relative overflow-hidden">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              {/* Left Side - Image */}
+            <div className="max-w-4xl mx-auto">
+              {/* Content - Centered */}
               <motion.div
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ type: 'spring', stiffness: 100 }}
-                className="relative"
-              >
-                <div className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden">
-                  <div 
-                    className="absolute inset-0 bg-cover bg-center"
-                    style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80)' }}
-                  />
-                  {/* Decorative shapes */}
-                  <div className="absolute -top-10 -left-10 w-64 h-64 bg-purple-200/30 rounded-full blur-3xl" />
-                  <div className="absolute -bottom-10 -right-10 w-48 h-48 bg-yellow-200/30 rounded-full blur-3xl" />
-                </div>
-              </motion.div>
-
-              {/* Right Side - Content */}
-              <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ type: 'spring', stiffness: 100 }}
-                className="space-y-6"
+                className="space-y-6 text-center"
               >
                 <motion.span
                   initial={{ opacity: 0, scale: 0.8 }}
@@ -548,13 +529,13 @@ export default function AcademyPage() {
                   <span className="text-primary-500">With Us</span>
                 </h2>
 
-                <p className="text-lg text-slate-600 leading-relaxed">
+                <p className="text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto">
                   Discover your tech potential with us! Join our exciting courses at Tevuna Academy 
                   for a fun and strategic tech learning adventure.
                 </p>
 
                 {/* Statistics Cards */}
-                <div className="grid grid-cols-3 gap-4 pt-8 border-t border-slate-200">
+                <div className="grid grid-cols-3 gap-4 pt-8 border-t border-slate-200 max-w-2xl mx-auto">
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
