@@ -20,6 +20,7 @@ export default function Navbar() {
     { href: '#about', label: 'About' },
     { href: '#projects', label: 'Projects' },
     { href: '#gallery', label: 'Gallery' },
+    { href: '/academy', label: 'Tevuna Academy' },
     { href: '#contact', label: 'Contact' },
   ]
 
