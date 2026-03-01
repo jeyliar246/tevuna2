@@ -37,7 +37,11 @@ export default function Footer() {
             <div className="mb-4">
               <img
                 src="/assets/tevunalogo2.png"
-                alt="Tevuna Logo"
+                alt="Tevuna - Tech Solutions Agency Logo"
+                title="Tevuna - Tech Solutions Agency"
+                width={200}
+                height={80}
+                loading="lazy"
                 className="h-16 w-auto object-contain"
               />
             </div>

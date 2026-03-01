@@ -54,7 +54,9 @@ export default function Gallery() {
               className="group relative aspect-square rounded-xl overflow-hidden border border-slate-200 cursor-pointer"
               whileHover={{ scale: 1.05, rotate: 2, zIndex: 10 }}
             >
-              <div 
+              <div
+                role="img"
+                aria-label={`${item.title} - Insight-driven creation`}
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
                 style={{ backgroundImage: `url(${item.image})` }}
               />

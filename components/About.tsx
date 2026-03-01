@@ -26,7 +26,11 @@ export default function About() {
             className="relative"
           >
             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border-2 border-primary-500/30 group">
-              <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80')] bg-cover bg-center transition-transform duration-500 group-hover:scale-105" />
+              <div
+                role="img"
+                aria-label="Tevuna team collaborating on strategic tech solutions"
+                className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80')] bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+              />
               <motion.div
                 className="absolute inset-0 border-2 border-primary-500/50 rounded-2xl"
                 animate={{

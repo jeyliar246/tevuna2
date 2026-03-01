@@ -1,120 +1,266 @@
-# Tevuna Agency Website
+# Tevuna – Tech Solutions Agency
 
-A modern, futuristic website for Tevuna - a tech solution agency specializing in web development, mobile apps, and tech solutions.
+Tevuna embodies deep understanding and strategic thinking. We craft intelligent, insight-driven experiences that solve complex challenges and drive meaningful results.
 
-## 🚀 Features
+**Live site:** [https://www.tevuna.co.uk](https://www.tevuna.co.uk)
 
-- 🎨 **Bold Futuristic Design** - Completely redesigned with a modern, tech-forward aesthetic
-- ⚡ **Next.js 14** - Built with the latest Next.js and React
-- 🎭 **Framer Motion** - Smooth, spring-based animations throughout
-- 🎨 **Tailwind CSS** - Utility-first CSS framework for rapid styling
-- 📱 **Fully Responsive** - Optimized for all devices
-- 🌈 **Dynamic Animations** - Slide-in, scale, rotate, and spring physics animations
-- 🎯 **Modern Typography** - Inter and JetBrains Mono fonts
-- 💫 **Mesh Gradients & Grid Patterns** - Unique background effects
-- 📧 **Contact Form** - Interactive contact form with validation
-- 🔗 **WhatsApp Integration** - Floating WhatsApp button for quick contact
+---
 
-## 🎨 Design Highlights
+## Tech Stack
 
-### Theme
-- **Color Scheme**: Dark theme with neon cyan/blue and purple/magenta accents
-- **Typography**: Inter (body) and JetBrains Mono (tech elements)
-- **Backgrounds**: Mesh gradients, grid patterns, and geometric shapes
-- **Animations**: Spring physics, elastic effects, slide-in from multiple directions
-- **Transitions**: Smooth spring-based transitions with custom easing
+- **Framework:** Next.js 14 (React)
+- **Styling:** Tailwind CSS
+- **Animation:** Framer Motion
+- **Icons:** Lucide React
+- **Lottie:** lottie-react
 
-### Key Differences from Previous Design
-- **Theme**: Changed from elegant dark to bold futuristic
-- **Fonts**: Replaced Space Grotesk/DM Serif Display/Poppins with Inter/JetBrains Mono
-- **Animations**: Spring physics instead of simple fade/scale
-- **Backgrounds**: Mesh gradients and grid patterns instead of radial gradients
-- **Color Palette**: Bright neon accents instead of subtle gradients
-- **Layout**: More geometric and structured approach
+---
 
-## 🛠️ Getting Started
+## Implemented
+
+### Pages & Features
+- **Home** – Hero, About, Projects, Services, Technologies, Gallery, Contact
+- **Tevuna Academy** (`/academy`) – Countdown timer, course list, “Know Your Tech” quiz, FAQ accordion, blog-style posts, waitlist/registration form
+- **Responsive layout** – Mobile-first with breakpoints for tablet and desktop
+- **Light theme** – Slate palette, readable text and borders
+- **WhatsApp float** – Quick contact link
+- **Netlify deployment** – Build and deploy config in `netlify.toml`
+
+### SEO (On-Site)
+- **Sitemap** – `/sitemap.xml` for Home and Academy
+- **robots.txt** – `/robots.txt`, allows crawling, links to sitemap
+- **Meta tags** – Title, description, keywords, Open Graph, Twitter Card
+- **Canonical URLs** – Home and Academy
+- **JSON-LD** – Organization, WebSite (home), EducationalOrganization (academy)
+- **Locale** – en-GB for UK
+- **Image SEO** – Alt text, `aria-label`, `title` on key images
+
+### Content & Assets
+- Logo in header and footer
+- Lottie animation on Academy page
+- Tech stack icons and categories
+- Gallery and project cards with images
+
+---
+
+## What's Next
+
+### Search Console & Webmaster Tools
+- Add and verify site in [Google Search Console](https://search.google.com/search-console)
+- Add and verify site in [Bing Webmaster Tools](https://www.bing.com/webmasters)
+- Submit sitemap URL: `https://www.tevuna.co.uk/sitemap.xml`
+- Request indexing for key URLs
+
+### Forms & Backend
+- Connect Academy waitlist/registration form to an API or service (e.g. Netlify Forms, Formspree, Airtable)
+- Connect Contact form to email or CRM
+
+### Analytics & Tracking
+- Add Google Analytics 4 (GA4)
+- Add Bing UET if using Bing Ads
+- Track conversions (e.g. form submissions, Academy signups)
+
+### Content & Marketing
+- Add real blog posts or course content to Academy
+- Implement newsletter signup
+- Add case studies or testimonials on Projects/About
+
+### Performance & UX
+- Add a dedicated OG image (1200×630) for social sharing
+- Add favicon variants (e.g. 32×32, 180×180)
+- Consider lazy loading for below-the-fold images
+- Add structured breadcrumbs for Academy (JSON-LD)
+
+### Future Pages
+- Dedicated About page
+- Services detail pages
+- Blog or resources section
+- Privacy policy and terms of use (for forms)
+
+---
+
+## Getting Started
 
 ### Prerequisites
 
-- Node.js 18+ 
+- Node.js 18+
 - npm or yarn
 
 ### Installation
 
-1. Install dependencies:
 ```bash
 npm install
 ```
 
-2. Start the development server:
+### Development
+
 ```bash
 npm run dev
 ```
 
-3. Open your browser and navigate to `http://localhost:3000`
+Runs at [http://localhost:3000](http://localhost:3000)
 
-### Build for Production
+### Build
 
 ```bash
 npm run build
+```
+
+### Production
+
+```bash
 npm start
 ```
 
-The built files will be in the `.next` directory.
+### Lint
 
-## 📁 Project Structure
+```bash
+npm run lint
+```
+
+---
+
+## Project Structure
 
 ```
-tevuna/
 ├── app/
-│   ├── layout.tsx          # Root layout with fonts
-│   ├── page.tsx            # Home page
-│   └── globals.css          # Global styles
-├── components/
-│   ├── Navbar.tsx          # Navigation component
-│   ├── Hero.tsx            # Hero section
-│   ├── About.tsx           # About section
-│   ├── Projects.tsx        # Projects showcase
-│   ├── Services.tsx        # Services section
-│   ├── Gallery.tsx         # Gallery section
-│   ├── Contact.tsx         # Contact form
-│   ├── Footer.tsx          # Footer
-│   └── WhatsAppFloat.tsx   # Floating WhatsApp button
-├── src/
-│   └── assets/             # Images and assets
-├── package.json
-├── tailwind.config.js      # Tailwind configuration
-├── next.config.js          # Next.js configuration
-└── tsconfig.json           # TypeScript configuration
+│   ├── layout.tsx       # Root layout, metadata, JSON-LD
+│   ├── page.tsx         # Homepage
+│   ├── sitemap.ts       # Sitemap generation
+│   ├── robots.ts        # robots.txt generation
+│   └── academy/         # Tevuna Academy page
+│       ├── layout.tsx   # Academy metadata, JSON-LD
+│       └── page.tsx
+├── components/          # UI components
+├── lib/
+│   └── seo.ts           # SEO config and snippets
+└── public/
+    └── assets/          # Images, Lottie, logo
 ```
 
-## 🎯 Technologies Used
+---
 
-- **Next.js 14** - React framework
-- **React 18** - UI library
-- **TypeScript** - Type safety
-- **Tailwind CSS** - Utility-first CSS
-- **Framer Motion** - Animation library
-- **Lucide React** - Icon library
+## Further Steps: Google Search Console
 
-## 📝 Pages
+### 1. Add Your Property
 
-- **Home** (`/`) - Hero, About, Projects, Services, Gallery, and Contact sections
+1. Go to [Google Search Console](https://search.google.com/search-console)
+2. Click **Add property**
+3. Choose **URL prefix** and enter: `https://www.tevuna.co.uk`
 
-## 🎨 Customization
+### 2. Verify Ownership
 
-### Colors
-Edit `tailwind.config.js` to customize the color scheme:
-- `primary` - Main brand color (cyan/blue)
-- `accent` - Accent color (purple/magenta)
-- `dark` - Dark theme colors
+Pick one method:
 
-### Animations
-Modify animation variants in components using Framer Motion's animation props.
+**DNS (recommended)**
 
-### Fonts
-Change fonts in `app/layout.tsx` and update `tailwind.config.js`.
+- Add a TXT record at your domain host:
+  - Host: `@` or `www`
+  - Value: `google-site-verification=XXXXXXXXXX`
 
-## 📄 License
+**HTML file**
 
-© 2024 Tevuna. All rights reserved.
+- Download the verification file (e.g. `googleXXXXXXXX.html`)
+- Put it in `public/` (e.g. `public/googleXXXXXXXX.html`)
+- Ensure it’s reachable at `https://www.tevuna.co.uk/googleXXXXXXXX.html`
+
+**HTML meta tag**
+
+- Add a `<meta name="google-site-verification" content="XXXX" />` in `app/layout.tsx` in the metadata `other` field
+
+### 3. Submit Sitemap
+
+1. In Search Console, open **Sitemaps**
+2. Add: `https://www.tevuna.co.uk/sitemap.xml`
+3. Click **Submit**
+
+### 4. Request Indexing (Optional)
+
+1. Go to **URL Inspection**
+2. Enter `https://www.tevuna.co.uk` or `https://www.tevuna.co.uk/academy`
+3. Click **Request indexing** for new or updated pages
+
+### 5. Add a Second Property (Optional)
+
+- Also add `https://tevuna.co.uk` (without `www`) if users can reach the site that way
+- Set a 301 redirect from one to the other
+
+---
+
+## Further Steps: Bing Webmaster Tools
+
+### 1. Add Your Site
+
+1. Go to [Bing Webmaster Tools](https://www.bing.com/webmasters)
+2. Sign in with a Microsoft account
+3. Click **Add a site**
+4. Enter: `https://www.tevuna.co.uk`
+
+### 2. Verify Ownership
+
+**Import from Google Search Console**
+
+- If the site is already in GSC, choose **Import from Google Search Console**
+- Connect with Google and select the property
+
+**Or use manual verification**
+
+**XML file**
+
+- Download `BingSiteAuth.xml` from Bing
+- Put it in `public/BingSiteAuth.xml`
+- Ensure it’s reachable at `https://www.tevuna.co.uk/BingSiteAuth.xml`
+
+**Meta tag**
+
+- Add `<meta name="msvalidate.01" content="XXXXXXXXXX" />` to your site’s `<head>`
+
+**CNAME**
+
+- Add a CNAME record:
+  - Name: value given by Bing
+  - Value: the Bing verification host
+
+### 3. Submit Sitemap
+
+1. Open **Sitemaps**
+2. Submit: `https://www.tevuna.co.uk/sitemap.xml`
+
+### 4. URL Submission API (Optional)
+
+- Use Bing’s URL Submission API for faster indexing of new or updated pages
+
+---
+
+## SEO Checklist Summary
+
+| Task | Google Search Console | Bing Webmaster Tools |
+|------|------------------------|----------------------|
+| Add property | ✅ | ✅ |
+| Verify ownership | ✅ | ✅ |
+| Submit sitemap | ✅ | ✅ |
+| Check indexing | ✅ | ✅ |
+| Monitor coverage | ✅ | ✅ |
+| Review mobile usability | ✅ | ✅ |
+
+---
+
+## Environment Variables
+
+| Variable | Description | Example |
+|----------|-------------|---------|
+| `NEXT_PUBLIC_SITE_URL` | Site base URL (optional) | `https://www.tevuna.co.uk` |
+
+Default is `https://www.tevuna.co.uk` in `lib/seo.ts`.
+
+---
+
+## Deployment
+
+Configured for Netlify (`netlify.toml` present). Build command and publish directory are set in that file.
+
+---
+
+## License
+
+Private – © Tevuna. All rights reserved.

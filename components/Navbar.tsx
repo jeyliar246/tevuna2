@@ -45,7 +45,10 @@ export default function Navbar() {
           >
             <img
               src="/assets/tevunalogo2.png"
-              alt="Tevuna Logo"
+              alt="Tevuna - Tech Solutions Agency Logo"
+              title="Tevuna - Tech Solutions Agency"
+              width={200}
+              height={80}
               className="h-16 md:h-20 w-auto object-contain"
             />
           </motion.a>

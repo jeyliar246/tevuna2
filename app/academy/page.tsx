@@ -801,7 +801,9 @@ export default function AcademyPage() {
                 className="relative hidden md:block"
               >
                 <div className="relative aspect-[4/5] rounded-2xl overflow-hidden">
-                  <div 
+                  <div
+                    role="img"
+                    aria-label="Tevuna Academy students learning together"
                     className="absolute inset-0 bg-cover bg-center"
                     style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80)' }}
                   />
@@ -915,7 +917,9 @@ export default function AcademyPage() {
                   >
                     <div className="grid md:grid-cols-2 gap-0">
                       <div className="relative aspect-square">
-                        <div 
+                        <div
+                          role="img"
+                          aria-label={`${post.title} - Tevuna Academy blog post`}
                           className="absolute inset-0 bg-cover bg-center"
                           style={{ backgroundImage: `url(${post.image})` }}
                         />
@@ -984,7 +988,9 @@ export default function AcademyPage() {
                       className="flex gap-4 cursor-pointer group"
                     >
                       <div className="w-20 h-20 rounded-lg overflow-hidden flex-shrink-0">
-                        <div 
+                        <div
+                          role="img"
+                          aria-label={`${post.title} - Latest post`}
                           className="w-full h-full bg-cover bg-center group-hover:scale-110 transition-transform duration-300"
                           style={{ backgroundImage: `url(${post.image})` }}
                         />

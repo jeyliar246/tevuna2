@@ -67,7 +67,9 @@ export default function Projects() {
               className="group relative rounded-2xl overflow-hidden border border-slate-200 bg-white/80 backdrop-blur-sm"
             >
               <div className="relative aspect-video overflow-hidden">
-                <div 
+                <div
+                  role="img"
+                  aria-label={`${project.title} - ${project.category}`}
                   className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
                   style={{ backgroundImage: `url(${project.image})` }}
                 />
