@@ -1178,6 +1178,21 @@ export default function AcademyPage() {
                     />
                   </div>
 
+                  <div className="flex items-start gap-3">
+                    <input
+                      type="checkbox"
+                      id="academy-privacy"
+                      name="privacy_consent"
+                      required
+                      className="mt-1 w-4 h-4 rounded border-slate-300 text-primary-500 focus:ring-primary-500"
+                    />
+                    <label htmlFor="academy-privacy" className="text-sm text-slate-600">
+                      I have read the{' '}
+                      <a href="/privacy" target="_blank" rel="noopener noreferrer" className="text-primary-500 hover:underline">Privacy Policy</a>
+                      {' '}and agree to my data being used to manage my waitlist registration and to be contacted about Tevuna Academy.
+                    </label>
+                  </div>
+
                   <motion.button
                     type="submit"
                     disabled={formStatus === 'sending'}

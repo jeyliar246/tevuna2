@@ -27,13 +27,22 @@ Tevuna embodies deep understanding and strategic thinking. We craft intelligent,
 - **Netlify deployment** – Build and deploy config in `netlify.toml`
 
 ### SEO (On-Site)
-- **Sitemap** – `/sitemap.xml` for Home and Academy
+- **Sitemap** – `/sitemap.xml` for Home, Academy, Privacy, Cookies
 - **robots.txt** – `/robots.txt`, allows crawling, links to sitemap
 - **Meta tags** – Title, description, keywords, Open Graph, Twitter Card
 - **Canonical URLs** – Home and Academy
 - **JSON-LD** – Organization, WebSite (home), EducationalOrganization (academy)
 - **Locale** – en-GB for UK
 - **Image SEO** – Alt text, `aria-label`, `title` on key images
+
+### UK GDPR Compliance
+- **Privacy Policy** (`/privacy`) – Full policy aligned with UK GDPR and Data Protection Act 2018: data controller identity, what data we collect (contact form, academy waitlist, technical/cookies), legal basis (consent, legitimate interests, legal obligation), retention, your rights (access, rectification, erasure, restrict, portability, object, withdraw consent, complain to ICO), sharing and international transfers, security, contact details.
+- **Cookie Policy** (`/cookies`) – Explains what cookies are, PECR/UK GDPR context, strictly necessary cookie (consent preference), optional/non-essential cookies, user choice (Accept all / Reject non-essential), third-party cookies, link to Privacy Policy.
+- **Cookie consent banner** – Shown on first visit; options “Accept all” and “Reject non-essential”; stores choice in `localStorage` (key `cookie_consent`); links to Cookie Policy and Privacy Policy; no non-essential cookies set before consent.
+- **Form consent** – Contact form and Academy waitlist form each have a required checkbox: “I have read the Privacy Policy and agree to my data being used…” with link to `/privacy`; consent is explicit and tied to the purpose (respond to enquiry / manage waitlist and contact about Academy).
+- **Footer legal links** – “Legal” section with Privacy Policy and Cookie Policy; repeat links in copyright bar (Privacy, Cookies).
+- **Transparency** – Privacy Policy states who we are, what we collect, why, how long we keep it, and how to exercise rights; Cookie Policy lists cookie name, purpose, and duration.
+- **Sitemap** – `/privacy` and `/cookies` included in sitemap for discovery.
 
 ### Content & Assets
 - Logo in header and footer
@@ -75,7 +84,7 @@ Tevuna embodies deep understanding and strategic thinking. We craft intelligent,
 - Dedicated About page
 - Services detail pages
 - Blog or resources section
-- Privacy policy and terms of use (for forms)
+- Terms of use (optional, for forms)
 
 ---
 

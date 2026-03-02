@@ -159,6 +159,20 @@ export default function Contact() {
                   className="w-full px-4 py-3 bg-white border border-slate-300 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 transition-all resize-none"
                 />
               </div>
+              <div className="flex items-start gap-3">
+                <input
+                  type="checkbox"
+                  id="contact-privacy"
+                  name="privacy_consent"
+                  required
+                  className="mt-1 w-4 h-4 rounded border-slate-300 text-primary-500 focus:ring-primary-500"
+                />
+                <label htmlFor="contact-privacy" className="text-sm text-slate-600">
+                  I have read the{' '}
+                  <a href="/privacy" target="_blank" rel="noopener noreferrer" className="text-primary-500 hover:underline">Privacy Policy</a>
+                  {' '}and agree to my data being used to respond to my enquiry.
+                </label>
+              </div>
               <motion.button
                 type="submit"
                 disabled={formStatus === 'sending'}
