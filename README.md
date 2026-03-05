@@ -270,6 +270,12 @@ Configured for Netlify (`netlify.toml` present). Build command and publish direc
 
 ---
 
+## Agency SOP
+
+For building websites, mobile apps, and other technical client work, see **[docs/SOP-Tech-Agency.md](docs/SOP-Tech-Agency.md)**. It covers project setup, SEO, UK GDPR/cookie compliance, deployment, QA, and checklists based on what’s implemented on this site.
+
+---
+
 ## License
 
 Private – © Tevuna. All rights reserved.
