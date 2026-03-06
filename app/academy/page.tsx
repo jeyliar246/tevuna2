@@ -857,15 +857,136 @@ export default function AcademyPage() {
                     })}
                   </div>
 
-                  <div className="mt-12 text-center">
-                    <motion.button
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      onClick={resetQuiz}
-                      className="px-8 py-4 bg-primary-500 text-white rounded-xl font-semibold text-lg hover:bg-primary-600 transition-colors shadow-lg"
-                    >
-                      Take Quiz Again
-                    </motion.button>
+                  {/* Waitlist Form - shown after quiz results */}
+                  <div className="mt-16 pt-12 border-t-2 border-slate-200">
+                    <div className="text-center mb-8">
+                      <span className="inline-block px-4 py-2 bg-primary-500/10 border border-primary-500/30 rounded-full text-primary-500 text-xs font-mono uppercase tracking-widest mb-4">
+                        Join Waitlist
+                      </span>
+                      <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-2">
+                        Ready to Start Your Journey?
+                      </h3>
+                      <p className="text-slate-600">
+                        Reserve your spot now and be the first to know when enrollment opens for your matched courses.
+                      </p>
+                    </div>
+
+                    <form onSubmit={handleSubmit} className="space-y-5">
+                      <div className="grid md:grid-cols-2 gap-4">
+                        <div>
+                          <label htmlFor="quiz-name" className="block text-sm font-semibold text-slate-700 mb-2">
+                            Full Name
+                          </label>
+                          <input
+                            type="text"
+                            id="quiz-name"
+                            name="name"
+                            required
+                            placeholder="John Doe"
+                            className="w-full px-4 py-3 bg-white border border-slate-300 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 transition-all"
+                          />
+                        </div>
+                        <div>
+                          <label htmlFor="quiz-email" className="block text-sm font-semibold text-slate-700 mb-2">
+                            Email Address
+                          </label>
+                          <input
+                            type="email"
+                            id="quiz-email"
+                            name="email"
+                            required
+                            placeholder="john@example.com"
+                            className="w-full px-4 py-3 bg-white border border-slate-300 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 transition-all"
+                          />
+                        </div>
+                      </div>
+
+                      <div>
+                        <label htmlFor="quiz-phone" className="block text-sm font-semibold text-slate-700 mb-2">
+                          Phone Number
+                        </label>
+                        <input
+                          type="tel"
+                          id="quiz-phone"
+                          name="phone"
+                          required
+                          placeholder="+1 234 567 8900"
+                          className="w-full px-4 py-3 bg-white border border-slate-300 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 transition-all"
+                        />
+                      </div>
+
+                      <div>
+                        <label htmlFor="quiz-interest" className="block text-sm font-semibold text-slate-700 mb-2">
+                          Area of Interest
+                        </label>
+                        <select
+                          id="quiz-interest"
+                          name="interest"
+                          required
+                          defaultValue={quizResults?.[0]?.category ? quizResults[0].category.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-') : ''}
+                          className="w-full px-4 py-3 bg-white border border-slate-300 rounded-lg text-slate-900 focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 transition-all"
+                        >
+                          <option value="">Select an area</option>
+                          <option value="web-development">Web Development</option>
+                          <option value="mobile-development">Mobile Development</option>
+                          <option value="ai-machine-learning">AI & Machine Learning</option>
+                          <option value="data-analytics">Data & Analytics</option>
+                          <option value="devops-cloud">DevOps & Cloud</option>
+                          <option value="design-ui/ux">Design & UI/UX</option>
+                          <option value="all">All Courses</option>
+                        </select>
+                      </div>
+
+                      <div className="flex items-start gap-3">
+                        <input
+                          type="checkbox"
+                          id="quiz-privacy"
+                          name="privacy_consent"
+                          required
+                          className="mt-1 w-4 h-4 rounded border-slate-300 text-primary-500 focus:ring-primary-500"
+                        />
+                        <label htmlFor="quiz-privacy" className="text-sm text-slate-600">
+                          I have read the{' '}
+                          <a href="/privacy" target="_blank" rel="noopener noreferrer" className="text-primary-500 hover:underline">Privacy Policy</a>
+                          {' '}and agree to my data being used to manage my waitlist registration and to be contacted about Tevuna Academy.
+                        </label>
+                      </div>
+
+                      <motion.button
+                        type="submit"
+                        disabled={formStatus === 'sending'}
+                        className="w-full px-8 py-4 bg-primary-500 text-white font-semibold rounded-lg uppercase tracking-wider hover:bg-primary-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                        whileHover={{ scale: formStatus === 'sending' ? 1 : 1.02 }}
+                        whileTap={{ scale: formStatus === 'sending' ? 1 : 0.98 }}
+                      >
+                        {formStatus === 'sending' ? (
+                          <>Processing...</>
+                        ) : formStatus === 'success' ? (
+                          <>Successfully Joined! <CheckCircle2 className="w-5 h-5" /></>
+                        ) : (
+                          <>Join Waitlist <ArrowRight className="w-5 h-5" /></>
+                        )}
+                      </motion.button>
+
+                      {formStatus === 'success' && (
+                        <motion.div
+                          initial={{ opacity: 0, y: -10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          className="p-4 bg-green-500/10 border border-green-500/30 rounded-lg text-green-600 text-sm text-center"
+                        >
+                          Thank you! You've been added to our waitlist. We'll notify you when registration opens.
+                        </motion.div>
+                      )}
+                    </form>
+
+                    <div className="mt-8 text-center">
+                      <button
+                        onClick={resetQuiz}
+                        className="text-slate-500 hover:text-primary-500 text-sm font-medium transition-colors"
+                      >
+                        ← Take Quiz Again
+                      </button>
+                    </div>
                   </div>
                 </div>
               </motion.div>
@@ -1165,161 +1286,6 @@ export default function AcademyPage() {
                   </ul>
                 </motion.div>
               ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Registration Form Section */}
-        <section className="py-20 bg-white/50">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-2xl mx-auto">
-              <motion.div
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="text-center mb-12"
-              >
-                <motion.span
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  className="inline-block px-4 py-2 bg-primary-500/10 border border-primary-500/30 rounded-full text-primary-500 text-xs font-mono uppercase tracking-widest mb-6"
-                >
-                  Join Waitlist
-                </motion.span>
-                <h2 className="text-4xl md:text-5xl font-bold mb-4 text-slate-900">
-                  Reserve Your Spot
-                </h2>
-                <p className="text-xl text-slate-600">
-                  Be among the first to enroll when registration opens. Join our waitlist today!
-                </p>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="p-8 rounded-2xl border border-slate-200 bg-white shadow-xl"
-              >
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-semibold text-slate-700 mb-2">
-                      Full Name
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      required
-                      placeholder="John Doe"
-                      className="w-full px-4 py-3 bg-white border border-slate-300 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 transition-all"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-semibold text-slate-700 mb-2">
-                      Email Address
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      required
-                      placeholder="john@example.com"
-                      className="w-full px-4 py-3 bg-white border border-slate-300 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 transition-all"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="phone" className="block text-sm font-semibold text-slate-700 mb-2">
-                      Phone Number
-                    </label>
-                    <input
-                      type="tel"
-                      id="phone"
-                      name="phone"
-                      required
-                      placeholder="+1 234 567 8900"
-                      className="w-full px-4 py-3 bg-white border border-slate-300 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 transition-all"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="interest" className="block text-sm font-semibold text-slate-700 mb-2">
-                      Area of Interest
-                    </label>
-                    <select
-                      id="interest"
-                      name="interest"
-                      required
-                      className="w-full px-4 py-3 bg-white border border-slate-300 rounded-lg text-slate-900 focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 transition-all"
-                    >
-                      <option value="">Select an area</option>
-                      <option value="web-dev">Web Development</option>
-                      <option value="mobile-dev">Mobile Development</option>
-                      <option value="ai-ml">AI & Machine Learning</option>
-                      <option value="data-analytics">Data & Analytics</option>
-                      <option value="devops">DevOps & Cloud</option>
-                      <option value="design">Design & UI/UX</option>
-                      <option value="all">All Courses</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-semibold text-slate-700 mb-2">
-                      Additional Information (Optional)
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      rows={4}
-                      placeholder="Tell us about your background and goals..."
-                      className="w-full px-4 py-3 bg-white border border-slate-300 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 transition-all resize-none"
-                    />
-                  </div>
-
-                  <div className="flex items-start gap-3">
-                    <input
-                      type="checkbox"
-                      id="academy-privacy"
-                      name="privacy_consent"
-                      required
-                      className="mt-1 w-4 h-4 rounded border-slate-300 text-primary-500 focus:ring-primary-500"
-                    />
-                    <label htmlFor="academy-privacy" className="text-sm text-slate-600">
-                      I have read the{' '}
-                      <a href="/privacy" target="_blank" rel="noopener noreferrer" className="text-primary-500 hover:underline">Privacy Policy</a>
-                      {' '}and agree to my data being used to manage my waitlist registration and to be contacted about Tevuna Academy.
-                    </label>
-                  </div>
-
-                  <motion.button
-                    type="submit"
-                    disabled={formStatus === 'sending'}
-                    className="w-full px-8 py-4 bg-primary-500 text-white font-semibold rounded-lg uppercase tracking-wider hover:bg-primary-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
-                    whileHover={{ scale: formStatus === 'sending' ? 1 : 1.02 }}
-                    whileTap={{ scale: formStatus === 'sending' ? 1 : 0.98 }}
-                  >
-                    {formStatus === 'sending' ? (
-                      <>Processing...</>
-                    ) : formStatus === 'success' ? (
-                      <>Successfully Joined! <CheckCircle2 className="w-5 h-5" /></>
-                    ) : (
-                      <>Join Waitlist <ArrowRight className="w-5 h-5" /></>
-                    )}
-                  </motion.button>
-
-                  {formStatus === 'success' && (
-                    <motion.div
-                      initial={{ opacity: 0, y: -10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      className="p-4 bg-green-500/10 border border-green-500/30 rounded-lg text-green-600 text-sm text-center"
-                    >
-                      Thank you! You've been added to our waitlist. We'll notify you when registration opens.
-                    </motion.div>
-                  )}
-                </form>
-              </motion.div>
             </div>
           </div>
         </section>
