@@ -1,12 +1,12 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import dynamic from 'next/dynamic'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import WhatsAppFloat from '@/components/WhatsAppFloat'
-import { BookOpen, Clock, Users, Award, CheckCircle2, ArrowRight, ChevronDown, ChevronUp, GraduationCap, Languages, UserCheck } from 'lucide-react'
+import { BookOpen, Clock, Users, Award, CheckCircle2, ArrowRight, ChevronDown, ChevronUp, GraduationCap, Languages, UserCheck, Globe, Smartphone, Brain, Database, Cloud, Palette, Plus, Minus } from 'lucide-react'
 
 const Lottie = dynamic(() => import('lottie-react'), { ssr: false })
 
@@ -20,6 +20,7 @@ export default function AcademyPage() {
   })
   const [formStatus, setFormStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle')
   const [openFAQ, setOpenFAQ] = useState<number | null>(0)
+  const [openCourse, setOpenCourse] = useState<number | null>(0)
   const [codingAnimation, setCodingAnimation] = useState<any>(null)
   const [quizCurrentQuestion, setQuizCurrentQuestion] = useState(0)
   const [quizAnswers, setQuizAnswers] = useState<number[]>([])
@@ -72,68 +73,98 @@ export default function AcademyPage() {
   const courses = [
     {
       category: 'Web Development',
+      icon: Globe,
+      color: 'from-blue-500 to-cyan-500',
+      bgColor: 'bg-blue-500/10',
+      borderColor: 'border-blue-500/30',
+      description: 'Build modern, responsive websites and web applications from scratch',
       courses: [
-        'HTML5 & CSS3 Fundamentals',
-        'JavaScript & TypeScript Mastery',
-        'React & Next.js Development',
-        'Node.js & Express.js Backend',
-        'Full-Stack Development',
-        'RESTful APIs & GraphQL'
+        { name: 'HTML5 & CSS3 Fundamentals', duration: '4 weeks' },
+        { name: 'JavaScript & TypeScript Mastery', duration: '6 weeks' },
+        { name: 'React & Next.js Development', duration: '8 weeks' },
+        { name: 'Node.js & Express.js Backend', duration: '6 weeks' },
+        { name: 'Full-Stack Development', duration: '10 weeks' },
+        { name: 'RESTful APIs & GraphQL', duration: '4 weeks' }
       ]
     },
     {
       category: 'Mobile Development',
+      icon: Smartphone,
+      color: 'from-purple-500 to-pink-500',
+      bgColor: 'bg-purple-500/10',
+      borderColor: 'border-purple-500/30',
+      description: 'Create native and cross-platform mobile apps for iOS and Android',
       courses: [
-        'React Native Development',
-        'Flutter & Dart Programming',
-        'iOS Development with Swift',
-        'Android Development with Kotlin',
-        'Cross-Platform Mobile Apps',
-        'Mobile App Deployment'
+        { name: 'React Native Development', duration: '8 weeks' },
+        { name: 'Flutter & Dart Programming', duration: '8 weeks' },
+        { name: 'iOS Development with Swift', duration: '10 weeks' },
+        { name: 'Android Development with Kotlin', duration: '10 weeks' },
+        { name: 'Cross-Platform Mobile Apps', duration: '6 weeks' },
+        { name: 'Mobile App Deployment', duration: '2 weeks' }
       ]
     },
     {
       category: 'AI & Machine Learning',
+      icon: Brain,
+      color: 'from-emerald-500 to-teal-500',
+      bgColor: 'bg-emerald-500/10',
+      borderColor: 'border-emerald-500/30',
+      description: 'Harness the power of artificial intelligence and machine learning',
       courses: [
-        'Introduction to AI & ML',
-        'LLM Integration & APIs',
-        'LangChain & AI Frameworks',
-        'AI-Powered Applications',
-        'Natural Language Processing',
-        'Computer Vision Basics'
+        { name: 'Introduction to AI & ML', duration: '4 weeks' },
+        { name: 'LLM Integration & APIs', duration: '6 weeks' },
+        { name: 'LangChain & AI Frameworks', duration: '6 weeks' },
+        { name: 'AI-Powered Applications', duration: '8 weeks' },
+        { name: 'Natural Language Processing', duration: '6 weeks' },
+        { name: 'Computer Vision Basics', duration: '6 weeks' }
       ]
     },
     {
       category: 'Data & Analytics',
+      icon: Database,
+      color: 'from-orange-500 to-amber-500',
+      bgColor: 'bg-orange-500/10',
+      borderColor: 'border-orange-500/30',
+      description: 'Transform raw data into actionable insights and business intelligence',
       courses: [
-        'Database Design & Management',
-        'SQL & NoSQL Databases',
-        'Data Analytics & Visualization',
-        'Business Intelligence Tools',
-        'Data Science Fundamentals',
-        'Big Data Technologies'
+        { name: 'Database Design & Management', duration: '4 weeks' },
+        { name: 'SQL & NoSQL Databases', duration: '6 weeks' },
+        { name: 'Data Analytics & Visualization', duration: '6 weeks' },
+        { name: 'Business Intelligence Tools', duration: '4 weeks' },
+        { name: 'Data Science Fundamentals', duration: '8 weeks' },
+        { name: 'Big Data Technologies', duration: '6 weeks' }
       ]
     },
     {
       category: 'DevOps & Cloud',
+      icon: Cloud,
+      color: 'from-sky-500 to-indigo-500',
+      bgColor: 'bg-sky-500/10',
+      borderColor: 'border-sky-500/30',
+      description: 'Master cloud infrastructure, deployment, and automation',
       courses: [
-        'Cloud Computing (AWS, Azure, GCP)',
-        'Docker & Containerization',
-        'Kubernetes Orchestration',
-        'CI/CD Pipelines',
-        'Infrastructure as Code',
-        'Cloud Security & Best Practices'
+        { name: 'Cloud Computing (AWS, Azure, GCP)', duration: '8 weeks' },
+        { name: 'Docker & Containerization', duration: '4 weeks' },
+        { name: 'Kubernetes Orchestration', duration: '6 weeks' },
+        { name: 'CI/CD Pipelines', duration: '4 weeks' },
+        { name: 'Infrastructure as Code', duration: '4 weeks' },
+        { name: 'Cloud Security & Best Practices', duration: '4 weeks' }
       ]
     },
     {
       category: 'Design & UI/UX',
+      icon: Palette,
+      color: 'from-pink-500 to-rose-500',
+      bgColor: 'bg-pink-500/10',
+      borderColor: 'border-pink-500/30',
+      description: 'Design beautiful, user-centered digital experiences',
       courses: [
-        'UI/UX Design Principles',
-        'Figma & Design Tools',
-        'Responsive Web Design',
-        'Design Systems',
-        'User Research & Testing',
-        'Prototyping & Wireframing'
+        { name: 'UI/UX Design Principles', duration: '4 weeks' },
+        { name: 'Figma & Design Tools', duration: '6 weeks' },
+        { name: 'Responsive Web Design', duration: '4 weeks' },
+        { name: 'Design Systems', duration: '4 weeks' },
+        { name: 'User Research & Testing', duration: '4 weeks' },
+        { name: 'Prototyping & Wireframing', duration: '4 weeks' }
       ]
     }
   ]
@@ -839,7 +870,7 @@ export default function AcademyPage() {
                                         key={courseIndex}
                                         className="px-3 py-1 bg-slate-100 text-slate-700 text-sm rounded-full border border-slate-200"
                                       >
-                                        {course}
+                                        {course.name}
                                       </span>
                                     ))}
                                     {courseCategory.courses.length > 3 && (
@@ -1255,37 +1286,133 @@ export default function AcademyPage() {
               </p>
             </motion.div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {courses.map((category, categoryIndex) => (
-                <motion.div
-                  key={category.category}
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: categoryIndex * 0.1 }}
-                  className="p-6 rounded-xl border border-slate-200 bg-white/80 backdrop-blur-sm hover:border-primary-500/50 transition-all"
-                >
-                  <h3 className="text-xl font-bold text-slate-900 mb-4 flex items-center gap-2">
-                    <BookOpen className="w-5 h-5 text-primary-500" />
-                    {category.category}
-                  </h3>
-                  <ul className="space-y-3">
-                    {category.courses.map((course, courseIndex) => (
-                      <motion.li
-                        key={course}
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: categoryIndex * 0.1 + courseIndex * 0.05 }}
-                        className="flex items-start gap-2 text-slate-600"
+            <div className="max-w-4xl mx-auto space-y-4">
+              {courses.map((category, categoryIndex) => {
+                const Icon = category.icon
+                const isOpen = openCourse === categoryIndex
+
+                return (
+                  <motion.div
+                    key={category.category}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: categoryIndex * 0.08, type: 'spring', stiffness: 100 }}
+                    className="group"
+                  >
+                    <div
+                      className={`rounded-2xl border-2 overflow-hidden transition-all duration-300 ${
+                        isOpen
+                          ? `${category.borderColor} bg-white shadow-xl`
+                          : 'border-slate-200 bg-white/80 hover:border-slate-300 hover:shadow-md'
+                      }`}
+                    >
+                      {/* Accordion Header */}
+                      <button
+                        onClick={() => setOpenCourse(isOpen ? null : categoryIndex)}
+                        className="w-full p-6 flex items-center gap-4 text-left transition-all"
                       >
-                        <CheckCircle2 className="w-5 h-5 text-primary-500 flex-shrink-0 mt-0.5" />
-                        <span>{course}</span>
-                      </motion.li>
-                    ))}
-                  </ul>
-                </motion.div>
-              ))}
+                        {/* Icon Container */}
+                        <motion.div
+                          animate={{ scale: isOpen ? 1.1 : 1 }}
+                          transition={{ type: 'spring', stiffness: 300 }}
+                          className={`w-14 h-14 rounded-xl flex items-center justify-center ${category.bgColor} ${category.borderColor} border-2 flex-shrink-0`}
+                        >
+                          <Icon className={`w-7 h-7 bg-gradient-to-r ${category.color} bg-clip-text`} style={{ color: isOpen ? undefined : '#64748b' }} />
+                        </motion.div>
+
+                        {/* Title & Description */}
+                        <div className="flex-1 min-w-0">
+                          <h3 className={`text-xl font-bold transition-colors ${isOpen ? 'text-slate-900' : 'text-slate-700 group-hover:text-slate-900'}`}>
+                            {category.category}
+                          </h3>
+                          <p className="text-sm text-slate-500 mt-1 truncate">
+                            {category.description}
+                          </p>
+                        </div>
+
+                        {/* Course Count Badge */}
+                        <div className="hidden sm:flex items-center gap-3">
+                          <span className={`px-3 py-1 rounded-full text-xs font-semibold ${category.bgColor} text-slate-700`}>
+                            {category.courses.length} courses
+                          </span>
+                        </div>
+
+                        {/* Expand/Collapse Icon */}
+                        <motion.div
+                          animate={{ rotate: isOpen ? 180 : 0 }}
+                          transition={{ duration: 0.3, ease: 'easeInOut' }}
+                          className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors flex-shrink-0 ${
+                            isOpen ? `bg-gradient-to-r ${category.color} text-white` : 'bg-slate-100 text-slate-500 group-hover:bg-slate-200'
+                          }`}
+                        >
+                          <ChevronDown className="w-5 h-5" />
+                        </motion.div>
+                      </button>
+
+                      {/* Accordion Content */}
+                      <AnimatePresence initial={false}>
+                        {isOpen && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: 'auto', opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.4, ease: [0.04, 0.62, 0.23, 0.98] }}
+                            className="overflow-hidden"
+                          >
+                            <div className="px-6 pb-6">
+                              {/* Divider */}
+                              <div className={`h-px bg-gradient-to-r ${category.color} opacity-20 mb-6`} />
+
+                              {/* Course Grid */}
+                              <div className="grid sm:grid-cols-2 gap-3">
+                                {category.courses.map((course, courseIndex) => (
+                                  <motion.div
+                                    key={course.name}
+                                    initial={{ opacity: 0, x: -20 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    transition={{ delay: courseIndex * 0.05, duration: 0.3 }}
+                                    className={`p-4 rounded-xl ${category.bgColor} border ${category.borderColor} hover:shadow-md transition-all group/item cursor-default`}
+                                  >
+                                    <div className="flex items-start gap-3">
+                                      <div className={`w-6 h-6 rounded-full bg-gradient-to-r ${category.color} flex items-center justify-center flex-shrink-0 mt-0.5`}>
+                                        <CheckCircle2 className="w-4 h-4 text-white" />
+                                      </div>
+                                      <div className="flex-1 min-w-0">
+                                        <p className="font-medium text-slate-800 text-sm leading-tight">
+                                          {course.name}
+                                        </p>
+                                        <div className="flex items-center gap-2 mt-2">
+                                          <Clock className="w-3.5 h-3.5 text-slate-400" />
+                                          <span className="text-xs text-slate-500">{course.duration}</span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </motion.div>
+                                ))}
+                              </div>
+
+                              {/* Bottom CTA */}
+                              <motion.div
+                                initial={{ opacity: 0, y: 10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.3 }}
+                                className="mt-6 flex items-center justify-between"
+                              >
+                                <p className="text-sm text-slate-500">
+                                  Complete all courses in approximately <span className="font-semibold text-slate-700">
+                                    {category.courses.reduce((acc, c) => acc + parseInt(c.duration), 0)} weeks
+                                  </span>
+                                </p>
+                              </motion.div>
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  </motion.div>
+                )
+              })}
             </div>
           </div>
         </section>
