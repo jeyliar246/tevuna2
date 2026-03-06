@@ -11,7 +11,7 @@ export const SITE_CONFIG = {
   tagline: 'Deep Understanding, Strategic Thinking, Smart Solutions',
   locale: 'en_GB',
   twitterHandle: '@tevuna',
-  phone: '+234 706 597 7815',
+  phone: '+44 776 905 6560',
   email: 'info@tevuna.com',
   address: {
     '@type': 'PostalAddress',

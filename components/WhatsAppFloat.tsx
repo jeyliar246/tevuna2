@@ -6,7 +6,7 @@ import { MessageCircle } from 'lucide-react'
 export default function WhatsAppFloat() {
   return (
     <motion.a
-      href="https://wa.me/2347065977815?text=Hello%20Tevuna!%20I%20would%20like%20to%20book%20your%20services%20for%20my%20project."
+      href="https://wa.me/447769056560?text=Hello%20Tevuna!%20I%20would%20like%20to%20book%20your%20services%20for%20my%20project."
       target="_blank"
       rel="noopener noreferrer"
       className="fixed bottom-8 right-8 w-16 h-16 bg-green-500 rounded-full flex items-center justify-center shadow-2xl z-50 group hover:bg-green-600 transition-colors"

@@ -23,8 +23,8 @@ export default function Footer() {
     ],
     contact: [
       { label: 'info@tevuna.com', href: 'mailto:info@tevuna.com' },
-      { label: '+234 706 597 7815', href: 'tel:+2347065977815' },
-      { label: 'WhatsApp', href: 'https://wa.me/2347065977815?text=Hello%20Tevuna!%20I%20would%20like%20to%20book%20your%20services%20for%20my%20project.', external: true },
+      { label: '+44 776 905 6560', href: 'tel:+447769056560' },
+      { label: 'WhatsApp', href: 'https://wa.me/447769056560?text=Hello%20Tevuna!%20I%20would%20like%20to%20book%20your%20services%20for%20my%20project.', external: true },
     ],
   }
 

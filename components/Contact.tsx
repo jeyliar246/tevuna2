@@ -32,14 +32,14 @@ export default function Contact() {
     {
       icon: Phone,
       title: 'Phone',
-      content: '+234 706 597 7815',
-      link: 'tel:+2347065977815',
+      content: '+44 776 905 6560',
+      link: 'tel:+447769056560',
     },
     {
       icon: MessageCircle,
       title: 'WhatsApp',
       content: 'Chat with us',
-      link: 'https://wa.me/2347065977815?text=Hello%20Tevuna!%20I%20would%20like%20to%20book%20your%20services%20for%20my%20project.',
+      link: 'https://wa.me/447769056560?text=Hello%20Tevuna!%20I%20would%20like%20to%20book%20your%20services%20for%20my%20project.',
       external: true,
     },
   ]
