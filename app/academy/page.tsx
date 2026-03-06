@@ -138,173 +138,268 @@ export default function AcademyPage() {
     }
   ]
 
-  // Quiz Questions
-  const quizQuestions = [
+  // Quiz: non-technical questions that reveal how users think. Options don't map obviously to outcomes.
+  // Scoring uses a separate weight matrix so results aren't predictable.
+  const quizQuestions: { question: string; options: string[] }[] = [
     {
-      question: "What excites you most about technology?",
+      question: "When you're explaining something to a friend, you usually...",
       options: [
-        { text: "Building beautiful user interfaces", category: "Design & UI/UX" },
-        { text: "Creating mobile apps that people use daily", category: "Mobile Development" },
-        { text: "Developing web applications and websites", category: "Web Development" },
-        { text: "Working with data and analytics", category: "Data & Analytics" },
-        { text: "Building intelligent systems with AI", category: "AI & Machine Learning" },
-        { text: "Managing infrastructure and deployment", category: "DevOps & Cloud" }
+        "Draw it or show them with your hands",
+        "Give them step-by-step instructions",
+        "Compare it to something they already know",
+        "Ask what they've already tried, then build from there",
+        "Break it into the big picture first, then details"
       ]
     },
     {
-      question: "What's your preferred work environment?",
+      question: "When something at home breaks (appliance, gadget, furniture), your first move is...",
       options: [
-        { text: "Creative and visual design tools", category: "Design & UI/UX" },
-        { text: "Mobile development frameworks", category: "Mobile Development" },
-        { text: "Web browsers and development tools", category: "Web Development" },
-        { text: "Data visualization and analysis tools", category: "Data & Analytics" },
-        { text: "AI models and machine learning platforms", category: "AI & Machine Learning" },
-        { text: "Cloud platforms and servers", category: "DevOps & Cloud" }
+        "Look at it and try to fix it yourself",
+        "Search for the exact problem online",
+        "See if there's a pattern—when did it start? what changed?",
+        "Read the manual or find a tutorial",
+        "Call or ask someone who's done it before"
       ]
     },
     {
-      question: "Which problem would you most like to solve?",
+      question: "In a group project, you naturally end up...",
       options: [
-        { text: "Making apps more user-friendly and intuitive", category: "Design & UI/UX" },
-        { text: "Creating apps for smartphones and tablets", category: "Mobile Development" },
-        { text: "Building scalable web platforms", category: "Web Development" },
-        { text: "Extracting insights from large datasets", category: "Data & Analytics" },
-        { text: "Automating tasks with artificial intelligence", category: "AI & Machine Learning" },
-        { text: "Ensuring systems run smoothly and efficiently", category: "DevOps & Cloud" }
+        "Making sure everything looks clear and easy to follow",
+        "Keeping the plan organized and making sure things get done on time",
+        "Digging into the research or numbers to back up decisions",
+        "Coming up with new angles or 'what if we tried this?'",
+        "Getting the thing to actually work and run smoothly"
       ]
     },
     {
-      question: "What type of projects interest you?",
+      question: "When you're learning something new, you get the most out of it when you...",
       options: [
-        { text: "Design systems and user experience", category: "Design & UI/UX" },
-        { text: "Native and cross-platform mobile apps", category: "Mobile Development" },
-        { text: "E-commerce sites and web platforms", category: "Web Development" },
-        { text: "Business intelligence dashboards", category: "Data & Analytics" },
-        { text: "Chatbots and AI-powered applications", category: "AI & Machine Learning" },
-        { text: "Cloud infrastructure and automation", category: "DevOps & Cloud" }
+        "See it done, then try it yourself",
+        "Have a clear list or path to follow",
+        "Understand the why before the how",
+        "Experiment and see what happens when you change things",
+        "Start with one small part and master it, then add more"
       ]
     },
     {
-      question: "How do you prefer to learn?",
+      question: "What kind of task at home would you actually enjoy and finish?",
       options: [
-        { text: "Through visual design and prototyping", category: "Design & UI/UX" },
-        { text: "By building mobile apps step by step", category: "Mobile Development" },
-        { text: "Creating websites and web applications", category: "Web Development" },
-        { text: "Analyzing data and creating reports", category: "Data & Analytics" },
-        { text: "Experimenting with AI models", category: "AI & Machine Learning" },
-        { text: "Setting up servers and infrastructure", category: "DevOps & Cloud" }
+        "Rearranging a room or making a space look and feel better",
+        "Building or fixing something with your hands (furniture, setup, DIY)",
+        "Organizing files, budgets, or plans so everything has a place",
+        "Researching the best option before buying or deciding",
+        "Setting up something that runs on its own (automation, routines, systems)"
       ]
     },
     {
-      question: "What's your ideal end result?",
+      question: "When you're stuck on a problem, what usually helps you most?",
       options: [
-        { text: "Beautiful, intuitive user interfaces", category: "Design & UI/UX" },
-        { text: "Mobile apps available on app stores", category: "Mobile Development" },
-        { text: "Websites accessible to millions", category: "Web Development" },
-        { text: "Data-driven business decisions", category: "Data & Analytics" },
-        { text: "Intelligent automated systems", category: "AI & Machine Learning" },
-        { text: "Reliable, scalable infrastructure", category: "DevOps & Cloud" }
+        "Stepping back and looking at it from a different angle",
+        "Writing it down or breaking it into smaller steps",
+        "Looking for similar situations and what worked there",
+        "Trying different approaches until something clicks",
+        "Asking someone to explain their thinking so you can compare"
       ]
     },
     {
-      question: "Which tool would you most like to master?",
+      question: "How do you prefer to give someone directions to a place?",
       options: [
-        { text: "Figma, Adobe XD, or Sketch", category: "Design & UI/UX" },
-        { text: "React Native, Flutter, or Swift", category: "Mobile Development" },
-        { text: "React, Next.js, or Node.js", category: "Web Development" },
-        { text: "SQL, Python, or Tableau", category: "Data & Analytics" },
-        { text: "TensorFlow, PyTorch, or OpenAI APIs", category: "AI & Machine Learning" },
-        { text: "AWS, Docker, or Kubernetes", category: "DevOps & Cloud" }
+        "Describe landmarks and what they'll see along the way",
+        "Give left/right turns and street names in order",
+        "Draw a quick map or sketch",
+        "Send a link or show them on your phone",
+        "It depends who's asking—I adapt how I explain"
       ]
     },
     {
-      question: "What motivates you in tech?",
+      question: "You feel most satisfied when...",
       options: [
-        { text: "Creating visually appealing experiences", category: "Design & UI/UX" },
-        { text: "Reaching users on their mobile devices", category: "Mobile Development" },
-        { text: "Building the next big web platform", category: "Web Development" },
-        { text: "Discovering patterns in data", category: "Data & Analytics" },
-        { text: "Pushing the boundaries of AI", category: "AI & Machine Learning" },
-        { text: "Building robust, scalable systems", category: "DevOps & Cloud" }
+        "Something finally looks right and feels good to use",
+        "Something works reliably every time",
+        "You've figured out why something works the way it does",
+        "You've helped someone get unstuck",
+        "You've built or set up something others can use"
       ]
     },
     {
-      question: "What's your favorite part of development?",
+      question: "When you're planning a trip or a big task, you tend to...",
       options: [
-        { text: "Designing user flows and interfaces", category: "Design & UI/UX" },
-        { text: "Testing apps on different devices", category: "Mobile Development" },
-        { text: "Seeing websites come to life", category: "Web Development" },
-        { text: "Creating charts and visualizations", category: "Data & Analytics" },
-        { text: "Training and fine-tuning AI models", category: "AI & Machine Learning" },
-        { text: "Optimizing performance and reliability", category: "DevOps & Cloud" }
+        "Focus on the experience—how it should feel, what you want to see",
+        "Make a list and check things off in order",
+        "Compare options and look at reviews or data before deciding",
+        "Leave room to change plans if something better comes up",
+        "Think about what could go wrong and have a backup plan"
       ]
     },
     {
-      question: "Which industry appeals to you most?",
+      question: "What drains your energy more?",
       options: [
-        { text: "Creative agencies and design studios", category: "Design & UI/UX" },
-        { text: "Mobile-first startups", category: "Mobile Development" },
-        { text: "SaaS companies and web platforms", category: "Web Development" },
-        { text: "Data-driven enterprises", category: "Data & Analytics" },
-        { text: "AI and tech innovation companies", category: "AI & Machine Learning" },
-        { text: "Cloud infrastructure providers", category: "DevOps & Cloud" }
+        "Things that look messy or inconsistent with no clear structure",
+        "Unclear instructions or constantly changing requirements",
+        "Having to guess without any data or feedback",
+        "Doing the same repetitive thing without a way to improve it",
+        "When nothing is documented and everything depends on one person"
       ]
     },
     {
-      question: "How do you approach problem-solving?",
+      question: "When a friend has a problem, you're most likely to...",
       options: [
-        { text: "Through user research and design thinking", category: "Design & UI/UX" },
-        { text: "By building and iterating on mobile apps", category: "Mobile Development" },
-        { text: "Creating web solutions from scratch", category: "Web Development" },
-        { text: "Analyzing data to find solutions", category: "Data & Analytics" },
-        { text: "Using AI to automate and optimize", category: "AI & Machine Learning" },
-        { text: "Architecting scalable systems", category: "DevOps & Cloud" }
+        "Listen and help them see it from a different perspective",
+        "Break it down into steps and help them tackle one thing at a time",
+        "Look for patterns—have they been here before? what worked then?",
+        "Suggest tools or systems that could help (apps, lists, routines)",
+        "Help them test ideas and see what actually works"
       ]
     },
     {
-      question: "What type of team would you enjoy?",
+      question: "Which kind of puzzle or game do you enjoy most?",
       options: [
-        { text: "Design and creative teams", category: "Design & UI/UX" },
-        { text: "Mobile app development teams", category: "Mobile Development" },
-        { text: "Full-stack web development teams", category: "Web Development" },
-        { text: "Data science and analytics teams", category: "Data & Analytics" },
-        { text: "AI research and development teams", category: "AI & Machine Learning" },
-        { text: "DevOps and infrastructure teams", category: "DevOps & Cloud" }
+        "Visual or spatial—how things fit, layout, or look",
+        "Logic and rules—following steps to a clear solution",
+        "Patterns and connections—finding what links things",
+        "Open-ended—many ways to win or many possible answers",
+        "Strategy—optimizing and making systems work together"
       ]
     },
     {
-      question: "What's your learning style?",
+      question: "In your ideal day, you'd spend more time...",
       options: [
-        { text: "Visual and hands-on design work", category: "Design & UI/UX" },
-        { text: "Building mobile apps from tutorials", category: "Mobile Development" },
-        { text: "Following web development courses", category: "Web Development" },
-        { text: "Working with datasets and examples", category: "Data & Analytics" },
-        { text: "Experimenting with AI models", category: "AI & Machine Learning" },
-        { text: "Setting up and configuring systems", category: "DevOps & Cloud" }
+        "Making or arranging things so they look and feel right",
+        "Building or fixing something tangible",
+        "Understanding how something works or why it's built that way",
+        "Coming up with new ideas or improvements",
+        "Making sure things run smoothly so others can do their best work"
       ]
     },
     {
-      question: "What excites you about the future of tech?",
+      question: "When you disagree with how something is done, you usually...",
       options: [
-        { text: "New design trends and tools", category: "Design & UI/UX" },
-        { text: "Advancements in mobile technology", category: "Mobile Development" },
-        { text: "Evolution of web platforms", category: "Web Development" },
-        { text: "Big data and analytics innovations", category: "Data & Analytics" },
-        { text: "Breakthroughs in AI and ML", category: "AI & Machine Learning" },
-        { text: "Cloud computing advancements", category: "DevOps & Cloud" }
+        "Notice how confusing or unpleasant it is for the person using it",
+        "See a more efficient or logical way to do it",
+        "Want to see the evidence or data before changing",
+        "Imagine a different approach that might work better",
+        "Think about what will break or scale if we don't change it"
       ]
     },
     {
-      question: "What would make you feel accomplished?",
+      question: "What would you rather be known for?",
       options: [
-        { text: "Designing an award-winning interface", category: "Design & UI/UX" },
-        { text: "Having your app downloaded by thousands", category: "Mobile Development" },
-        { text: "Building a popular web application", category: "Web Development" },
-        { text: "Providing insights that drive decisions", category: "Data & Analytics" },
-        { text: "Creating an AI that solves real problems", category: "AI & Machine Learning" },
-        { text: "Building infrastructure that scales globally", category: "DevOps & Cloud" }
+        "Making complex things feel simple and enjoyable",
+        "Being the person who gets things built and shipped",
+        "Finding the insight or pattern others missed",
+        "Coming up with ideas that open new possibilities",
+        "Being the one who keeps things running when it matters"
       ]
     }
+  ]
+
+  // Weight matrix: [questionIndex][optionIndex] -> { category: weight }. Weights are hidden; options don't map 1:1 to categories.
+  const quizScoringMatrix: Record<string, number>[][] = [
+    [
+      { 'Design & UI/UX': 2, 'Web Development': 0, 'Data & Analytics': 0, 'AI & Machine Learning': 0, 'DevOps & Cloud': 0, 'Mobile Development': 1 },
+      { 'DevOps & Cloud': 2, 'Web Development': 1, 'Data & Analytics': 0, 'AI & Machine Learning': 0, 'Design & UI/UX': 0, 'Mobile Development': 0 },
+      { 'Data & Analytics': 2, 'AI & Machine Learning': 1, 'Web Development': 0, 'Design & UI/UX': 0, 'DevOps & Cloud': 0, 'Mobile Development': 0 },
+      { 'Mobile Development': 2, 'Web Development': 1, 'Design & UI/UX': 0, 'Data & Analytics': 0, 'AI & Machine Learning': 0, 'DevOps & Cloud': 0 },
+      { 'Web Development': 2, 'DevOps & Cloud': 1, 'Design & UI/UX': 0, 'Data & Analytics': 0, 'AI & Machine Learning': 0, 'Mobile Development': 0 }
+    ],
+    [
+      { 'Mobile Development': 2, 'Design & UI/UX': 1, 'Web Development': 0, 'Data & Analytics': 0, 'AI & Machine Learning': 0, 'DevOps & Cloud': 0 },
+      { 'Web Development': 2, 'Data & Analytics': 1, 'Design & UI/UX': 0, 'AI & Machine Learning': 0, 'DevOps & Cloud': 0, 'Mobile Development': 0 },
+      { 'Data & Analytics': 2, 'AI & Machine Learning': 1, 'DevOps & Cloud': 0, 'Web Development': 0, 'Design & UI/UX': 0, 'Mobile Development': 0 },
+      { 'Web Development': 2, 'DevOps & Cloud': 1, 'Design & UI/UX': 0, 'Data & Analytics': 0, 'AI & Machine Learning': 0, 'Mobile Development': 0 },
+      { 'DevOps & Cloud': 2, 'Mobile Development': 1, 'Web Development': 0, 'Data & Analytics': 0, 'AI & Machine Learning': 0, 'Design & UI/UX': 0 }
+    ],
+    [
+      { 'Design & UI/UX': 2, 'Web Development': 1, 'Data & Analytics': 0, 'AI & Machine Learning': 0, 'DevOps & Cloud': 0, 'Mobile Development': 0 },
+      { 'DevOps & Cloud': 2, 'Web Development': 1, 'Data & Analytics': 0, 'AI & Machine Learning': 0, 'Design & UI/UX': 0, 'Mobile Development': 0 },
+      { 'Data & Analytics': 2, 'Web Development': 1, 'AI & Machine Learning': 0, 'Design & UI/UX': 0, 'DevOps & Cloud': 0, 'Mobile Development': 0 },
+      { 'AI & Machine Learning': 2, 'Mobile Development': 1, 'Web Development': 0, 'Data & Analytics': 0, 'Design & UI/UX': 0, 'DevOps & Cloud': 0 },
+      { 'Web Development': 2, 'DevOps & Cloud': 1, 'Mobile Development': 0, 'Data & Analytics': 0, 'AI & Machine Learning': 0, 'Design & UI/UX': 0 }
+    ],
+    [
+      { 'Design & UI/UX': 2, 'Mobile Development': 1, 'Web Development': 0, 'Data & Analytics': 0, 'AI & Machine Learning': 0, 'DevOps & Cloud': 0 },
+      { 'DevOps & Cloud': 2, 'Web Development': 1, 'Data & Analytics': 0, 'AI & Machine Learning': 0, 'Design & UI/UX': 0, 'Mobile Development': 0 },
+      { 'Data & Analytics': 2, 'AI & Machine Learning': 1, 'Web Development': 0, 'Design & UI/UX': 0, 'DevOps & Cloud': 0, 'Mobile Development': 0 },
+      { 'AI & Machine Learning': 2, 'Web Development': 1, 'Data & Analytics': 0, 'Design & UI/UX': 0, 'DevOps & Cloud': 0, 'Mobile Development': 0 },
+      { 'Mobile Development': 2, 'Web Development': 1, 'Design & UI/UX': 0, 'Data & Analytics': 0, 'AI & Machine Learning': 0, 'DevOps & Cloud': 0 }
+    ],
+    [
+      { 'Design & UI/UX': 2, 'Web Development': 0, 'Data & Analytics': 0, 'AI & Machine Learning': 0, 'DevOps & Cloud': 0, 'Mobile Development': 1 },
+      { 'Mobile Development': 2, 'DevOps & Cloud': 1, 'Web Development': 0, 'Data & Analytics': 0, 'AI & Machine Learning': 0, 'Design & UI/UX': 0 },
+      { 'Data & Analytics': 2, 'DevOps & Cloud': 1, 'Web Development': 0, 'Design & UI/UX': 0, 'AI & Machine Learning': 0, 'Mobile Development': 0 },
+      { 'Data & Analytics': 2, 'AI & Machine Learning': 1, 'Web Development': 0, 'Design & UI/UX': 0, 'DevOps & Cloud': 0, 'Mobile Development': 0 },
+      { 'DevOps & Cloud': 2, 'AI & Machine Learning': 1, 'Web Development': 1, 'Data & Analytics': 0, 'Design & UI/UX': 0, 'Mobile Development': 0 }
+    ],
+    [
+      { 'Design & UI/UX': 2, 'Web Development': 0, 'Data & Analytics': 0, 'AI & Machine Learning': 0, 'DevOps & Cloud': 0, 'Mobile Development': 1 },
+      { 'Web Development': 2, 'DevOps & Cloud': 1, 'Data & Analytics': 0, 'AI & Machine Learning': 0, 'Design & UI/UX': 0, 'Mobile Development': 0 },
+      { 'Data & Analytics': 2, 'AI & Machine Learning': 1, 'Web Development': 0, 'Design & UI/UX': 0, 'DevOps & Cloud': 0, 'Mobile Development': 0 },
+      { 'AI & Machine Learning': 2, 'Mobile Development': 1, 'Web Development': 0, 'Data & Analytics': 0, 'Design & UI/UX': 0, 'DevOps & Cloud': 0 },
+      { 'Web Development': 2, 'Data & Analytics': 1, 'Design & UI/UX': 0, 'AI & Machine Learning': 0, 'DevOps & Cloud': 0, 'Mobile Development': 0 }
+    ],
+    [
+      { 'Design & UI/UX': 1, 'Web Development': 0, 'Data & Analytics': 0, 'AI & Machine Learning': 0, 'DevOps & Cloud': 0, 'Mobile Development': 2 },
+      { 'DevOps & Cloud': 2, 'Web Development': 1, 'Data & Analytics': 0, 'AI & Machine Learning': 0, 'Design & UI/UX': 0, 'Mobile Development': 0 },
+      { 'Design & UI/UX': 2, 'Web Development': 0, 'Data & Analytics': 0, 'AI & Machine Learning': 0, 'DevOps & Cloud': 0, 'Mobile Development': 1 },
+      { 'Mobile Development': 2, 'Web Development': 1, 'Design & UI/UX': 0, 'Data & Analytics': 0, 'AI & Machine Learning': 0, 'DevOps & Cloud': 0 },
+      { 'Web Development': 2, 'Design & UI/UX': 1, 'Data & Analytics': 0, 'AI & Machine Learning': 0, 'DevOps & Cloud': 0, 'Mobile Development': 0 }
+    ],
+    [
+      { 'Design & UI/UX': 2, 'Web Development': 0, 'Data & Analytics': 0, 'AI & Machine Learning': 0, 'DevOps & Cloud': 0, 'Mobile Development': 1 },
+      { 'DevOps & Cloud': 2, 'Web Development': 1, 'Data & Analytics': 0, 'AI & Machine Learning': 0, 'Design & UI/UX': 0, 'Mobile Development': 0 },
+      { 'Data & Analytics': 2, 'AI & Machine Learning': 1, 'Web Development': 0, 'Design & UI/UX': 0, 'DevOps & Cloud': 0, 'Mobile Development': 0 },
+      { 'Web Development': 2, 'Mobile Development': 1, 'Design & UI/UX': 0, 'Data & Analytics': 0, 'AI & Machine Learning': 0, 'DevOps & Cloud': 0 },
+      { 'Web Development': 2, 'Mobile Development': 1, 'DevOps & Cloud': 1, 'Data & Analytics': 0, 'AI & Machine Learning': 0, 'Design & UI/UX': 0 }
+    ],
+    [
+      { 'Design & UI/UX': 2, 'Mobile Development': 0, 'Web Development': 0, 'Data & Analytics': 0, 'AI & Machine Learning': 0, 'DevOps & Cloud': 0 },
+      { 'DevOps & Cloud': 2, 'Web Development': 1, 'Data & Analytics': 0, 'AI & Machine Learning': 0, 'Design & UI/UX': 0, 'Mobile Development': 0 },
+      { 'Data & Analytics': 2, 'Web Development': 1, 'AI & Machine Learning': 0, 'Design & UI/UX': 0, 'DevOps & Cloud': 0, 'Mobile Development': 0 },
+      { 'AI & Machine Learning': 2, 'Mobile Development': 1, 'Web Development': 0, 'Data & Analytics': 0, 'Design & UI/UX': 0, 'DevOps & Cloud': 0 },
+      { 'DevOps & Cloud': 2, 'Web Development': 1, 'Data & Analytics': 0, 'AI & Machine Learning': 0, 'Design & UI/UX': 0, 'Mobile Development': 0 }
+    ],
+    [
+      { 'Design & UI/UX': 2, 'Web Development': 0, 'Data & Analytics': 0, 'AI & Machine Learning': 0, 'DevOps & Cloud': 0, 'Mobile Development': 0 },
+      { 'DevOps & Cloud': 2, 'Web Development': 1, 'Data & Analytics': 0, 'AI & Machine Learning': 0, 'Design & UI/UX': 0, 'Mobile Development': 0 },
+      { 'Data & Analytics': 2, 'AI & Machine Learning': 1, 'Web Development': 0, 'Design & UI/UX': 0, 'DevOps & Cloud': 0, 'Mobile Development': 0 },
+      { 'AI & Machine Learning': 2, 'Web Development': 1, 'Data & Analytics': 0, 'Design & UI/UX': 0, 'DevOps & Cloud': 0, 'Mobile Development': 0 },
+      { 'DevOps & Cloud': 2, 'Web Development': 1, 'Data & Analytics': 0, 'AI & Machine Learning': 0, 'Design & UI/UX': 0, 'Mobile Development': 0 }
+    ],
+    [
+      { 'Design & UI/UX': 2, 'Web Development': 0, 'Data & Analytics': 0, 'AI & Machine Learning': 0, 'DevOps & Cloud': 0, 'Mobile Development': 0 },
+      { 'Web Development': 2, 'DevOps & Cloud': 1, 'Data & Analytics': 0, 'AI & Machine Learning': 0, 'Design & UI/UX': 0, 'Mobile Development': 0 },
+      { 'Data & Analytics': 2, 'AI & Machine Learning': 1, 'Web Development': 0, 'Design & UI/UX': 0, 'DevOps & Cloud': 0, 'Mobile Development': 0 },
+      { 'AI & Machine Learning': 2, 'DevOps & Cloud': 1, 'Web Development': 0, 'Data & Analytics': 0, 'Design & UI/UX': 0, 'Mobile Development': 0 },
+      { 'Web Development': 2, 'Mobile Development': 1, 'Design & UI/UX': 0, 'Data & Analytics': 0, 'AI & Machine Learning': 0, 'DevOps & Cloud': 0 }
+    ],
+    [
+      { 'Design & UI/UX': 2, 'Web Development': 0, 'Data & Analytics': 0, 'AI & Machine Learning': 0, 'DevOps & Cloud': 0, 'Mobile Development': 0 },
+      { 'DevOps & Cloud': 2, 'Web Development': 1, 'Data & Analytics': 0, 'AI & Machine Learning': 0, 'Design & UI/UX': 0, 'Mobile Development': 0 },
+      { 'Data & Analytics': 2, 'AI & Machine Learning': 1, 'Web Development': 0, 'Design & UI/UX': 0, 'DevOps & Cloud': 0, 'Mobile Development': 0 },
+      { 'AI & Machine Learning': 2, 'Web Development': 1, 'Data & Analytics': 0, 'Design & UI/UX': 0, 'DevOps & Cloud': 0, 'Mobile Development': 0 },
+      { 'Web Development': 2, 'DevOps & Cloud': 1, 'Data & Analytics': 0, 'AI & Machine Learning': 0, 'Design & UI/UX': 0, 'Mobile Development': 0 }
+    ],
+    [
+      { 'Design & UI/UX': 2, 'Mobile Development': 0, 'Web Development': 0, 'Data & Analytics': 0, 'AI & Machine Learning': 0, 'DevOps & Cloud': 0 },
+      { 'Mobile Development': 2, 'Web Development': 1, 'Data & Analytics': 0, 'AI & Machine Learning': 0, 'Design & UI/UX': 0, 'DevOps & Cloud': 0 },
+      { 'Data & Analytics': 2, 'AI & Machine Learning': 1, 'Web Development': 0, 'Design & UI/UX': 0, 'DevOps & Cloud': 0, 'Mobile Development': 0 },
+      { 'AI & Machine Learning': 2, 'Web Development': 1, 'Data & Analytics': 0, 'Design & UI/UX': 0, 'DevOps & Cloud': 0, 'Mobile Development': 0 },
+      { 'DevOps & Cloud': 2, 'Web Development': 1, 'Data & Analytics': 0, 'AI & Machine Learning': 0, 'Design & UI/UX': 0, 'Mobile Development': 0 }
+    ],
+    [
+      { 'Design & UI/UX': 2, 'Web Development': 0, 'Data & Analytics': 0, 'AI & Machine Learning': 0, 'DevOps & Cloud': 0, 'Mobile Development': 0 },
+      { 'Web Development': 2, 'Mobile Development': 1, 'Data & Analytics': 0, 'AI & Machine Learning': 0, 'Design & UI/UX': 0, 'DevOps & Cloud': 0 },
+      { 'Data & Analytics': 2, 'Web Development': 1, 'AI & Machine Learning': 0, 'Design & UI/UX': 0, 'DevOps & Cloud': 0, 'Mobile Development': 0 },
+      { 'Design & UI/UX': 1, 'AI & Machine Learning': 2, 'Web Development': 0, 'Data & Analytics': 0, 'DevOps & Cloud': 0, 'Mobile Development': 0 },
+      { 'DevOps & Cloud': 2, 'Web Development': 1, 'Data & Analytics': 0, 'AI & Machine Learning': 0, 'Design & UI/UX': 0, 'Mobile Development': 0 }
+    ],
+    [
+      { 'Design & UI/UX': 2, 'Web Development': 0, 'Data & Analytics': 0, 'AI & Machine Learning': 0, 'DevOps & Cloud': 0, 'Mobile Development': 0 },
+      { 'Web Development': 2, 'Mobile Development': 1, 'Data & Analytics': 0, 'AI & Machine Learning': 0, 'Design & UI/UX': 0, 'DevOps & Cloud': 0 },
+      { 'Data & Analytics': 2, 'AI & Machine Learning': 1, 'Web Development': 0, 'Design & UI/UX': 0, 'DevOps & Cloud': 0, 'Mobile Development': 0 },
+      { 'AI & Machine Learning': 2, 'Web Development': 1, 'Data & Analytics': 0, 'Design & UI/UX': 0, 'DevOps & Cloud': 0, 'Mobile Development': 0 },
+      { 'DevOps & Cloud': 2, 'Web Development': 1, 'Data & Analytics': 0, 'AI & Machine Learning': 0, 'Design & UI/UX': 0, 'Mobile Development': 0 }
+    ]
   ]
 
   // Quiz handlers
@@ -331,15 +426,19 @@ export default function AcademyPage() {
     }
 
     answers.forEach((answerIndex, questionIndex) => {
-      const selectedOption = quizQuestions[questionIndex].options[answerIndex]
-      categoryScores[selectedOption.category] = (categoryScores[selectedOption.category] || 0) + 1
+      const weights = quizScoringMatrix[questionIndex]?.[answerIndex]
+      if (weights) {
+        Object.entries(weights).forEach(([cat, w]) => {
+          categoryScores[cat] = (categoryScores[cat] || 0) + w
+        })
+      }
     })
 
-    const totalQuestions = answers.length
+    const totalWeight = Object.values(categoryScores).reduce((a, b) => a + b, 0) || 1
     const results = Object.entries(categoryScores)
       .map(([category, score]) => ({
         category,
-        percentage: Math.round((score / totalQuestions) * 100)
+        percentage: Math.round((score / totalWeight) * 100)
       }))
       .sort((a, b) => b.percentage - a.percentage)
       .slice(0, 3)
@@ -607,8 +706,8 @@ export default function AcademyPage() {
                 <span className="text-primary-500">Tech</span>
               </h2>
               <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-                Take our personality quiz to discover which tech course is the perfect fit for you. 
-                Answer 15 questions and get personalized recommendations.
+                Answer 15 short questions about how you think, work, and solve problems—no tech experience needed. 
+                We use your answers to suggest tech paths that match how your mind works.
               </p>
             </motion.div>
 
@@ -659,7 +758,7 @@ export default function AcademyPage() {
                         onClick={() => handleQuizAnswer(index)}
                         className="w-full text-left p-6 rounded-xl border-2 border-slate-200 hover:border-primary-500 hover:bg-primary-50 transition-all duration-200 bg-white"
                       >
-                        <span className="text-lg text-slate-700 font-medium">{option.text}</span>
+                        <span className="text-lg text-slate-700 font-medium">{option}</span>
                       </motion.button>
                     ))}
                   </div>
@@ -686,7 +785,8 @@ export default function AcademyPage() {
                       Your Perfect Tech Match!
                     </h3>
                     <p className="text-lg text-slate-600">
-                      Based on your answers, here are the courses that best fit your personality and interests.
+                      Based on how you think and approach problems, these areas tend to fit people like you. 
+                      Not a label—just a practical starting point to explore.
                     </p>
                   </div>
 
