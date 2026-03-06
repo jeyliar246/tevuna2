@@ -1057,7 +1057,7 @@ export default function AcademyPage() {
                     role="img"
                     aria-label="Tevuna Academy students learning together"
                     className="absolute inset-0 bg-cover bg-center"
-                    style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80)' }}
+                    style={{ backgroundImage: 'url(/assets/academy-students.jpg)' }}
                   />
                   {/* Decorative plus signs */}
                   <div className="absolute top-10 right-10 w-32 h-32 opacity-20">
@@ -1149,13 +1149,13 @@ export default function AcademyPage() {
                   {
                     title: 'The Journey to Tech Mastery',
                     description: 'Explore the profound impact of strategic tech education on personal and professional growth.',
-                    image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80',
+                    image: '/assets/academy-team.jpg',
                     date: 'Jan 18, 2024'
                   },
                   {
                     title: 'The Art of Tech Learning: Tips for Success',
                     description: 'Delve into the art of tech learning with our in-depth tips for success and strategic thinking.',
-                    image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80',
+                    image: '/assets/academy-students.jpg',
                     date: 'Jan 18, 2024'
                   }
                 ].map((post, index) => (
@@ -1217,17 +1217,17 @@ export default function AcademyPage() {
                   {[
                     {
                       title: 'A Harmony of Learning',
-                      image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&q=80',
+                      image: '/assets/academy-learning.jpg',
                       date: 'Jan 18, 2024'
                     },
                     {
                       title: 'Tech & Career Edge',
-                      image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&q=80',
+                      image: '/assets/academy-team.jpg',
                       date: 'Jan 18, 2024'
                     },
                     {
                       title: 'Tech for All Levels',
-                      image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&q=80',
+                      image: '/assets/academy-students.jpg',
                       date: 'Jan 18, 2024'
                     }
                   ].map((post, index) => (
