@@ -1,15 +1,16 @@
 'use client'
 
+import Link from 'next/link'
 import { motion } from 'framer-motion'
 
 export default function Footer() {
   const footerLinks = {
     quick: [
-      { label: 'Home', href: '#home' },
-      { label: 'About', href: '#about' },
-      { label: 'Projects', href: '#projects' },
-      { label: 'Gallery', href: '#gallery' },
-      { label: 'Contact', href: '#contact' },
+      { label: 'Home', href: '/' },
+      { label: 'About', href: '/#about' },
+      { label: 'Projects', href: '/#projects' },
+      { label: 'Gallery', href: '/#gallery' },
+      { label: 'Contact', href: '/#contact' },
       { label: 'Tevuna Academy', href: '/academy' },
     ],
     legal: [
@@ -17,9 +18,9 @@ export default function Footer() {
       { label: 'Cookie Policy', href: '/cookies' },
     ],
     services: [
-      { label: 'Web Development', href: '#projects' },
-      { label: 'Mobile Apps', href: '#projects' },
-      { label: 'Tech Solutions', href: '#projects' },
+      { label: 'Web Development', href: '/#services' },
+      { label: 'Mobile Apps', href: '/#services' },
+      { label: 'Tech Solutions', href: '/#services' },
     ],
     contact: [
       { label: 'info@tevuna.com', href: 'mailto:info@tevuna.com' },
@@ -40,15 +41,17 @@ export default function Footer() {
             transition={{ type: 'spring', stiffness: 100 }}
           >
             <div className="mb-4">
-              <img
-                src="/assets/tevunalogo2.png"
-                alt="Tevuna - Tech Solutions Agency Logo"
-                title="Tevuna - Tech Solutions Agency"
-                width={200}
-                height={80}
-                loading="lazy"
-                className="h-16 w-auto object-contain"
-              />
+              <Link href="/" aria-label="Tevuna - Go to Home">
+                <img
+                  src="/assets/tevunalogo2.png"
+                  alt="Tevuna - Tech Solutions Agency Logo"
+                  title="Tevuna - Tech Solutions Agency"
+                  width={200}
+                  height={80}
+                  loading="lazy"
+                  className="h-16 w-auto object-contain"
+                />
+              </Link>
             </div>
             <p className="text-slate-600 text-sm leading-relaxed">
               Deep understanding. Strategic thinking. Smart solutions. Tevuna delivers insight-driven 
@@ -69,12 +72,12 @@ export default function Footer() {
             <ul className="space-y-2">
               {footerLinks.quick.map((link) => (
                 <li key={link.label}>
-                  <a
+                  <Link
                     href={link.href}
                     className="text-slate-600 hover:text-primary-500 transition-colors text-sm"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -93,12 +96,12 @@ export default function Footer() {
             <ul className="space-y-2">
               {footerLinks.services.map((link) => (
                 <li key={link.label}>
-                  <a
+                  <Link
                     href={link.href}
                     className="text-slate-600 hover:text-primary-500 transition-colors text-sm"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -143,12 +146,12 @@ export default function Footer() {
             <ul className="space-y-2">
               {footerLinks.legal.map((link) => (
                 <li key={link.label}>
-                  <a
+                  <Link
                     href={link.href}
                     className="text-slate-600 hover:text-primary-500 transition-colors text-sm"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -160,8 +163,8 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} Tevuna. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm">
-            <a href="/privacy" className="text-slate-500 hover:text-primary-500 transition-colors">Privacy</a>
-            <a href="/cookies" className="text-slate-500 hover:text-primary-500 transition-colors">Cookies</a>
+            <Link href="/privacy" className="text-slate-500 hover:text-primary-500 transition-colors">Privacy</Link>
+            <Link href="/cookies" className="text-slate-500 hover:text-primary-500 transition-colors">Cookies</Link>
           </div>
         </div>
       </div>

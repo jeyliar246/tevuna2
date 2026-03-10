@@ -29,7 +29,8 @@ export default function About() {
               <div
                 role="img"
                 aria-label="Tevuna team collaborating on strategic tech solutions"
-                className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80')] bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+                className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+                style={{ backgroundImage: "url('/assets/home-strategy.png')" }}
               />
               <motion.div
                 className="absolute inset-0 border-2 border-primary-500/50 rounded-2xl"

@@ -14,16 +14,17 @@ export default function Projects() {
       title: 'Tevuna Online Academy',
       category: 'E-Learning Platform',
       description: 'Built with deep understanding of educational needs, this platform delivers strategic learning solutions with intelligent course design and insightful progress analytics.',
-      image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80',
+      image: '/assets/home-vr.png',
       link: '/academy',
     },
     {
       title: 'AllFreshFood',
       category: 'E-Commerce & Food Delivery',
       description: 'A strategically designed e-commerce solution that understands customer behavior, delivering smart ordering experiences with intelligent tracking and intuitive interfaces.',
-      image: 'https://images.unsplash.com/photo-1556910096-6f5e72db6803?w=800&q=80',
+      image: '/assets/home-analytics.png',
       link: 'https://allfreshfood.co.uk/',
       external: true,
+      previewUrl: 'https://allfreshfood.co.uk/',
     },
   ]
 
@@ -66,30 +67,73 @@ export default function Projects() {
               }}
               className="group relative rounded-2xl overflow-hidden border border-slate-200 bg-white/80 backdrop-blur-sm"
             >
-              <div className="relative aspect-video overflow-hidden">
-                <div
-                  role="img"
-                  aria-label={`${project.title} - ${project.category}`}
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
-                  style={{ backgroundImage: `url(${project.image})` }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-dark-950 via-dark-950/50 to-transparent" />
-                <motion.div
-                  className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
-                  whileHover={{ scale: 1.05 }}
-                >
-                  <motion.a
-                    href={project.link}
-                    target={project.external ? '_blank' : undefined}
-                    rel={project.external ? 'noopener noreferrer' : undefined}
-                    className="px-8 py-4 bg-primary-500 text-white font-semibold rounded-lg uppercase tracking-wider flex items-center gap-2 hover:bg-primary-600 transition-colors"
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
+              <div className="relative aspect-video overflow-hidden bg-slate-100">
+                {project.previewUrl ? (
+                  <div className="absolute inset-0 flex flex-col">
+                    {/* Browser-style frame */}
+                    <div className="flex items-center gap-2 px-3 py-2 bg-slate-200 border-b border-slate-300 flex-shrink-0">
+                      <div className="flex gap-1.5">
+                        <div className="w-3 h-3 rounded-full bg-red-400" />
+                        <div className="w-3 h-3 rounded-full bg-yellow-400" />
+                        <div className="w-3 h-3 rounded-full bg-green-400" />
+                      </div>
+                      <div className="flex-1 mx-4 py-1.5 px-3 bg-white rounded text-xs text-slate-500 truncate border border-slate-300">
+                        {project.link.replace(/^https?:\/\//, '').replace(/\/$/, '')}
+                      </div>
+                    </div>
+                    <div className="flex-1 min-h-0 relative">
+                      <iframe
+                        src={project.previewUrl}
+                        title={`${project.title} - Live preview`}
+                        className="absolute inset-0 w-full h-full border-0"
+                        sandbox="allow-scripts allow-same-origin"
+                        loading="lazy"
+                        referrerPolicy="no-referrer"
+                      />
+                    </div>
+                  </div>
+                ) : (
+                  <>
+                    <div
+                      role="img"
+                      aria-label={`${project.title} - ${project.category}`}
+                      className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                      style={{ backgroundImage: `url(${project.image})` }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-dark-950 via-dark-950/50 to-transparent" />
+                  </>
+                )}
+                {project.previewUrl ? (
+                  <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/70 to-transparent flex justify-center">
+                    <motion.a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-6 py-2.5 bg-primary-500 text-white font-semibold rounded-lg uppercase tracking-wider flex items-center gap-2 hover:bg-primary-600 transition-colors text-sm"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      View full website <ExternalLink className="w-4 h-4" />
+                    </motion.a>
+                  </div>
+                ) : (
+                  <motion.div
+                    className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+                    whileHover={{ scale: 1.05 }}
                   >
-                    {project.title === 'Tevuna Online Academy' ? 'Join Now' : 'View Project'}
-                    {project.external && <ExternalLink className="w-4 h-4" />}
-                  </motion.a>
-                </motion.div>
+                    <motion.a
+                      href={project.link}
+                      target={project.external ? '_blank' : undefined}
+                      rel={project.external ? 'noopener noreferrer' : undefined}
+                      className="px-8 py-4 bg-primary-500 text-white font-semibold rounded-lg uppercase tracking-wider flex items-center gap-2 hover:bg-primary-600 transition-colors"
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      {project.title === 'Tevuna Online Academy' ? 'Join Now' : 'View Project'}
+                      {project.external && <ExternalLink className="w-4 h-4" />}
+                    </motion.a>
+                  </motion.div>
+                )}
               </div>
               
               <div className="p-8 text-center md:text-left">

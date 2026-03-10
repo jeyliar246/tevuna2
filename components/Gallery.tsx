@@ -9,12 +9,12 @@ export default function Gallery() {
   const isInView = useInView(ref, { once: true, margin: '-100px' })
 
   const galleryItems = [
-    { title: 'Web Development', image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80' },
-    { title: 'Mobile Apps', image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&q=80' },
-    { title: 'Tech Solutions', image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&q=80' },
-    { title: 'UI/UX Design', image: 'https://images.unsplash.com/photo-1551650975-87deedd944c3?w=600&q=80' },
-    { title: 'Digital Strategy', image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80' },
-    { title: 'Branding', image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?w=600&q=80' },
+    { title: 'Web Development', image: '/assets/home-data.png' },
+    { title: 'Mobile Apps', image: '/assets/home-vr.png' },
+    { title: 'Tech Solutions', image: '/assets/home-cloud.png' },
+    { title: 'UI/UX Design', image: '/assets/home-uiux.png' },
+    { title: 'Digital Strategy', image: '/assets/home-strategy.png' },
+    { title: 'Branding', image: '/assets/home-ai.png' },
   ]
 
   return (
