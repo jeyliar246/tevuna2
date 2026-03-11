@@ -9,12 +9,12 @@ export default function Gallery() {
   const isInView = useInView(ref, { once: true, margin: '-100px' })
 
   const galleryItems = [
-    { title: 'Web Development', image: '/assets/home-data.png' },
+    { title: 'Data Analytics', image: '/assets/home-data.png' },
     { title: 'Mobile Apps', image: '/assets/home-vr.png' },
     { title: 'Tech Solutions', image: '/assets/home-cloud.png' },
     { title: 'UI/UX Design', image: '/assets/home-uiux.png' },
     { title: 'Digital Strategy', image: '/assets/home-strategy.png' },
-    { title: 'Branding', image: '/assets/home-ai.png' },
+    { title: 'AI', image: '/assets/home-ai.png' },
   ]
 
   return (

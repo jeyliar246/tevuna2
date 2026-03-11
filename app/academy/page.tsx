@@ -1057,7 +1057,7 @@ export default function AcademyPage() {
                     role="img"
                     aria-label="Tevuna Academy students learning together"
                     className="absolute inset-0 bg-cover bg-center"
-                    style={{ backgroundImage: 'url(/assets/academy-students.jpg)' }}
+                    style={{ backgroundImage: 'url(/assets/academy-learning.jpg)' }}
                   />
                   {/* Decorative plus signs */}
                   <div className="absolute top-10 right-10 w-32 h-32 opacity-20">
