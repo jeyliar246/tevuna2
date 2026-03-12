@@ -200,11 +200,12 @@ const techCategories = [
 ]
 
 const TECH_PER_CARD = Math.min(...techCategories.map((c) => c.technologies.length))
+const INITIAL_INDEX = Math.floor(techCategories.length / 2)
 
 export default function Technologies() {
   const sectionRef = useRef<HTMLElement | null>(null)
   const isInView = useInView(sectionRef, { once: true, margin: '-100px' })
-  const [currentIndex, setCurrentIndex] = useState(0)
+  const [currentIndex, setCurrentIndex] = useState(INITIAL_INDEX)
   const listRef = useRef<HTMLDivElement | null>(null)
   const cardRefs = useRef<(HTMLDivElement | null)[]>([])
 
@@ -232,10 +233,10 @@ export default function Technologies() {
   const goNext = () => goTo(currentIndex + 1)
   const goPrev = () => goTo(currentIndex - 1)
 
-  // Center the first card on initial load
+  // Center the middle card on initial load so users can navigate left or right
   useEffect(() => {
     const id = requestAnimationFrame(() => {
-      requestAnimationFrame(() => scrollToIndex(0))
+      requestAnimationFrame(() => scrollToIndex(INITIAL_INDEX))
     })
     return () => cancelAnimationFrame(id)
   }, [])
@@ -300,7 +301,7 @@ export default function Technologies() {
         <div className="w-screen relative left-1/2 -translate-x-1/2">
           <div
             ref={listRef}
-            className="flex gap-4 md:gap-6 overflow-x-auto pb-4 pt-2 scroll-smooth snap-x snap-mandatory"
+            className="flex gap-4 md:gap-6 overflow-x-auto pb-4 pt-2 scroll-smooth snap-x snap-mandatory hide-scrollbar"
             style={{
               paddingLeft: 'max(1rem, calc(50vw - 180px))',
               paddingRight: 'max(1rem, calc(50vw - 180px))',

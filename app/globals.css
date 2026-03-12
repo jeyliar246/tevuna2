@@ -57,5 +57,13 @@
       0 0 20px rgba(217, 70, 239, 0.3),
       0 0 30px rgba(217, 70, 239, 0.2);
   }
+
+  .hide-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
 }
 
