@@ -143,7 +143,7 @@ export default function Technologies() {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ delay: 0.1 }}
-            className="inline-block px-4 py-2 bg-primary-500/10 border border-primary-500/30 rounded-full text-primary-500 text-xs font-mono uppercase tracking-widest mb-6"
+            className="inline-block px-4 py-2 bg-primary-500/10 border border-primary-500/30 rounded-full text-primary-500 text-xs font-sans uppercase tracking-widest mb-6"
           >
             Technologies
           </motion.span>
@@ -155,23 +155,18 @@ export default function Technologies() {
           </p>
         </motion.div>
 
-        <div className="relative max-w-4xl mx-auto px-4">
-          {/* Prev / Next - modern pill buttons */}
-          <button
-            onClick={goPrev}
-            aria-label="Previous stack"
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1 md:left-2 z-20 w-11 h-11 md:w-12 md:h-12 rounded-full bg-white/95 backdrop-blur-sm border border-slate-200/80 shadow-xl flex items-center justify-center text-slate-600 hover:border-primary-400 hover:text-primary-500 hover:shadow-primary-500/20 transition-all"
-          >
-            <ChevronLeft className="w-6 h-6" />
-          </button>
-          <button
-            onClick={goNext}
-            aria-label="Next stack"
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1 md:right-2 z-20 w-11 h-11 md:w-12 md:h-12 rounded-full bg-white/95 backdrop-blur-sm border border-slate-200/80 shadow-xl flex items-center justify-center text-slate-600 hover:border-primary-400 hover:text-primary-500 hover:shadow-primary-500/20 transition-all"
-          >
-            <ChevronRight className="w-6 h-6" />
-          </button>
+        <div className="max-w-4xl mx-auto px-4">
+          {/* Nav outside the card: Prev — Card — Next */}
+          <div className="flex items-stretch gap-3 md:gap-4">
+            <button
+              onClick={goPrev}
+              aria-label="Previous stack"
+              className="flex-shrink-0 w-12 h-12 md:w-14 md:h-14 rounded-xl bg-white border-2 border-slate-200 shadow-md flex items-center justify-center text-slate-600 hover:border-primary-400 hover:text-primary-500 hover:bg-primary-50 transition-all self-center"
+            >
+              <ChevronLeft className="w-6 h-6" />
+            </button>
 
+            <div className="flex-1 min-w-0">
           <motion.div
             className="cursor-grab active:cursor-grabbing touch-pan-y select-none"
             drag="x"
@@ -227,6 +222,16 @@ export default function Technologies() {
               </motion.div>
             </AnimatePresence>
           </motion.div>
+            </div>
+
+            <button
+              onClick={goNext}
+              aria-label="Next stack"
+              className="flex-shrink-0 w-12 h-12 md:w-14 md:h-14 rounded-xl bg-white border-2 border-slate-200 shadow-md flex items-center justify-center text-slate-600 hover:border-primary-400 hover:text-primary-500 hover:bg-primary-50 transition-all self-center"
+            >
+              <ChevronRight className="w-6 h-6" />
+            </button>
+          </div>
 
           {/* Progress bar + dots */}
           <div className="mt-8 space-y-4">

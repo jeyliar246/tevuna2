@@ -56,7 +56,7 @@ export default function CookiesPage() {
                 </thead>
                 <tbody>
                   <tr className="border-t border-slate-200">
-                    <td className="p-3 font-mono text-sm">cookie_consent (local storage)</td>
+                    <td className="p-3 font-sans text-sm">cookie_consent (local storage)</td>
                     <td className="p-3">Stores your cookie consent preference (accept / reject non-essential)</td>
                     <td className="p-3">1 year</td>
                   </tr>

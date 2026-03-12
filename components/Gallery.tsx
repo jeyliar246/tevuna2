@@ -30,7 +30,7 @@ export default function Gallery() {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ delay: 0.1 }}
-            className="inline-block px-4 py-2 bg-primary-500/10 border border-primary-500/30 rounded-full text-primary-400 text-xs font-mono uppercase tracking-widest mb-6"
+            className="inline-block px-4 py-2 bg-primary-500/10 border border-primary-500/30 rounded-full text-primary-400 text-xs font-sans uppercase tracking-widest mb-6"
           >
             Gallery
           </motion.span>

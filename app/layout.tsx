@@ -1,18 +1,12 @@
 import type { Metadata } from 'next'
-import { Inter, JetBrains_Mono } from 'next/font/google'
+import { Inter } from 'next/font/google'
 import './globals.css'
 import { SITE_URL, SEO_SNIPPETS, SITE_CONFIG } from '@/lib/seo'
 import CookieConsent from '@/components/CookieConsent'
 
-const inter = Inter({ 
+const inter = Inter({
   subsets: ['latin'],
-  variable: '--font-inter',
-  display: 'swap',
-})
-
-const jetbrainsMono = JetBrains_Mono({ 
-  subsets: ['latin'],
-  variable: '--font-mono',
+  variable: '--font-sans',
   display: 'swap',
 })
 
@@ -107,7 +101,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en-GB" className={`${inter.variable} ${jetbrainsMono.variable}`}>
+    <html lang="en-GB" className={inter.variable}>
       <body className="font-sans antialiased">
         <script
           type="application/ld+json"

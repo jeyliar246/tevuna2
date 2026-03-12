@@ -57,7 +57,7 @@ export default function About() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.3 }}
-              className="inline-block px-4 py-2 bg-accent-500/10 border border-accent-500/30 rounded-full text-accent-400 text-xs font-mono uppercase tracking-widest mb-6"
+              className="inline-block px-4 py-2 bg-accent-500/10 border border-accent-500/30 rounded-full text-accent-400 text-xs font-sans uppercase tracking-widest mb-6"
             >
               About Tevuna
             </motion.span>
@@ -87,7 +87,7 @@ export default function About() {
                   transition={{ delay: 0.4 + index * 0.1, type: 'spring', stiffness: 200 }}
                   className="text-center"
                 >
-                  <div className="text-4xl md:text-5xl font-bold text-primary-500 mb-2 font-mono">
+                  <div className="text-4xl md:text-5xl font-bold text-primary-500 mb-2 font-sans">
                     {stat.number}{stat.suffix}
                   </div>
                   <div className="text-sm text-slate-500 uppercase tracking-wider">

@@ -84,7 +84,7 @@ export default function Hero() {
             variants={itemVariants}
             className="inline-block mt-10 md:mt-14 mb-8"
           >
-            <span className="px-4 sm:px-6 py-2.5 bg-primary-500/15 border-2 border-primary-500/40 rounded-full text-primary-600 text-xs sm:text-sm font-mono font-semibold tracking-wide whitespace-nowrap shadow-lg">
+            <span className="px-4 sm:px-6 py-2.5 bg-primary-500/15 border-2 border-primary-500/40 rounded-full text-primary-600 text-xs sm:text-sm font-sans font-semibold tracking-wide whitespace-nowrap shadow-lg">
               Deep Understanding • Strategic Thinking
             </span>
           </motion.div>
