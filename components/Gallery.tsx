@@ -10,7 +10,7 @@ export default function Gallery() {
 
   const galleryItems = [
     { title: 'Data Analytics', image: '/assets/home-data.png' },
-    { title: 'Mobile Apps', image: '/assets/home-vr.png' },
+    { title: 'Mobile Apps', image: '/assets/mobileappdev.jpg' },
     { title: 'Tech Solutions', image: '/assets/home-cloud.png' },
     { title: 'UI/UX Design', image: '/assets/home-uiux.png' },
     { title: 'Digital Strategy', image: '/assets/home-strategy.png' },

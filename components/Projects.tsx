@@ -14,7 +14,7 @@ export default function Projects() {
       title: 'Tevuna Online Academy',
       category: 'E-Learning Platform',
       description: 'Built with deep understanding of educational needs, this platform delivers strategic learning solutions with intelligent course design and insightful progress analytics.',
-      image: '/assets/home-vr.png',
+      image: '/assets/programmer.jpg',
       link: '/academy',
     },
     {
