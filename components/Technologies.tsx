@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { motion, useInView } from 'framer-motion'
 import {
   Code,
@@ -216,7 +216,7 @@ export default function Technologies() {
     const scrollLeft = cardCenter - containerCenter
 
     container.scrollTo({
-      left: scrollLeft,
+      left: Math.max(0, scrollLeft),
       behavior: 'smooth',
     })
   }
@@ -229,6 +229,37 @@ export default function Technologies() {
 
   const goNext = () => goTo(currentIndex + 1)
   const goPrev = () => goTo(currentIndex - 1)
+
+  // Sync currentIndex with the card closest to center when user scrolls
+  useEffect(() => {
+    const container = listRef.current
+    if (!container) return
+
+    let rafId: number
+    const handleScroll = () => {
+      if (rafId) cancelAnimationFrame(rafId)
+      rafId = requestAnimationFrame(() => {
+        const center = container.scrollLeft + container.offsetWidth / 2
+        let closest = 0
+        let minDist = Infinity
+        cardRefs.current.forEach((card, i) => {
+          if (!card) return
+          const cardCenter = card.offsetLeft + card.offsetWidth / 2
+          const dist = Math.abs(center - cardCenter)
+          if (dist < minDist) {
+            minDist = dist
+            closest = i
+          }
+        })
+        setCurrentIndex(closest)
+      })
+    }
+    container.addEventListener('scroll', handleScroll, { passive: true })
+    return () => {
+      container.removeEventListener('scroll', handleScroll)
+      if (rafId) cancelAnimationFrame(rafId)
+    }
+  }, [])
 
   return (
     <section id="technologies" ref={sectionRef} className="py-32 relative overflow-hidden">
@@ -255,11 +286,15 @@ export default function Technologies() {
           </p>
         </motion.div>
 
-        <div className="max-w-5xl mx-auto">
-          {/* Horizontal carousel with center-focused card */}
+        {/* Full-width carousel: expands across the screen, active card centered */}
+        <div className="w-screen relative left-1/2 -translate-x-1/2">
           <div
             ref={listRef}
-            className="flex gap-4 md:gap-6 overflow-x-auto pb-4 pt-2 px-1 scroll-smooth snap-x snap-mandatory"
+            className="flex gap-4 md:gap-6 overflow-x-auto pb-4 pt-2 scroll-smooth snap-x snap-mandatory"
+            style={{
+              paddingLeft: 'max(1rem, calc(50vw - 180px))',
+              paddingRight: 'max(1rem, calc(50vw - 180px))',
+            }}
           >
             {techCategories.map((category, index) => {
               const Icon = category.icon
@@ -316,9 +351,10 @@ export default function Technologies() {
               )
             })}
           </div>
+        </div>
 
-          {/* Bottom navigation */}
-          <div className="mt-8 space-y-4">
+        {/* Bottom navigation */}
+        <div className="max-w-5xl mx-auto mt-8 space-y-4 px-4">
             <div className="flex items-center justify-center gap-4">
               <button
                 onClick={goPrev}
@@ -367,7 +403,6 @@ export default function Technologies() {
               {currentIndex + 1} of {techCategories.length}
             </p>
           </div>
-        </div>
       </div>
     </section>
   )
