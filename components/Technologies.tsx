@@ -199,6 +199,8 @@ const techCategories = [
   },
 ]
 
+const TECH_PER_CARD = Math.min(...techCategories.map((c) => c.technologies.length))
+
 export default function Technologies() {
   const sectionRef = useRef<HTMLElement | null>(null)
   const isInView = useInView(sectionRef, { once: true, margin: '-100px' })
@@ -229,6 +231,14 @@ export default function Technologies() {
 
   const goNext = () => goTo(currentIndex + 1)
   const goPrev = () => goTo(currentIndex - 1)
+
+  // Center the first card on initial load
+  useEffect(() => {
+    const id = requestAnimationFrame(() => {
+      requestAnimationFrame(() => scrollToIndex(0))
+    })
+    return () => cancelAnimationFrame(id)
+  }, [])
 
   // Sync currentIndex with the card closest to center when user scrolls
   useEffect(() => {
@@ -336,7 +346,7 @@ export default function Technologies() {
                     {/* Tech tags */}
                     <div className="p-5 md:p-6 flex-1">
                       <div className="flex flex-wrap gap-2 justify-center">
-                        {category.technologies.map((tech) => (
+                        {category.technologies.slice(0, TECH_PER_CARD).map((tech) => (
                           <span
                             key={tech}
                             className="px-3 py-1.5 text-xs md:text-sm font-medium text-slate-600 bg-slate-50 rounded-full border border-slate-200/80 hover:bg-primary-50 hover:border-primary-200 hover:text-primary-700 transition-colors"
@@ -389,19 +399,6 @@ export default function Technologies() {
                 <ChevronRight className="w-4 h-4" />
               </button>
             </div>
-
-            <div className="h-1.5 bg-slate-200 rounded-full overflow-hidden max-w-md mx-auto">
-              <motion.div
-                className="h-full bg-gradient-to-r from-primary-500 to-primary-600 rounded-full"
-                initial={false}
-                animate={{ width: `${((currentIndex + 1) / techCategories.length) * 100}%` }}
-                transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-              />
-            </div>
-
-            <p className="text-center text-sm font-medium text-slate-500">
-              {currentIndex + 1} of {techCategories.length}
-            </p>
           </div>
       </div>
     </section>
