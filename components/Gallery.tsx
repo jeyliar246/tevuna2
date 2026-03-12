@@ -12,7 +12,7 @@ export default function Gallery() {
     { title: 'Data Analytics', image: '/assets/home-data.png' },
     { title: 'Mobile Apps', image: '/assets/mobileappdev.jpg' },
     { title: 'Tech Solutions', image: '/assets/home-cloud.png' },
-    { title: 'UI/UX Design', image: '/assets/home-uiux.png' },
+    { title: 'UI/UX Design', image: '/assets/ui-ux-design.jpg' },
     { title: 'Digital Strategy', image: '/assets/home-strategy.png' },
     { title: 'AI', image: '/assets/home-ai.png' },
   ]

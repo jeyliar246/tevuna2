@@ -8,6 +8,8 @@ const techCategories = [
   {
     icon: Code,
     title: 'Web Development',
+    image: '/assets/home-data.png',
+    gradient: 'from-blue-600/90 to-cyan-600/90',
     technologies: [
       'HTML5', 'CSS3', 'JavaScript', 'TypeScript', 'React', 'Next.js',
       'Vue.js', 'Angular', 'Node.js', 'Express.js', 'PHP', 'Python',
@@ -17,6 +19,8 @@ const techCategories = [
   {
     icon: Smartphone,
     title: 'Mobile App Development',
+    image: '/assets/mobileappdev.jpg',
+    gradient: 'from-violet-600/90 to-purple-600/90',
     technologies: [
       'React Native', 'Flutter', 'Swift', 'Kotlin', 'Java', 'Dart',
       'Ionic', 'Xamarin', 'Android Studio', 'Xcode', 'Firebase',
@@ -26,6 +30,8 @@ const techCategories = [
   {
     icon: Globe,
     title: 'CMS & E-Commerce',
+    image: '/assets/home-analytics.png',
+    gradient: 'from-amber-600/90 to-orange-600/90',
     technologies: [
       'WordPress', 'WooCommerce', 'Shopify', 'Magento', 'Drupal',
       'Joomla', 'Squarespace', 'Webflow', 'Contentful', 'Strapi'
@@ -34,6 +40,8 @@ const techCategories = [
   {
     icon: Database,
     title: 'Databases & Backend',
+    image: '/assets/home-data.png',
+    gradient: 'from-emerald-600/90 to-teal-600/90',
     technologies: [
       'MySQL', 'PostgreSQL', 'MongoDB', 'Redis', 'Firebase',
       'Supabase', 'DynamoDB', 'Oracle', 'SQL Server', 'MariaDB'
@@ -42,6 +50,8 @@ const techCategories = [
   {
     icon: BarChart3,
     title: 'Data Analytics & BI',
+    image: '/assets/home-analytics.png',
+    gradient: 'from-sky-600/90 to-blue-600/90',
     technologies: [
       'Google Analytics', 'Tableau', 'Power BI', 'Looker', 'Mixpanel',
       'Amplitude', 'Segment', 'Snowflake', 'BigQuery', 'Apache Spark'
@@ -50,6 +60,8 @@ const techCategories = [
   {
     icon: Cloud,
     title: 'Cloud & DevOps',
+    image: '/assets/home-cloud.png',
+    gradient: 'from-indigo-600/90 to-blue-600/90',
     technologies: [
       'AWS', 'Azure', 'Google Cloud', 'Docker', 'Kubernetes',
       'Jenkins', 'GitHub Actions', 'CI/CD', 'Terraform', 'Ansible'
@@ -58,6 +70,8 @@ const techCategories = [
   {
     icon: Palette,
     title: 'Design & UI/UX Tools',
+    image: '/assets/ui-ux-design.jpg',
+    gradient: 'from-pink-600/90 to-rose-600/90',
     technologies: [
       'Figma', 'Adobe XD', 'Sketch', 'InVision', 'Adobe Photoshop',
       'Adobe Illustrator', 'Framer', 'Principle', 'Zeplin', 'Miro'
@@ -66,6 +80,8 @@ const techCategories = [
   {
     icon: Settings,
     title: 'Development Tools',
+    image: '/assets/programmer.jpg',
+    gradient: 'from-slate-600/90 to-slate-700/90',
     technologies: [
       'Git', 'GitHub', 'GitLab', 'VS Code', 'WebStorm',
       'Postman', 'Jira', 'Confluence', 'Slack', 'Trello'
@@ -74,6 +90,8 @@ const techCategories = [
   {
     icon: Brain,
     title: 'AI & Machine Learning',
+    image: '/assets/home-ai.png',
+    gradient: 'from-fuchsia-600/90 to-purple-600/90',
     technologies: [
       'OpenAI GPT', 'Claude AI', 'LLM APIs', 'LangChain', 'TensorFlow',
       'PyTorch', 'Hugging Face', 'Stable Diffusion', 'Midjourney API',
@@ -137,26 +155,25 @@ export default function Technologies() {
           </p>
         </motion.div>
 
-        <div className="relative max-w-4xl mx-auto">
-          {/* Prev / Next buttons */}
+        <div className="relative max-w-4xl mx-auto px-4">
+          {/* Prev / Next - modern pill buttons */}
           <button
             onClick={goPrev}
             aria-label="Previous stack"
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 md:-translate-x-4 z-10 w-12 h-12 rounded-full bg-white border-2 border-slate-200 shadow-lg flex items-center justify-center text-slate-600 hover:border-primary-500 hover:text-primary-500 hover:bg-primary-50 transition-all"
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1 md:left-2 z-20 w-11 h-11 md:w-12 md:h-12 rounded-full bg-white/95 backdrop-blur-sm border border-slate-200/80 shadow-xl flex items-center justify-center text-slate-600 hover:border-primary-400 hover:text-primary-500 hover:shadow-primary-500/20 transition-all"
           >
             <ChevronLeft className="w-6 h-6" />
           </button>
           <button
             onClick={goNext}
             aria-label="Next stack"
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 md:translate-x-4 z-10 w-12 h-12 rounded-full bg-white border-2 border-slate-200 shadow-lg flex items-center justify-center text-slate-600 hover:border-primary-500 hover:text-primary-500 hover:bg-primary-50 transition-all"
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1 md:right-2 z-20 w-11 h-11 md:w-12 md:h-12 rounded-full bg-white/95 backdrop-blur-sm border border-slate-200/80 shadow-xl flex items-center justify-center text-slate-600 hover:border-primary-400 hover:text-primary-500 hover:shadow-primary-500/20 transition-all"
           >
             <ChevronRight className="w-6 h-6" />
           </button>
 
-          {/* Carousel card - swipeable */}
           <motion.div
-            className="cursor-grab active:cursor-grabbing touch-pan-y"
+            className="cursor-grab active:cursor-grabbing touch-pan-y select-none"
             drag="x"
             dragConstraints={{ left: 0, right: 0 }}
             dragElastic={0.2}
@@ -168,57 +185,77 @@ export default function Technologies() {
               <motion.div
                 key={currentIndex}
                 custom={direction}
-                initial={{ opacity: 0, x: direction * 120 }}
+                initial={{ opacity: 0, x: direction * 80 }}
                 animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: direction * -120 }}
-                transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-                className="group relative p-8 md:p-10 rounded-2xl border-2 border-slate-200 bg-white/90 backdrop-blur-sm hover:border-primary-500/50 transition-colors min-h-[320px] flex flex-col"
+                exit={{ opacity: 0, x: direction * -80 }}
+                transition={{ type: 'spring', stiffness: 400, damping: 35 }}
+                className="rounded-3xl overflow-hidden bg-white shadow-2xl border border-slate-200/80 flex flex-col min-h-[380px]"
               >
-                <div className="flex items-center gap-3 mb-6 justify-center">
-                  <div className="w-14 h-14 rounded-xl bg-primary-500/20 flex items-center justify-center border-2 border-primary-500/30">
-                    <Icon className="w-7 h-7 text-primary-500" />
+                {/* Image header with gradient overlay */}
+                <div className="relative h-40 md:h-48 overflow-hidden">
+                  <div
+                    className="absolute inset-0 bg-cover bg-center transition-transform duration-700 hover:scale-105"
+                    style={{ backgroundImage: `url(${category.image})` }}
+                  />
+                  <div className={`absolute inset-0 bg-gradient-to-br ${category.gradient}`} />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-16 h-16 rounded-2xl bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center">
+                      <Icon className="w-8 h-8 text-white" />
+                    </div>
                   </div>
-                  <h3 className="text-xl md:text-2xl font-bold text-slate-900">
+                  <h3 className="absolute bottom-0 left-0 right-0 p-4 text-xl md:text-2xl font-bold text-white drop-shadow-lg bg-gradient-to-t from-black/50 to-transparent">
                     {category.title}
                   </h3>
                 </div>
 
-                <div className="flex flex-wrap gap-2 justify-center">
-                  {category.technologies.map((tech, techIndex) => (
-                    <motion.span
-                      key={tech}
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: techIndex * 0.02 }}
-                      className="px-3 py-2 text-sm font-medium text-slate-700 bg-slate-100 rounded-lg border border-slate-200 hover:bg-primary-500/10 hover:border-primary-500/30 hover:text-primary-600 transition-all"
-                    >
-                      {tech}
-                    </motion.span>
-                  ))}
+                {/* Tech tags */}
+                <div className="p-6 md:p-8 flex-1">
+                  <div className="flex flex-wrap gap-2 justify-center">
+                    {category.technologies.map((tech, techIndex) => (
+                      <motion.span
+                        key={tech}
+                        initial={{ opacity: 0, y: 8 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: techIndex * 0.015 }}
+                        className="px-3 py-1.5 text-sm font-medium text-slate-600 bg-slate-50 rounded-full border border-slate-200/80 hover:bg-primary-50 hover:border-primary-200 hover:text-primary-700 transition-colors"
+                      >
+                        {tech}
+                      </motion.span>
+                    ))}
+                  </div>
                 </div>
               </motion.div>
             </AnimatePresence>
           </motion.div>
 
-          {/* Dots indicator */}
-          <div className="flex justify-center gap-2 mt-8 flex-wrap">
-            {techCategories.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => goTo(index)}
-                aria-label={`Go to stack ${index + 1}`}
-                className={`w-2.5 h-2.5 rounded-full transition-all ${
-                  index === currentIndex
-                    ? 'bg-primary-500 w-8'
-                    : 'bg-slate-300 hover:bg-slate-400'
-                }`}
+          {/* Progress bar + dots */}
+          <div className="mt-8 space-y-4">
+            <div className="h-1.5 bg-slate-200 rounded-full overflow-hidden">
+              <motion.div
+                className="h-full bg-gradient-to-r from-primary-500 to-primary-600 rounded-full"
+                initial={false}
+                animate={{ width: `${((currentIndex + 1) / techCategories.length) * 100}%` }}
+                transition={{ type: 'spring', stiffness: 300, damping: 30 }}
               />
-            ))}
+            </div>
+            <div className="flex justify-center gap-2 flex-wrap">
+              {techCategories.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => goTo(index)}
+                  aria-label={`Go to ${techCategories[index].title}`}
+                  className={`h-2 rounded-full transition-all duration-300 ${
+                    index === currentIndex
+                      ? 'bg-primary-500 w-8'
+                      : 'w-2 bg-slate-300 hover:bg-slate-400'
+                  }`}
+                />
+              ))}
+            </div>
+            <p className="text-center text-sm font-medium text-slate-500">
+              {currentIndex + 1} of {techCategories.length}
+            </p>
           </div>
-
-          <p className="text-center text-sm text-slate-500 mt-4">
-            {currentIndex + 1} of {techCategories.length}
-          </p>
         </div>
       </div>
     </section>
