@@ -22,7 +22,7 @@ const techCategories = [
     title: 'Web Development',
     image: '/assets/home-data.png',
     gradient: 'from-blue-600/90 to-cyan-600/90',
-    bodyBg: 'from-blue-600 to-cyan-600',
+    bodyOverlay: 'from-blue-600/35 to-cyan-600/35',
     technologies: [
       'HTML5',
       'CSS3',
@@ -48,7 +48,7 @@ const techCategories = [
     title: 'Mobile App Development',
     image: '/assets/mobileappdev.jpg',
     gradient: 'from-violet-600/90 to-purple-600/90',
-    bodyBg: 'from-violet-600 to-purple-600',
+    bodyOverlay: 'from-violet-600/35 to-purple-600/35',
     technologies: [
       'React Native',
       'Flutter',
@@ -70,7 +70,7 @@ const techCategories = [
     title: 'CMS & E-Commerce',
     image: '/assets/home-analytics.png',
     gradient: 'from-amber-600/90 to-orange-600/90',
-    bodyBg: 'from-amber-600 to-orange-600',
+    bodyOverlay: 'from-amber-600/35 to-orange-600/35',
     technologies: [
       'WordPress',
       'WooCommerce',
@@ -89,7 +89,7 @@ const techCategories = [
     title: 'Databases & Backend',
     image: '/assets/home-data.png',
     gradient: 'from-emerald-600/90 to-teal-600/90',
-    bodyBg: 'from-emerald-600 to-teal-600',
+    bodyOverlay: 'from-emerald-600/35 to-teal-600/35',
     technologies: [
       'MySQL',
       'PostgreSQL',
@@ -108,7 +108,7 @@ const techCategories = [
     title: 'Data Analytics & BI',
     image: '/assets/home-analytics.png',
     gradient: 'from-sky-600/90 to-blue-600/90',
-    bodyBg: 'from-sky-600 to-blue-600',
+    bodyOverlay: 'from-sky-600/35 to-blue-600/35',
     technologies: [
       'Google Analytics',
       'Tableau',
@@ -127,7 +127,7 @@ const techCategories = [
     title: 'Cloud & DevOps',
     image: '/assets/home-cloud.png',
     gradient: 'from-indigo-600/90 to-blue-600/90',
-    bodyBg: 'from-indigo-600 to-blue-600',
+    bodyOverlay: 'from-indigo-600/35 to-blue-600/35',
     technologies: [
       'AWS',
       'Azure',
@@ -146,7 +146,7 @@ const techCategories = [
     title: 'Design & UI/UX Tools',
     image: '/assets/ui-ux-design.jpg',
     gradient: 'from-pink-600/90 to-rose-600/90',
-    bodyBg: 'from-pink-600 to-rose-600',
+    bodyOverlay: 'from-pink-600/35 to-rose-600/35',
     technologies: [
       'Figma',
       'Adobe XD',
@@ -165,7 +165,7 @@ const techCategories = [
     title: 'Development Tools',
     image: '/assets/programmer.jpg',
     gradient: 'from-slate-600/90 to-slate-700/90',
-    bodyBg: 'from-slate-600 to-slate-700',
+    bodyOverlay: 'from-slate-600/35 to-slate-700/35',
     technologies: [
       'Git',
       'GitHub',
@@ -184,7 +184,7 @@ const techCategories = [
     title: 'AI & Machine Learning',
     image: '/assets/home-ai.png',
     gradient: 'from-fuchsia-600/90 to-purple-600/90',
-    bodyBg: 'from-fuchsia-600 to-purple-600',
+    bodyOverlay: 'from-fuchsia-600/35 to-purple-600/35',
     technologies: [
       'OpenAI GPT',
       'Claude AI',
@@ -260,7 +260,7 @@ export default function Technologies() {
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -40 }}
                   transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-                  className={`rounded-3xl overflow-hidden shadow-2xl border border-white/20 flex flex-col w-full bg-gradient-to-br ${category.bodyBg}`}
+                  className="rounded-3xl overflow-hidden shadow-2xl border border-white/20 flex flex-col w-full"
                 >
                   {/* Card header */}
                   <div className="relative h-44 md:h-52 overflow-hidden">
@@ -279,8 +279,8 @@ export default function Technologies() {
                     </h3>
                   </div>
 
-                  {/* Language carousel: formal small cards, horizontal scroll */}
-                  <div className="p-6 md:p-8 min-h-[200px]">
+                  {/* Language carousel: transparent overlay like header */}
+                  <div className={`p-6 md:p-8 min-h-[200px] bg-gradient-to-br ${category.bodyOverlay}`}>
                     <p className="text-sm font-medium text-white/90 mb-4 text-center">
                       Scroll or drag to browse technologies
                     </p>
