@@ -1,7 +1,7 @@
 'use client'
 
-import { useState, useRef, useEffect } from 'react'
-import { motion, useInView } from 'framer-motion'
+import { useState, useRef } from 'react'
+import { motion, useInView, AnimatePresence } from 'framer-motion'
 import {
   Code,
   Database,
@@ -15,6 +15,14 @@ import {
   ChevronLeft,
   ChevronRight,
 } from 'lucide-react'
+
+function getInitials(name: string): string {
+  const trimmed = name.trim()
+  const parts = trimmed.split(/\s+/)
+  if (parts.length >= 2) return (parts[0][0] + parts[1][0]).toUpperCase()
+  const two = trimmed.slice(0, 2).toUpperCase().replace(/[^A-Z0-9]/g, '')
+  return two || trimmed[0]?.toUpperCase() || '?'
+}
 
 const techCategories = [
   {
@@ -199,78 +207,19 @@ const techCategories = [
   },
 ]
 
-const TECH_PER_CARD = Math.min(...techCategories.map((c) => c.technologies.length))
 const INITIAL_INDEX = Math.floor(techCategories.length / 2)
 
 export default function Technologies() {
   const sectionRef = useRef<HTMLElement | null>(null)
   const isInView = useInView(sectionRef, { once: true, margin: '-100px' })
   const [currentIndex, setCurrentIndex] = useState(INITIAL_INDEX)
-  const listRef = useRef<HTMLDivElement | null>(null)
-  const cardRefs = useRef<(HTMLDivElement | null)[]>([])
-
-  const scrollToIndex = (index: number) => {
-    const container = listRef.current
-    const card = cardRefs.current[index]
-    if (!container || !card) return
-
-    const containerCenter = container.offsetWidth / 2
-    const cardCenter = card.offsetLeft + card.offsetWidth / 2
-    const scrollLeft = cardCenter - containerCenter
-
-    container.scrollTo({
-      left: Math.max(0, scrollLeft),
-      behavior: 'smooth',
-    })
-  }
+  const langListRef = useRef<HTMLDivElement | null>(null)
 
   const goTo = (index: number) => {
-    const next = (index + techCategories.length) % techCategories.length
-    setCurrentIndex(next)
-    scrollToIndex(next)
+    setCurrentIndex((index + techCategories.length) % techCategories.length)
   }
-
   const goNext = () => goTo(currentIndex + 1)
   const goPrev = () => goTo(currentIndex - 1)
-
-  // Center the middle card on initial load so users can navigate left or right
-  useEffect(() => {
-    const id = requestAnimationFrame(() => {
-      requestAnimationFrame(() => scrollToIndex(INITIAL_INDEX))
-    })
-    return () => cancelAnimationFrame(id)
-  }, [])
-
-  // Sync currentIndex with the card closest to center when user scrolls
-  useEffect(() => {
-    const container = listRef.current
-    if (!container) return
-
-    let rafId: number
-    const handleScroll = () => {
-      if (rafId) cancelAnimationFrame(rafId)
-      rafId = requestAnimationFrame(() => {
-        const center = container.scrollLeft + container.offsetWidth / 2
-        let closest = 0
-        let minDist = Infinity
-        cardRefs.current.forEach((card, i) => {
-          if (!card) return
-          const cardCenter = card.offsetLeft + card.offsetWidth / 2
-          const dist = Math.abs(center - cardCenter)
-          if (dist < minDist) {
-            minDist = dist
-            closest = i
-          }
-        })
-        setCurrentIndex(closest)
-      })
-    }
-    container.addEventListener('scroll', handleScroll, { passive: true })
-    return () => {
-      container.removeEventListener('scroll', handleScroll)
-      if (rafId) cancelAnimationFrame(rafId)
-    }
-  }, [])
 
   return (
     <section id="technologies" ref={sectionRef} className="py-32 relative overflow-hidden">
@@ -293,75 +242,70 @@ export default function Technologies() {
             Our Tech Stack
           </h2>
           <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-            Drag or tap through the stacks. The next and previous stacks stay in view so you can see what&apos;s coming.
+            Switch stacks with the arrows, then scroll the language list inside each card.
           </p>
         </motion.div>
 
-        {/* Full-width carousel: expands across the screen, active card centered */}
-        <div className="w-screen relative left-1/2 -translate-x-1/2">
-          <div
-            ref={listRef}
-            className="flex gap-4 md:gap-6 overflow-x-auto pb-4 pt-2 scroll-smooth snap-x snap-mandatory hide-scrollbar"
-            style={{
-              paddingLeft: 'max(1rem, calc(50vw - 180px))',
-              paddingRight: 'max(1rem, calc(50vw - 180px))',
-            }}
-          >
+        {/* One card per view, full section width */}
+        <div className="w-full px-4 sm:px-6 lg:px-8">
+          <AnimatePresence mode="wait" initial={false}>
             {techCategories.map((category, index) => {
+              if (index !== currentIndex) return null
               const Icon = category.icon
-              const isActive = index === currentIndex
-
               return (
                 <motion.div
                   key={category.title}
-                  ref={(el) => {
-                    cardRefs.current[index] = el
-                  }}
-                  className="snap-center flex-shrink-0 w-[260px] sm:w-[320px] md:w-[360px]"
-                  animate={{
-                    scale: isActive ? 1 : 0.9,
-                    opacity: isActive ? 1 : 0.5,
-                    y: isActive ? 0 : 12,
-                  }}
-                  transition={{ type: 'spring', stiffness: 260, damping: 26 }}
-                  onClick={() => goTo(index)}
+                  initial={{ opacity: 0, x: 40 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -40 }}
+                  transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+                  className="rounded-3xl overflow-hidden bg-white shadow-2xl border border-slate-200/80 flex flex-col w-full"
                 >
-                  <div className="rounded-3xl overflow-hidden bg-white shadow-2xl border border-slate-200/80 flex flex-col min-h-[340px]">
-                    {/* Image header with gradient overlay */}
-                    <div className="relative h-40 md:h-44 overflow-hidden">
-                      <div
-                        className="absolute inset-0 bg-cover bg-center transition-transform duration-700 hover:scale-105"
-                        style={{ backgroundImage: `url(${category.image})` }}
-                      />
-                      <div className={`absolute inset-0 bg-gradient-to-br ${category.gradient}`} />
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="w-14 h-14 rounded-2xl bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center">
-                          <Icon className="w-8 h-8 text-white" />
-                        </div>
+                  {/* Card header */}
+                  <div className="relative h-44 md:h-52 overflow-hidden">
+                    <div
+                      className="absolute inset-0 bg-cover bg-center transition-transform duration-700 hover:scale-105"
+                      style={{ backgroundImage: `url(${category.image})` }}
+                    />
+                    <div className={`absolute inset-0 bg-gradient-to-br ${category.gradient}`} />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="w-16 h-16 rounded-2xl bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center">
+                        <Icon className="w-9 h-9 text-white" />
                       </div>
-                      <h3 className="absolute bottom-0 left-0 right-0 p-4 text-xl md:text-2xl font-bold text-white text-center drop-shadow-lg bg-gradient-to-t from-black/50 to-transparent">
-                        {category.title}
-                      </h3>
                     </div>
+                    <h3 className="absolute bottom-0 left-0 right-0 p-6 text-2xl md:text-3xl font-bold text-white text-center drop-shadow-lg bg-gradient-to-t from-black/50 to-transparent">
+                      {category.title}
+                    </h3>
+                  </div>
 
-                    {/* Tech tags */}
-                    <div className="p-5 md:p-6 flex-1">
-                      <div className="flex flex-wrap gap-2 justify-center">
-                        {category.technologies.slice(0, TECH_PER_CARD).map((tech) => (
-                          <span
-                            key={tech}
-                            className="px-3 py-1.5 text-xs md:text-sm font-medium text-slate-600 bg-slate-50 rounded-full border border-slate-200/80 hover:bg-primary-50 hover:border-primary-200 hover:text-primary-700 transition-colors"
-                          >
+                  {/* Language carousel: circular avatars + full name, horizontal scroll */}
+                  <div className="p-6 md:p-8 min-h-[200px]">
+                    <p className="text-sm font-medium text-slate-500 mb-4 text-center">
+                      Scroll or drag to browse technologies
+                    </p>
+                    <div
+                      ref={langListRef}
+                      className="flex gap-6 md:gap-8 overflow-x-auto scroll-smooth snap-x snap-mandatory hide-scrollbar pb-2"
+                    >
+                      {category.technologies.map((tech) => (
+                        <div
+                          key={tech}
+                          className="flex-shrink-0 snap-center flex flex-col items-center gap-3 w-20 md:w-24"
+                        >
+                          <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-primary-100 border-2 border-primary-200 flex items-center justify-center text-primary-700 font-bold text-lg md:text-xl shadow-sm">
+                            {getInitials(tech)}
+                          </div>
+                          <span className="text-xs md:text-sm font-medium text-slate-600 text-center leading-tight">
                             {tech}
                           </span>
-                        ))}
-                      </div>
+                        </div>
+                      ))}
                     </div>
                   </div>
                 </motion.div>
               )
             })}
-          </div>
+          </AnimatePresence>
         </div>
 
         {/* Bottom navigation */}

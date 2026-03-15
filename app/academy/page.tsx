@@ -1217,17 +1217,17 @@ export default function AcademyPage() {
                   {[
                     {
                       title: 'A Harmony of Learning',
-                      image: '/assets/academy-learning.jpg',
+                      image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&q=80',
                       date: 'Jan 18, 2024'
                     },
                     {
                       title: 'Tech & Career Edge',
-                      image: '/assets/academy-team.jpg',
+                      image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&q=80',
                       date: 'Jan 18, 2024'
                     },
                     {
                       title: 'Tech for All Levels',
-                      image: '/assets/academy-students.jpg',
+                      image: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=400&q=80',
                       date: 'Jan 18, 2024'
                     }
                   ].map((post, index) => (
