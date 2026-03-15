@@ -260,44 +260,46 @@ export default function Technologies() {
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -40 }}
                   transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-                  className="rounded-3xl overflow-hidden shadow-2xl border border-white/20 flex flex-col w-full"
+                  className="rounded-3xl overflow-hidden shadow-2xl border border-white/20 relative aspect-[4/3] md:aspect-[5/3] w-full"
                 >
-                  {/* Card header */}
-                  <div className="relative h-44 md:h-52 overflow-hidden">
-                    <div
-                      className="absolute inset-0 bg-cover bg-center transition-transform duration-700 hover:scale-105"
-                      style={{ backgroundImage: `url(${category.image})` }}
-                    />
-                    <div className={`absolute inset-0 bg-gradient-to-br ${category.gradient}`} />
-                    <div className="absolute inset-0 flex items-center justify-center">
+                  {/* Full-card image background */}
+                  <div
+                    className="absolute inset-0 bg-cover bg-center transition-transform duration-700 hover:scale-105"
+                    style={{ backgroundImage: `url(${category.image})` }}
+                  />
+                  <div className={`absolute inset-0 bg-gradient-to-br ${category.gradient}`} />
+
+                  {/* Content overlaid on image */}
+                  <div className="absolute inset-0 flex flex-col justify-between p-6 md:p-8">
+                    <div className="flex flex-col items-center justify-center flex-1">
                       <div className="w-16 h-16 rounded-2xl bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center">
                         <Icon className="w-9 h-9 text-white" />
                       </div>
+                      <h3 className="mt-4 text-2xl md:text-3xl font-bold text-white text-center drop-shadow-lg">
+                        {category.title}
+                      </h3>
                     </div>
-                    <h3 className="absolute bottom-0 left-0 right-0 p-6 text-2xl md:text-3xl font-bold text-white text-center drop-shadow-lg bg-gradient-to-t from-black/50 to-transparent">
-                      {category.title}
-                    </h3>
-                  </div>
 
-                  {/* Language carousel: transparent overlay like header */}
-                  <div className={`p-6 md:p-8 min-h-[200px] bg-gradient-to-br ${category.bodyOverlay}`}>
-                    <p className="text-sm font-medium text-white/90 mb-4 text-center">
-                      Scroll or drag to browse technologies
-                    </p>
-                    <div
-                      ref={langListRef}
-                      className="flex gap-4 md:gap-5 overflow-x-auto scroll-smooth snap-x snap-mandatory hide-scrollbar pb-2"
-                    >
-                      {category.technologies.map((tech) => (
-                        <div
-                          key={tech}
-                          className="flex-shrink-0 snap-center rounded-xl bg-white/15 backdrop-blur-sm border border-white/25 shadow-lg px-5 py-4 min-w-[140px] md:min-w-[160px] hover:bg-white/25 transition-colors"
-                        >
-                          <span className="text-sm md:text-base font-semibold text-white block text-center leading-tight">
-                            {tech}
-                          </span>
-                        </div>
-                      ))}
+                    {/* Language carousel: no solid block, transparent over image */}
+                    <div className="pt-4">
+                      <p className="text-sm font-medium text-white/90 mb-3 text-center">
+                        Scroll or drag to browse technologies
+                      </p>
+                      <div
+                        ref={langListRef}
+                        className="flex gap-4 md:gap-5 overflow-x-auto scroll-smooth snap-x snap-mandatory hide-scrollbar pb-2"
+                      >
+                        {category.technologies.map((tech) => (
+                          <div
+                            key={tech}
+                            className="flex-shrink-0 snap-center rounded-xl bg-white/15 backdrop-blur-sm border border-white/25 shadow-lg px-5 py-4 min-w-[140px] md:min-w-[160px] hover:bg-white/25 transition-colors"
+                          >
+                            <span className="text-sm md:text-base font-semibold text-white block text-center leading-tight">
+                              {tech}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </motion.div>
