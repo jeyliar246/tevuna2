@@ -1,7 +1,7 @@
 'use client'
 
-import { useState, useRef } from 'react'
-import { motion, useInView, AnimatePresence } from 'framer-motion'
+import { useState, useRef, useEffect } from 'react'
+import { motion, useInView } from 'framer-motion'
 import {
   Code,
   Database,
@@ -214,13 +214,61 @@ export default function Technologies() {
   const sectionRef = useRef<HTMLElement | null>(null)
   const isInView = useInView(sectionRef, { once: true, margin: '-100px' })
   const [currentIndex, setCurrentIndex] = useState(INITIAL_INDEX)
-  const langListRef = useRef<HTMLDivElement | null>(null)
+  const listRef = useRef<HTMLDivElement | null>(null)
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([])
+
+  const scrollToIndex = (index: number) => {
+    const container = listRef.current
+    const card = cardRefs.current[index]
+    if (!container || !card) return
+    const containerCenter = container.offsetWidth / 2
+    const cardCenter = card.offsetLeft + card.offsetWidth / 2
+    container.scrollTo({ left: cardCenter - containerCenter, behavior: 'smooth' })
+  }
 
   const goTo = (index: number) => {
-    setCurrentIndex((index + techCategories.length) % techCategories.length)
+    const next = (index + techCategories.length) % techCategories.length
+    setCurrentIndex(next)
+    scrollToIndex(next)
   }
   const goNext = () => goTo(currentIndex + 1)
   const goPrev = () => goTo(currentIndex - 1)
+
+  useEffect(() => {
+    const id = requestAnimationFrame(() => {
+      requestAnimationFrame(() => scrollToIndex(INITIAL_INDEX))
+    })
+    return () => cancelAnimationFrame(id)
+  }, [])
+
+  useEffect(() => {
+    const container = listRef.current
+    if (!container) return
+    let rafId: number
+    const handleScroll = () => {
+      if (rafId) cancelAnimationFrame(rafId)
+      rafId = requestAnimationFrame(() => {
+        const center = container.scrollLeft + container.offsetWidth / 2
+        let closest = 0
+        let minDist = Infinity
+        cardRefs.current.forEach((card, i) => {
+          if (!card) return
+          const cardCenter = card.offsetLeft + card.offsetWidth / 2
+          const dist = Math.abs(center - cardCenter)
+          if (dist < minDist) {
+            minDist = dist
+            closest = i
+          }
+        })
+        setCurrentIndex(closest)
+      })
+    }
+    container.addEventListener('scroll', handleScroll, { passive: true })
+    return () => {
+      container.removeEventListener('scroll', handleScroll)
+      if (rafId) cancelAnimationFrame(rafId)
+    }
+  }, [])
 
   return (
     <section id="technologies" ref={sectionRef} className="py-32 relative overflow-hidden">
@@ -243,58 +291,63 @@ export default function Technologies() {
             Our Tech Stack
           </h2>
           <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-            Switch stacks with the arrows, then scroll the language list inside each card.
+            Three cards in view — center is active. Move left or right to see more.
           </p>
         </motion.div>
 
-        {/* One card per view, full section width */}
-        <div className="w-full px-4 sm:px-6 lg:px-8">
-          <AnimatePresence mode="wait" initial={false}>
+        {/* Three-card carousel: compact cards, center active, scroll left/right */}
+        <div className="w-full overflow-hidden">
+          <div
+            ref={listRef}
+            className="flex gap-4 md:gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory hide-scrollbar py-4"
+            style={{
+              paddingLeft: 'max(1rem, calc(50vw - 150px))',
+              paddingRight: 'max(1rem, calc(50vw - 150px))',
+            }}
+          >
             {techCategories.map((category, index) => {
-              if (index !== currentIndex) return null
               const Icon = category.icon
+              const isActive = index === currentIndex
               return (
                 <motion.div
                   key={category.title}
-                  initial={{ opacity: 0, x: 40 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -40 }}
-                  transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-                  className="rounded-3xl overflow-hidden shadow-2xl border border-white/20 relative aspect-[4/3] md:aspect-[5/3] w-full"
+                  ref={(el) => { cardRefs.current[index] = el }}
+                  className="snap-center flex-shrink-0 w-[260px] sm:w-[280px] group cursor-pointer"
+                  animate={{
+                    scale: isActive ? 1 : 0.92,
+                    opacity: isActive ? 1 : 0.75,
+                    y: isActive ? 0 : 8,
+                  }}
+                  transition={{ type: 'spring', stiffness: 260, damping: 26 }}
+                  onClick={() => goTo(index)}
                 >
-                  {/* Full-card image background */}
-                  <div
-                    className="absolute inset-0 bg-cover bg-center transition-transform duration-700 hover:scale-105"
-                    style={{ backgroundImage: `url(${category.image})` }}
-                  />
-                  <div className={`absolute inset-0 bg-gradient-to-br ${category.gradient}`} />
-
-                  {/* Content overlaid on image */}
-                  <div className="absolute inset-0 flex flex-col justify-between p-6 md:p-8">
-                    <div className="flex flex-col items-center justify-center flex-1">
-                      <div className="w-16 h-16 rounded-2xl bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center">
-                        <Icon className="w-9 h-9 text-white" />
-                      </div>
-                      <h3 className="mt-4 text-2xl md:text-3xl font-bold text-white text-center drop-shadow-lg">
-                        {category.title}
-                      </h3>
-                    </div>
-
-                    {/* Language carousel: no solid block, transparent over image */}
-                    <div className="pt-4">
-                      <p className="text-sm font-medium text-white/90 mb-3 text-center">
-                        Scroll or drag to browse technologies
-                      </p>
+                  <div className="rounded-2xl overflow-hidden shadow-xl border border-white/20 relative h-[320px] md:h-[340px]">
+                    {/* Full-card image background */}
                       <div
-                        ref={langListRef}
-                        className="flex gap-4 md:gap-5 overflow-x-auto scroll-smooth snap-x snap-mandatory hide-scrollbar pb-2"
-                      >
-                        {category.technologies.map((tech) => (
+                      className="absolute inset-0 bg-cover bg-center transition-transform duration-500 hover:scale-105"
+                      style={{ backgroundImage: `url(${category.image})` }}
+                    />
+                    <div className={`absolute inset-0 bg-gradient-to-br ${category.gradient}`} />
+
+                    {/* Content overlaid on image */}
+                    <div className="absolute inset-0 flex flex-col justify-between p-4 md:p-5">
+                      <div className="flex flex-col items-center justify-center flex-1 min-h-0">
+                        <div className="w-12 h-12 rounded-xl bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center flex-shrink-0">
+                          <Icon className="w-6 h-6 text-white" />
+                        </div>
+                        <h3 className="mt-2 text-lg md:text-xl font-bold text-white text-center drop-shadow-lg line-clamp-2">
+                          {category.title}
+                        </h3>
+                      </div>
+
+                      {/* Language strip: compact, transparent over image */}
+                      <div className="flex gap-2 overflow-x-auto hide-scrollbar scroll-smooth snap-x snap-mandatory pb-1">
+                        {category.technologies.slice(0, 8).map((tech) => (
                           <div
                             key={tech}
-                            className="flex-shrink-0 snap-center rounded-xl bg-white/15 backdrop-blur-sm border border-white/25 shadow-lg px-5 py-4 min-w-[140px] md:min-w-[160px] hover:bg-white/25 transition-colors"
+                            className="flex-shrink-0 snap-center rounded-lg bg-white/15 backdrop-blur-sm border border-white/25 px-3 py-2"
                           >
-                            <span className="text-sm md:text-base font-semibold text-white block text-center leading-tight">
+                            <span className="text-xs font-semibold text-white whitespace-nowrap">
                               {tech}
                             </span>
                           </div>
@@ -305,7 +358,7 @@ export default function Technologies() {
                 </motion.div>
               )
             })}
-          </AnimatePresence>
+          </div>
         </div>
 
         {/* Bottom navigation */}
