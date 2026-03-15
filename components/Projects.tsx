@@ -16,6 +16,7 @@ export default function Projects() {
       description: 'Built with deep understanding of educational needs, this platform delivers strategic learning solutions with intelligent course design and insightful progress analytics.',
       image: '/assets/programmer.jpg',
       link: '/academy',
+      previewUrl: '/academy',
     },
     {
       title: 'AllFreshFood',
@@ -107,13 +108,13 @@ export default function Projects() {
                   <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/70 to-transparent flex justify-center">
                     <motion.a
                       href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      target={project.external ? '_blank' : undefined}
+                      rel={project.external ? 'noopener noreferrer' : undefined}
                       className="px-6 py-2.5 bg-primary-500 text-white font-semibold rounded-lg uppercase tracking-wider flex items-center gap-2 hover:bg-primary-600 transition-colors text-sm"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
-                      View full website <ExternalLink className="w-4 h-4" />
+                      {project.link.startsWith('/') ? 'Join Academy' : 'View full website'} {project.external && <ExternalLink className="w-4 h-4" />}
                     </motion.a>
                   </div>
                 ) : (
