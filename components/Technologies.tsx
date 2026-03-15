@@ -16,20 +16,13 @@ import {
   ChevronRight,
 } from 'lucide-react'
 
-function getInitials(name: string): string {
-  const trimmed = name.trim()
-  const parts = trimmed.split(/\s+/)
-  if (parts.length >= 2) return (parts[0][0] + parts[1][0]).toUpperCase()
-  const two = trimmed.slice(0, 2).toUpperCase().replace(/[^A-Z0-9]/g, '')
-  return two || trimmed[0]?.toUpperCase() || '?'
-}
-
 const techCategories = [
   {
     icon: Code,
     title: 'Web Development',
     image: '/assets/home-data.png',
     gradient: 'from-blue-600/90 to-cyan-600/90',
+    bodyBg: 'from-blue-600 to-cyan-600',
     technologies: [
       'HTML5',
       'CSS3',
@@ -55,6 +48,7 @@ const techCategories = [
     title: 'Mobile App Development',
     image: '/assets/mobileappdev.jpg',
     gradient: 'from-violet-600/90 to-purple-600/90',
+    bodyBg: 'from-violet-600 to-purple-600',
     technologies: [
       'React Native',
       'Flutter',
@@ -76,6 +70,7 @@ const techCategories = [
     title: 'CMS & E-Commerce',
     image: '/assets/home-analytics.png',
     gradient: 'from-amber-600/90 to-orange-600/90',
+    bodyBg: 'from-amber-600 to-orange-600',
     technologies: [
       'WordPress',
       'WooCommerce',
@@ -94,6 +89,7 @@ const techCategories = [
     title: 'Databases & Backend',
     image: '/assets/home-data.png',
     gradient: 'from-emerald-600/90 to-teal-600/90',
+    bodyBg: 'from-emerald-600 to-teal-600',
     technologies: [
       'MySQL',
       'PostgreSQL',
@@ -112,6 +108,7 @@ const techCategories = [
     title: 'Data Analytics & BI',
     image: '/assets/home-analytics.png',
     gradient: 'from-sky-600/90 to-blue-600/90',
+    bodyBg: 'from-sky-600 to-blue-600',
     technologies: [
       'Google Analytics',
       'Tableau',
@@ -130,6 +127,7 @@ const techCategories = [
     title: 'Cloud & DevOps',
     image: '/assets/home-cloud.png',
     gradient: 'from-indigo-600/90 to-blue-600/90',
+    bodyBg: 'from-indigo-600 to-blue-600',
     technologies: [
       'AWS',
       'Azure',
@@ -148,6 +146,7 @@ const techCategories = [
     title: 'Design & UI/UX Tools',
     image: '/assets/ui-ux-design.jpg',
     gradient: 'from-pink-600/90 to-rose-600/90',
+    bodyBg: 'from-pink-600 to-rose-600',
     technologies: [
       'Figma',
       'Adobe XD',
@@ -166,6 +165,7 @@ const techCategories = [
     title: 'Development Tools',
     image: '/assets/programmer.jpg',
     gradient: 'from-slate-600/90 to-slate-700/90',
+    bodyBg: 'from-slate-600 to-slate-700',
     technologies: [
       'Git',
       'GitHub',
@@ -184,6 +184,7 @@ const techCategories = [
     title: 'AI & Machine Learning',
     image: '/assets/home-ai.png',
     gradient: 'from-fuchsia-600/90 to-purple-600/90',
+    bodyBg: 'from-fuchsia-600 to-purple-600',
     technologies: [
       'OpenAI GPT',
       'Claude AI',
@@ -259,7 +260,7 @@ export default function Technologies() {
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -40 }}
                   transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-                  className="rounded-3xl overflow-hidden bg-white shadow-2xl border border-slate-200/80 flex flex-col w-full"
+                  className={`rounded-3xl overflow-hidden shadow-2xl border border-white/20 flex flex-col w-full bg-gradient-to-br ${category.bodyBg}`}
                 >
                   {/* Card header */}
                   <div className="relative h-44 md:h-52 overflow-hidden">
@@ -278,24 +279,21 @@ export default function Technologies() {
                     </h3>
                   </div>
 
-                  {/* Language carousel: circular avatars + full name, horizontal scroll */}
+                  {/* Language carousel: formal small cards, horizontal scroll */}
                   <div className="p-6 md:p-8 min-h-[200px]">
-                    <p className="text-sm font-medium text-slate-500 mb-4 text-center">
+                    <p className="text-sm font-medium text-white/90 mb-4 text-center">
                       Scroll or drag to browse technologies
                     </p>
                     <div
                       ref={langListRef}
-                      className="flex gap-6 md:gap-8 overflow-x-auto scroll-smooth snap-x snap-mandatory hide-scrollbar pb-2"
+                      className="flex gap-4 md:gap-5 overflow-x-auto scroll-smooth snap-x snap-mandatory hide-scrollbar pb-2"
                     >
                       {category.technologies.map((tech) => (
                         <div
                           key={tech}
-                          className="flex-shrink-0 snap-center flex flex-col items-center gap-3 w-20 md:w-24"
+                          className="flex-shrink-0 snap-center rounded-xl bg-white/15 backdrop-blur-sm border border-white/25 shadow-lg px-5 py-4 min-w-[140px] md:min-w-[160px] hover:bg-white/25 transition-colors"
                         >
-                          <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-primary-100 border-2 border-primary-200 flex items-center justify-center text-primary-700 font-bold text-lg md:text-xl shadow-sm">
-                            {getInitials(tech)}
-                          </div>
-                          <span className="text-xs md:text-sm font-medium text-slate-600 text-center leading-tight">
+                          <span className="text-sm md:text-base font-semibold text-white block text-center leading-tight">
                             {tech}
                           </span>
                         </div>
