@@ -301,8 +301,8 @@ export default function Technologies() {
             ref={listRef}
             className="flex gap-4 md:gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory hide-scrollbar py-4"
             style={{
-              paddingLeft: 'max(1rem, calc(50vw - 150px))',
-              paddingRight: 'max(1rem, calc(50vw - 150px))',
+              paddingLeft: 'max(1rem, calc(50vw - 170px))',
+              paddingRight: 'max(1rem, calc(50vw - 170px))',
             }}
           >
             {techCategories.map((category, index) => {
@@ -312,7 +312,7 @@ export default function Technologies() {
                 <motion.div
                   key={category.title}
                   ref={(el) => { cardRefs.current[index] = el }}
-                  className="snap-center flex-shrink-0 w-[260px] sm:w-[280px] group cursor-pointer"
+                  className="snap-center flex-shrink-0 w-[300px] sm:w-[340px] group cursor-pointer"
                   animate={{
                     scale: isActive ? 1 : 0.92,
                     opacity: isActive ? 1 : 0.75,
